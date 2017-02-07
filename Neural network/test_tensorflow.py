@@ -5,7 +5,7 @@ import os
 import tensorflow as tf
 
 #######Prepare data set ##########
-csv_dir = 'D:/MyProject/machine-learning/Neural network' 	# your root path of a dataset	file					
+csv_dir = 'D:/MyProject/machine-learning/Neural network' 	# your root path of a dataset file					
 df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32) 
 
 data_X = df[['X1', 'X2', 'X3']].values 	# training dataset
