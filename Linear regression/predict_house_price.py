@@ -159,15 +159,15 @@ def train_method4(data_X, Y):
 
 # method5: use tensorflow library
 def train_method5(data_X, data_Y):
-	# Try to find values for W and b that compute y_data = W * x_data + b
-	# (We know that W should be 0.1 and b 0.3, but TensorFlow will
-	# figure that out for us.)
+	# Try to find values for W_1 and W_0 that compute Y = W_1 * data_X + W_0
 	W_1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 	W_0 = tf.Variable(tf.zeros([1]))
-	y = W_1 * data_X + W_0
+	Y = W_1 * data_X + W_0
 
 	# Minimize the mean squared errors.
-	loss = tf.reduce_mean(tf.square(y - data_Y))
+	loss = tf.reduce_mean(tf.square(Y - data_Y))
+	
+	# Use gradient descent algorithm for optimizing
 	learningRate = 0.01
 	optimizer = tf.train.GradientDescentOptimizer(learningRate)
 	train = optimizer.minimize(loss)
@@ -179,7 +179,7 @@ def train_method5(data_X, data_Y):
 	sess = tf.Session()
 	sess.run(init)
 
-	# Fit the line.
+	# Try fit the line
 	w0, w1, mse = (0, 0, 0)
 	for step in range(3000):
 		sess.run(train)
