@@ -5,7 +5,7 @@ import os
 import tensorflow as tf
 
 #######Prepare data set ##########
-csv_dir = 'D:\MyProject\Neural network' 	# your root dataset			
+csv_dir = 'D:/MyProject/machine-learning/Neural network' 	# your root dataset			
 df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32) 
 
 data_X = df[['X1', 'X2', 'X3']].values 	# training dataset
@@ -47,25 +47,31 @@ sess.run(init)
 
 ##### Trainin here ##########
 w1, w2, b1, b2 = (0, 0, 0, 0)
-for step in range(15000):
+for step in range(30000):
 	_,w1, w2, b1, b2, l, predictions = sess.run([train, W1, W2, B1, B2, loss, Y2])
 	
-	if (step % 2000 == 0):
-		print('Loss at step %d: %f' % (step, l))
+	# If more than 0.5, prediction is 1
+	# If less than 0.5, prediction is 0
+	# predictions is a vector (size n_sample of X x 1)
+	predictions = 1*(predictions > 0.5)
 		
-		# If more than 0.5, prediction is 1
-		# If less than 0.5, prediction is 0
-		# predictions is a vector (size n_sample of X x 1)
-		predictions = 1*(predictions > 0.5)
+	# in python, True is 1 and False is 0
+	accuracy = 100.0 * np.sum(predictions == data_Y)/ len(predictions)
+	
+	# finish
+	if accuracy == 100:
+		print('\nTraining accuracy: %.1f%%' % accuracy)	
+		print('Finish learning at step: %d' % step)
+		break
 		
-		# In python, True is 1 and False is 0
-		accuracy = 100.0 * np.sum(predictions == data_Y)/ len(predictions)
-		print('Training accuracy: %.1f%%' % accuracy)
+	if (step % 3000 == 0): # for debug
+		print('\nTraining accuracy: %.1f%%' % accuracy)		
+		print('Loss at step %d: %f' % (step, l))		
 		
 ##############################
 ### for test #####
 if __name__ == '__main__':
-	print('All input/output dataset')
+	print('\nAll input/output dataset')
 	print(df)
 	
 	X1 = df['X1'] 
@@ -76,7 +82,7 @@ if __name__ == '__main__':
 	temp = np.logical_or(X1, X2)	
 	#(X1 or X2) xor X3
 	result = np.logical_xor(temp, X3)
-	print('Result of X1 or X2 xor X3')
+	print('\nLogic result: X1 or X2 xor X3')
 	print(result)
 	
 	#compare with df
