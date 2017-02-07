@@ -5,7 +5,7 @@ import os
 import tensorflow as tf
 
 #######Prepare data set ##########
-csv_dir = 'D:\python\My Deep learning' 	# your root dataset			
+csv_dir = 'D:\MyProject\Neural network' 	# your root dataset			
 df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32) 
 
 data_X = df[['X1', 'X2', 'X3']].values 	# training dataset
@@ -29,10 +29,11 @@ B1 = tf.Variable(tf.zeros([L]))
 W2 = tf.Variable(tf.truncated_normal([L, M], stddev=0.1))
 B2 = tf.Variable(tf.zeros([M]))
 
+# fully connected layer
 Y1 = tf.nn.sigmoid(tf.matmul(X, W1) + B1)
-Y2 = tf.nn.sigmoid(tf.matmul(Y1, W2) + B2)
+Y2 = tf.nn.sigmoid(tf.matmul(Y1, W2) + B2) # Y2 is prediction
 
-loss = tf.reduce_mean(tf.square(Y2 - Y_))
+loss = tf.reduce_mean(tf.square(Y2 - Y_))  # predicion - correct answers
 
 # training step, learning rate = 0.1
 learning_rate = 0.1
@@ -51,7 +52,13 @@ for step in range(15000):
 	
 	if (step % 2000 == 0):
 		print('Loss at step %d: %f' % (step, l))
+		
+		# If more than 0.5, prediction is 1
+		# If less than 0.5, prediction is 0
+		# predictions is a vector (size n_sample of X x 1)
 		predictions = 1*(predictions > 0.5)
+		
+		# In python, True is 1 and False is 0
 		accuracy = 100.0 * np.sum(predictions == data_Y)/ len(predictions)
 		print('Training accuracy: %.1f%%' % accuracy)
 		
