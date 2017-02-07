@@ -79,7 +79,7 @@ def train_method3(X, Y):
 def isConvergence(value):				# check condition of convergence
 	return np.absolute(value) <= 0.01  	# set threshold
 
-def plot_contour_error(data_X, Y):
+def plot_contour_error(data_X, Y): 		# for visualization
 	x_range = np.arange(-5,15,1)		# -5< x-axis < 15 (increase 1 step)
 	y_range = np.arange(-5,15,1)		# -5< y-axis < 15 (increase 1 step)
 
@@ -115,7 +115,7 @@ def train_method4(data_X, Y):
 	print("Plot graph before training")
 	plt.plot(data_X, Y, 'bs', data_X, fx_init, 'g-') 
 	
-	iterate = 1
+	step = 1
 	while(True):		
 		slope = X.T * ( X * C - Y) 		# vector 2 x 1
 		new_C = C - (learningRate * slope)		# vector 2 x 1
@@ -136,12 +136,12 @@ def train_method4(data_X, Y):
 			break
 		
 		# for visualization 
-		if iterate == 100:
-			print("Plot graph when iterate = {}".format(iterate))
+		if step == 100:
+			print("Plot graph when step = {}".format(step))
 			fx = X * C		
 			plt.plot(data_X, fx, 'y-')
 			
-		iterate+=1			
+		step+=1			
 	#Finish training
 	
 	#Show model
@@ -151,7 +151,7 @@ def train_method4(data_X, Y):
 	show_result(w0, w1, mse)
 	
 	# for visualization 
-	print("Plot graph after iterate = {}".format(iterate))
+	print("Plot graph after iterate = {}".format(step))
 	plt.plot(data_X, fx_final, 'r-')
 	plt.show()
 	
@@ -198,18 +198,18 @@ if __name__ == '__main__':
 	(train_X, train_Y) = prepare_dataset('dataset.csv' 
 							,columns_name=['Input', 'Output'])
 
-	print("\n+++++Show method1++++")
+	print("\n+++++Show method 1++++")
 	train_method1(train_X, train_Y)
 
-	print("\n+++++Show method2++++")	
+	print("\n+++++Show method 2++++")	
 	C_model = train_method2(train_X, train_Y)
 	
-	print("\n+++++Show method3++++")
+	print("\n+++++Show method 3++++")
 	train_method3(train_X, train_Y)
 	
 	plot_contour_error(train_X, train_Y)
-	print("\n+++++Show method4++++")
+	print("\n+++++Show method 4++++")
 	train_method4(train_X, train_Y)
 	
-	print("\n+++++Show method5++++")
+	print("\n+++++Show method 5++++")
 	train_method5(train_X, train_Y)		
