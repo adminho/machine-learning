@@ -182,12 +182,7 @@ def train_method5(data_X, data_Y):
 	# Try fit the line
 	w0, w1, mse = (0, 0, 0)
 	for step in range(3000):
-		sess.run(train)
-		w1 = sess.run(W_1)
-		w0 = sess.run(W_0)
-		mse =sess.run(loss)
-		# Can coding in one line
-		#_, w0, w1, mse = sess([train, W, b, loss])		
+		_, w0, w1, mse = sess.run([train, W_0, W_1, loss])		
 			
 	#Show model
 	show_result(w0, w1, mse)
