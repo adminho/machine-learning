@@ -9,7 +9,7 @@ df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32)
 data_X = df[['X1', 'X2', 'X3']].values 	# training input
 
 # correct answers will go here
-data_Y = df['Y'].values.reshape(-1,1) 	# convert to the vector			
+data_Y = df['X1 or X2 xor X3'].values.reshape(-1,1) 	# convert to the vector
 ##################################
 
 #######Create neural network architecture with Tensorflow graph
