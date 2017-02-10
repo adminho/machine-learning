@@ -138,7 +138,7 @@ def restoreImage(color_predicted, high, width):
 	return imageData
 
 # get datasets (Correct answer)
-imageData =  getAllImageData('images/chicken-test.PNG')
+imageData =  getAllImageData('images/chicken-test.jpg')
 # size of image data: high x width x RGB
 high, width, _ = imageData.shape
 
