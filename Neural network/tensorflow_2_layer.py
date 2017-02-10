@@ -38,8 +38,6 @@ loss = tf.reduce_mean(tf.square(Y2 - Y_))  # loss = prediction - correct answers
 learning_rate = 0.1
 # use gradient descent algorithm to update weight and bias (W1, W2, B1, B2)
 train = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
-# accuracy of the trained model
-accuracy = tf.reduce_mean( 1 - tf.abs(ColorPredicted - Y_)) * 100
 ######Finish create the graph in Tensorflow (Not just run)##################
 
 # init
