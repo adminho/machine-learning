@@ -22,7 +22,7 @@ M = 1		# Number nodes (neurons) of layer2
 X = data_X	# 8 x 3 (number_samples x 3)
 Y_ = data_Y	# 8 x 1 (number_samples x 3)
 
-# Declare vaiables (weight and bias) that updated when traing your model
+# Declare variables (weight and bias) that updated when training your model
 W1 = tf.Variable(tf.truncated_normal([totalFeatures, L], stddev=0.1)) 
 B1 = tf.Variable(tf.zeros([L]))
 W2 = tf.Variable(tf.truncated_normal([L, M], stddev=0.1))
@@ -32,7 +32,7 @@ B2 = tf.Variable(tf.zeros([M]))
 Y1 = tf.nn.sigmoid(tf.matmul(X, W1) + B1)  # output: 8 x 5 (number_samples x L)
 Y2 = tf.nn.sigmoid(tf.matmul(Y1, W2) + B2) # Y2 is prediction output, 8 x 1 (number_samples x M)
 
-loss = tf.reduce_mean(tf.square(Y2 - Y_))  # loss = predicion - correct answers
+loss = tf.reduce_mean(tf.square(Y2 - Y_))  # loss = prediction - correct answers
 
 # training step, learning rate = 0.1
 learning_rate = 0.1
@@ -48,7 +48,7 @@ sess = tf.Session()
 sess.run(init) # run all variables
 ##################################
 
-##### Trainin here ##########
+##### Training here ##########
 w1, w2, b1, b2 = (0, 0, 0, 0)
 for step in range(30000): # backpropagation training
 	# run neural network model  
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 		return 1/(1+np.exp(-x))
 	
 	new_X = [1,1,0]		# input for testing
-	# Calculate the logic (X1 or X2) xor X3
+	# Calculate the logic: (X1 or X2) xor X3
 	Ouput_layer1 = sigmoid(np.matmul(new_X,w1) + b1)
 	Ouput_layer2 = sigmoid(np.matmul(Ouput_layer1,w2) + b2)
 
@@ -108,4 +108,4 @@ if __name__ == '__main__':
 	print('\nOutput values of layer 2:\n', Ouput_layer2)
 
 	answer = 1*(Ouput_layer2 > 0.5)
-	print('\nAnswer is : %d' % answer[0] )
+	print('\nAnswer is ' % answer[0] )
