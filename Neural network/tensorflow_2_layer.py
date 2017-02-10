@@ -29,11 +29,11 @@ W2 = tf.Variable(tf.truncated_normal([L, M], stddev=0.1))
 B2 = tf.Variable(tf.zeros([M]))
 
 # 2 fully connected layer
-Y1 = tf.nn.sigmoid(tf.matmul(X, W1) + B1)  # output: 8 x 5 (number_samples x L)
-Y2 = tf.nn.sigmoid(tf.matmul(Y1, W2) + B2) # Y2 is prediction output, 8 x 1 (number_samples x M)
+L1 = tf.nn.sigmoid(tf.matmul(X, W1) + B1)  # output: 8 x 5 (number_samples x L)
+Predict = tf.nn.sigmoid(tf.matmul(L1, W2) + B2) # prediction output, 8 x 1 (number_samples x M)
 
-loss = tf.reduce_mean(tf.square(Y2 - Y_))  # loss = prediction - correct answers
-
+# for training model
+loss = tf.reduce_mean(tf.square(Predict - Y_))  # loss = Predict - correct answers
 # training step, learning rate = 0.1
 learning_rate = 0.1
 # use gradient descent algorithm to update weight and bias (W1, W2, B1, B2)
@@ -50,24 +50,23 @@ sess.run(init) # run all variables
 w1, w2, b1, b2 = (0, 0, 0, 0)
 for step in range(30000): # backpropagation training
 	# run neural network model  
-	_,w1, w2, b1, b2, l, predictions = sess.run([train, W1, W2, B1, B2, loss, Y2])
+	_,w1, w2, b1, b2, pred, l = sess.run([train, W1, W2, B1, B2, Predict, loss])
 	
-	# If more than 0.5, prediction is 1
-	# If less than 0.5, prediction is 0
-	# predictions is a vector (size n_sample of X x 1)
-	predictions = 1*(predictions > 0.5)
-		
+	# If pred more than 0.5, answer is 1
+	# If pred less than 0.5, answer is 0
+	# pred vector: size is 8 x 1 (number_samples x 1)
+	pred = 1*(pred > 0.5)
+
+	# accuracy of the trained model
 	# In python, True is 1 and False is 0
-	accuracy = 100.0 * np.sum(predictions == data_Y)/ len(predictions)
-	
-	# finish
-	if accuracy == 100:
-		print('\nTraining accuracy: %.1f%%' % accuracy)	
+	accuracy = np.mean(1 - np.abs(pred - Y_)) * 100
+	if accuracy == 100: # finish
+		print('\nTraining accuracy: %.1f%%' % accuracy)
 		print('Finish learning at step: %d' % step)
 		break
 		
 	if (step % 3000 == 0): # for debug
-		print('\nTraining accuracy: %.1f%%' % accuracy)		
+		print('\nTraining accuracy: %.1f%%' % accuracy)
 		print('Loss at step %d: %f' % (step, l))		
 		
 ##############################
@@ -93,8 +92,9 @@ if __name__ == '__main__':
 	def sigmoid(x):
 		return 1/(1+np.exp(-x))
 	
-	new_X = [1,1,0]		# input for testing
-	# Calculate the logic: (X1 or X2) xor X3
+	new_X = [0,1,1]	 # input for testing
+
+	# I will calculate the logic: (X1 or X2) xor X3
 	Ouput_layer1 = sigmoid(np.matmul(new_X,w1) + b1)
 	Ouput_layer2 = sigmoid(np.matmul(Ouput_layer1,w2) + b2)
 
@@ -106,4 +106,4 @@ if __name__ == '__main__':
 	print('\nOutput values of layer 2:\n', Ouput_layer2)
 
 	answer = 1*(Ouput_layer2 > 0.5)
-	print('\nAnswer is ' % answer[0] )
+	print('\nAnswer is ', answer[0] )
