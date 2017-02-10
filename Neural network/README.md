@@ -1,8 +1,8 @@
 # Note
 
-## Example 2 layer
+## Example neural network 2 layer
 
-Use AI calculate the Logic X1 or `X1 xor X3`
+Use AI to calculate the logic `X1 or X1 xor X3`
 
 In file __'tensorflow_2_layer.py'__, you can edit the root path and dataset file at line 8 and 9
 
