@@ -12,4 +12,3 @@ df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32)
 ```
 
 ## Example: AI paint a picture
-
