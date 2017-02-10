@@ -1,4 +1,4 @@
-# inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html
+# Inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html
 import os
 import numpy as np
 import scipy.misc
@@ -138,7 +138,7 @@ def restoreImage(color_predicted, high, width):
 	return imageData
 
 # get datasets (Correct answer)
-imageData =  getAllImageData('chicken-test.jpg')
+imageData =  getAllImageData('images/chicken-test.PNG')
 # size of image data: high x width x RGB
 high, width, _ = imageData.shape
 
