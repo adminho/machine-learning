@@ -62,7 +62,7 @@ def train_method2(X, Y):
 	mse = mean_squared_error(Y, fx )
 	show_result(regr.intercept_, regr.coef_, mse)
 	
-# Method 3: use sklearn module (polyfit)
+# Method 3: use numpy module (polyfit)
 def train_method3(X, Y):
 	X = X.reshape(-1)
 	Y = Y.reshape(-1)
