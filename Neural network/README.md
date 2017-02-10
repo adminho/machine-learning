@@ -1,6 +1,6 @@
 # Note
 
-In file __'test_tensorflow.py'__, you can edit the root path and dataset file at line 8 and 9
+In file __'tensorflow_2_layer.py'__, you can edit the root path and dataset file at line 8 and 9
 
 ```
 csv_dir = 'D:/MyProject/machine-learning/Neural network' 	# your root path of a dataset	file		
