@@ -110,12 +110,7 @@ def train_method4(data_X, Y):
 	fx_init = X * C							
 	mse = mean_squared_error(Y, fx_init)
 	print('\nFirst: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse))
-	
-	# for visualization
-	print("Plot graph before training")
-	plt.plot(data_X, Y, 'bs', data_X, fx_init, 'g-') 
-	
-	step = 1
+
 	while(True):		
 		slope = X.T * ( X * C - Y) 		# vector 2 x 1
 		new_C = C - (learningRate * slope)		# vector 2 x 1
@@ -134,14 +129,6 @@ def train_method4(data_X, Y):
 		# stop while_loop when w0 and w1 meet convergence condition
 		if isConvergence(s0) and isConvergence(s1): 
 			break
-		
-		# for visualization 
-		if step == 100:
-			print("Plot graph when step = {}".format(step))
-			fx = X * C		
-			plt.plot(data_X, fx, 'y-')
-			
-		step+=1			
 	#Finish training
 	
 	#Show model
@@ -150,12 +137,9 @@ def train_method4(data_X, Y):
 	w0, w1 = C
 	show_result(w0, w1, mse)
 	
-	# for visualization 
-	print("Plot graph after iterate = {}".format(step))
-	plt.plot(data_X, fx_final, 'r-')
+	# for visualization
+	plt.plot(data_X, Y, 'bs', data_X, fx_final, 'r-')
 	plt.show()
-	
-	return fx
 
 # method5: use tensorflow library
 def train_method5(data_X, data_Y):
