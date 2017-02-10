@@ -55,10 +55,10 @@ for step in range(30000): # backpropagation training
 	# If pred more than 0.5, answer is 1
 	# If pred less than 0.5, answer is 0
 	# pred vector: size is 8 x 1 (number_samples x 1)
+    # In python, True is 1 and False is 0
 	pred = 1*(pred > 0.5)
 
 	# accuracy of the trained model
-	# In python, True is 1 and False is 0
 	accuracy = np.mean(1 - np.abs(pred - Y_)) * 100
 	if accuracy == 100: # finish
 		print('\nTraining accuracy: %.1f%%' % accuracy)
