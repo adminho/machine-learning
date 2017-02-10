@@ -4,7 +4,7 @@
 
 Use AI to calculate the logic `X1 or X1 xor X3`
 
-![dataset_logic.PNG](dataset_logic.PNG)
+![dataset_logic.PNG](images/dataset_logic.PNG)
 
 In file __'tensorflow_2_layer.py'__, you can edit the root path and dataset file at line 8 and 9
 
