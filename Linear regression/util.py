@@ -16,7 +16,6 @@ def prepare_dataset(csv_dataset,x_column_names, y_column_name, base_dir  = "" ):
 		train_X[index] = df[column].reshape(-1,1)		# X (Input) training set
 	
 	train_Y = df[y_column_name].reshape(-1,1)			# Y (Output) training set	
-	
-	print("\nSize of training set X: {}".format(np.shape(train_X)))
+
 	print("Size of training set Y: {}".format(train_Y.shape))
 	return train_X, train_Y
