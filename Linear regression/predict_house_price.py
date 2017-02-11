@@ -8,7 +8,7 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 import tensorflow as tf
-import util as ut
+#import util as ut
 
 def show_result(w0, w1, mse):
 	print('\nf(x) = %s + %sx , and MSE = %s' % (w0, w1, mse))
