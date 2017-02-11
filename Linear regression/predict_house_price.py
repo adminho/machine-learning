@@ -159,7 +159,10 @@ if __name__ == '__main__':
 	train_XList, train_Y = ut.prepare_dataset('dataset.csv' 
 							,x_column_names=['Input'], y_column_name='Output')
 	train_X = train_XList[0]
-	
+
+	print("\nSize of training set X: {}".format(train_Y.shape))
+	print("Size of training set Y: {}".format(train_Y.shape))
+
 	print("\n+++++Show method 1++++")
 	train_method1(train_X, train_Y)
 
