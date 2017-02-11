@@ -2,30 +2,11 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
-from os.path import join
 import tensorflow as tf
-
-def prepare_dataset(csv_dataset,columns_name, base_dir  = "" ):
-	# read csv file with pandas module
-	df = pd.read_csv(join(base_dir, csv_dataset))
-	
-	print("First of 5 row in Dataset")
-	print(df.head())	
-	print("\nTail of 5 row in Dataset")
-	print(df.tail())
-	
-	x_column_name = columns_name[0]
-	y_column_name = columns_name[1]
-	train_X = df[x_column_name].reshape(-1,1)	# Prepare X (Input) training set
-	train_Y = df[y_column_name].reshape(-1,1)	# Y (Output) training set	
-	
-	print("\nSize of training set X: {}".format(train_X.shape))
-	print("Size of training set Y: {}".format(train_Y.shape))
-	return (train_X, train_Y)
+import util as ut
 
 def show_result(w0, w1, mse):
 	print('\nf(x) = %s + %sx , and MSE = %s' % (w0, w1, mse))
@@ -174,9 +155,11 @@ def train_method5(data_X, data_Y):
 #######################	
 ## for test only	
 if __name__ == '__main__':
-	(train_X, train_Y) = prepare_dataset('dataset.csv' 
-							,columns_name=['Input', 'Output'])
-
+	# เดี่ยวไปหา dataset ชุดใหม่
+	train_XList, train_Y = ut.prepare_dataset('dataset.csv' 
+							,x_column_names=['Input'], y_column_name='Output')
+	train_X = train_XList[0]
+	
 	print("\n+++++Show method 1++++")
 	train_method1(train_X, train_Y)
 
