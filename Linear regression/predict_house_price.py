@@ -167,7 +167,7 @@ if __name__ == '__main__':
 	train_method1(train_X, train_Y)
 
 	print("\n+++++Show method 2++++")	
-	C_model = train_method2(train_X, train_Y)
+	train_method2(train_X, train_Y)
 	
 	print("\n+++++Show method 3++++")
 	train_method3(train_X, train_Y)
