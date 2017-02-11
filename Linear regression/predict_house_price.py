@@ -2,6 +2,8 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+from os.path import join
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
@@ -152,14 +154,26 @@ def train_method5(data_X, data_Y):
 	#Show model
 	show_result(w0, w1, mse)
 
+def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
+	# read csv file with pandas module	
+	df = pd.read_csv(join(base_dir, csv_dataset))
+	
+	print("First of 5 row in Dataset")
+	print(df.head())	
+	print("\nTail of 5 row in Dataset")
+	print(df.tail())
+	
+	train_X = df[x_column_name].reshape(-1,1)		# X (Input) training set
+	train_Y = df[y_column_name].reshape(-1,1)			# Y (Output) training set	
+	return train_X, train_Y
+	
 #######################	
 ## for test only	
 if __name__ == '__main__':
 	# เดี่ยวไปหา dataset ชุดใหม่
-	train_XList, train_Y = ut.prepare_dataset('dataset.csv' 
-							,x_column_names=['Input'], y_column_name='Output')
-	train_X = train_XList[0]
-
+	train_X, train_Y = prepare_dataset('dataset.csv' 
+							,x_column_name='Input', y_column_name='Output')
+	
 	print("\nSize of training set X: {}".format(train_X.shape))
 	print("Size of training set Y: {}".format(train_Y.shape))
 
