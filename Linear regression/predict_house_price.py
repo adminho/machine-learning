@@ -160,7 +160,7 @@ if __name__ == '__main__':
 							,x_column_names=['Input'], y_column_name='Output')
 	train_X = train_XList[0]
 
-	print("\nSize of training set X: {}".format(train_Y.shape))
+	print("\nSize of training set X: {}".format(train_X.shape))
 	print("Size of training set Y: {}".format(train_Y.shape))
 
 	print("\n+++++Show method 1++++")
