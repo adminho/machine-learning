@@ -84,30 +84,38 @@ def plot_contour_error(data_X, Y): 		# for visualization
 	#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
 	plt.show()
 
+def isNan(value):
+	if np.sum( np.isnan(value)) > 0 :
+		return True
+		
 # Method 4: 	
 def train_method4(data_X, Y):
 	X = add_one(data_X)	
 	learningRate = 0.0001				# initial learning rate
 	C = np.matrix([0, 0]).T				# initial coefficients
 	
-	fx_init = X * C							
-	mse = mean_squared_error(Y, fx_init)
+	FX_init = X * C							
+	mse = mean_squared_error(Y, FX_init)
 	print('\nFirst: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse))
-
-	while(True):		
-		slope = X.T * ( X * C - Y) 		# vector 2 x 1
-		new_C = C - (learningRate * slope)		# vector 2 x 1
 	
-		w0, w1 = ( C[0,0], C[1,0] )
-		s0, s1 = ( slope[0,0], slope[1,0] )
+	while(True):		
+		SLOPE = X.T * ( X * C - Y) 		# vector 2 x 1
+		new_C = C - (learningRate * SLOPE)		# vector 2 x 1
+				
+		if isNan(SLOPE):
+			print('Slope is NaN:', SLOPE)
+			break
+			
+		w0, w1 = C[0,0], C[1,0]
+		s0, s1 = SLOPE[0,0], SLOPE[1,0]
 		
 		if isConvergence(s0) == False:
 			w0 = new_C[0,0]				# new w0
 				
 		if isConvergence(s1) == False:
 			w1 = new_C[1,0]				# new w1
-	
-		C = np.matrix([ w0, w1]).T		# update new coefficients
+		
+		C = np.matrix([ w0, w1]).T			# update new coefficients
 		
 		# stop while_loop when w0 and w1 meet convergence condition
 		if isConvergence(s0) and isConvergence(s1): 
@@ -115,13 +123,13 @@ def train_method4(data_X, Y):
 	#Finish training
 	
 	#Show model
-	fx_final = X * C							# Linear line for prediction
-	mse = mean_squared_error(Y, fx_final )
+	FX_final = X * C							# Linear line for prediction
+	mse = mean_squared_error(Y, FX_final )
 	w0, w1 = C
 	show_result(w0, w1, mse)
 	
 	# for visualization
-	plt.plot(data_X, Y, 'bs', data_X, fx_final, 'r-')
+	plt.plot(data_X, Y, 'bs', data_X, FX_final, 'r-')
 	plt.show()
 
 # method5: use tensorflow library
