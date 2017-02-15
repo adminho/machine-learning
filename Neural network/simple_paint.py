@@ -7,14 +7,14 @@ from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 def getTrainModel(): # The model at here	 
-	chanel = 3 # Red, Green, Blue of color in a pixel	
-	# Input for training is a coordinates on a picture
-	X = tf.placeholder(tf.float32, [None, 2]) 		# [n sample, x codinate, y codinate]
+	chanel = 3 # Red, Green, Blue in a pixel	
+	# Input for training is coordinates (x,y) on a picture
+	X = tf.placeholder(tf.float32, [None, 2]) 		# [n sample, x , y ]
 	# correct answers will go here (Output for training is RGB value in pixel)
 	Y_ = tf.placeholder(tf.float32, [None, chanel])	# [n sample, Red, Green, Blue]
 	# All values will feed into X and Y_ later	
 
-	# fully connected layers (last layer has 3 neurons or nodes)
+	# fully connected layers but last layer has 3 neurons or nodes (3 chanel)
 	K = 20  # number of neurons in first fully connected layer
 	L = 20  # number of neurons in second fully connected layer
 	M = 20  # number of neurons in third fully connected layer
@@ -24,7 +24,7 @@ def getTrainModel(): # The model at here
 	Q = 20	# number of neurons in seventh fully connected layer
 
 	# Weights and bias are initialised 
-	W1 = tf.Variable(tf.truncated_normal([2, K], stddev=0.1)) # for first layer
+	W1 = tf.Variable(tf.truncated_normal([2, K], stddev=0.1)) # first layer
 	B1 = tf.Variable(tf.ones([K])/chanel)
 
 	W2 = tf.Variable(tf.truncated_normal([K, L], stddev=0.1))
@@ -42,13 +42,13 @@ def getTrainModel(): # The model at here
 	W6 = tf.Variable(tf.truncated_normal([O, P], stddev=0.1))
 	B6 = tf.Variable(tf.ones([P])/chanel)
 
-	W7 = tf.Variable(tf.truncated_normal([P, Q], stddev=0.1)) # for seventh layer
+	W7 = tf.Variable(tf.truncated_normal([P, Q], stddev=0.1)) # seventh layer
 	B7 = tf.Variable(tf.ones([Q])/chanel)
 
-	W8 = tf.Variable(tf.truncated_normal([Q, chanel], stddev=0.1)) # for last layer
+	W8 = tf.Variable(tf.truncated_normal([Q, chanel], stddev=0.1)) # last layer
 	B8 = tf.Variable(tf.ones([chanel])/chanel)
 
-	# create the model with connecting all layer together
+	# connect all layer together
 	Y1 = tf.nn.relu(tf.matmul(X, W1) + B1)
 	Y2 = tf.nn.relu(tf.matmul(Y1, W2) + B2)
 	Y3 = tf.nn.relu(tf.matmul(Y2, W3) + B3)
@@ -56,7 +56,7 @@ def getTrainModel(): # The model at here
 	Y5 = tf.nn.relu(tf.matmul(Y4, W5) + B5)
 	Y6 = tf.nn.relu(tf.matmul(Y5, W6) + B6)
 	Y7 = tf.nn.relu(tf.matmul(Y6, W7) + B7)	
-	ColorPredicted = tf.nn.relu(tf.matmul(Y7, W8) + B8) # out put of last layer is RGB answer (3 output)
+	ColorPredicted = tf.nn.relu(tf.matmul(Y7, W8) + B8) # output at last layer is RGB answer (3 output)
 
 	# accuracy of the trained model
 	accuracy = tf.reduce_mean( 1 - tf.abs(ColorPredicted - Y_)) * 100
@@ -81,7 +81,7 @@ def getTrainModel(): # The model at here
 		learning_rate = min_learning_rate + \
 				(max_learning_rate - min_learning_rate) * np.exp(-step/decay_speed)
 				
-		# all values will put into all placeholder varibles of tensorflow graph
+		# all values will put into all placeholder varibles (X and Y_)
 		# X is codinates (normalized) of a picture, 
 		# colorData_train is RGB value that is normalized and matched coordinates on the picture	
 		input_to_model = {X: coor_train, Y_: colorData_train
@@ -129,22 +129,22 @@ def getCoordTrain(high, width):
 def preShowImage(imageData):
 	return np.clip(imageData, 0, 255).astype(np.uint8)
 	
-def restoreImage(color_predicted, high, width):	
+def restoreImage(colPredict, high, width):	
 	# restore RGB values from normalized		
-	color_predicted = np.floor(255*color_predicted)
-	
+	colPredict = np.floor(255*colPredict)	
 	# Restore shape of color_predicted to size: high x width x 3	
-	imageData = color_predicted.reshape((high, width , 3) )
+	imageData = colPredict.reshape((high, width , 3) )
 	return imageData
 
 # get datasets (Correct answer)
-imageData =  getAllImageData('images/chicken-test.jpg')
+imageData =  getAllImageData('chicken-test.jpg')
 # size of image data: high x width x RGB
 high, width, _ = imageData.shape
 
+# Show the image that created
 fig = plt.figure()
 plt.gcf().canvas.set_window_title("Drawing")
-#fig.set_facecolor('#FFFFFF')
+fig.set_facecolor('#FFFFFF')
 ax1 = fig.add_subplot(1,2,1)
 ax1.grid(False) # toggle grid off
 ax1.set_axis_off()
@@ -160,10 +160,10 @@ orginImax = ax1.imshow(originImg, animated=True, cmap='binary', vmin=0.0, vmax=1
 showPicBegin = np.ones(imageData.shape)
 paintImax = ax2.imshow(showPicBegin, animated=True, cmap='binary', vmin=0.0, vmax=1.0, interpolation='nearest', aspect=1.0)        
 
-# all input that will feed into the neural network model
+# These values will feed into the neural network model
 coord_train = getCoordTrain(high, width)
 color_train = getColorDataInPixel(imageData)
-trainModel = getTrainModel() # for traing the model
+train = getTrainModel() # get train function
 
 #saver = tf.train.Saver([W1,W2,W3,W4,W5,W6,W7,W8,B1,B2,B3,B4,B5,B6,B7,B8])	# save your model					
 def initImg_func():
@@ -173,29 +173,32 @@ def showImage(color_predicted):
 	imgData = restoreImage(color_predicted, high, width)
 	imgShow = preShowImage(imgData)
 	paintImax.set_data(imgShow)	# draw a predicted image
-		
-ani = None
-MAX_STEP = 10000 # all step for training
+	return imgShow
+
+import sys
+MAX_STEP = 10000 # all training step
+PATH_OUPUT = "output.jpg"
 def updateImg_func(step):
 	# Train your model (each step)
-	color_predicted, correct, error = trainModel(step, coord_train, color_train)			
-	if correct > 99 or step == MAX_STEP :		
+	colPredict, correct, error = train(step, coord_train, color_train)			
+	if correct > 99 or step == MAX_STEP-1 :		
 		print('Finised at step %d | loss %f  | accuracy %f' % (step, error, correct))
-		showImage(color_predicted) # visualize a image that AI is painting
-		ani.event_source.stop()	   # stop show image
+		imgShow = showImage(colPredict) # visualize a image that AI is painting
+		#ani.event_source.stop()	   # stop show image
 		#saver.save(sess, saved_wieght_file, global_step=step)
+		scipy.misc.imsave(PATH_OUPUT, imgShow)
 		return orginImax, paintImax
 			
 	if step %10 == 0:
 		print('step %d | loss %f  | accuracy %f' % (step, error, correct))
-		showImage(color_predicted)	# visualize a image that AI is painting	
+		showImage(colPredict)	# visualize a image that AI is painting	
 			
 	return orginImax, paintImax
 
 # ************Test on jpg and png format only	
 def main(): 
 	ani = FuncAnimation(fig, updateImg_func, frames=np.arange(0, MAX_STEP),
-                    init_func=initImg_func, blit=True)		
+                    init_func=initImg_func, repeat=False, blit=True)		
 	plt.show()
 
 if __name__ == '__main__':	
