@@ -15,6 +15,7 @@ df = pd.read_csv(os.path.join(csv_dir, 'example_2_layer.csv'), dtype=np.float32)
 
 ## Example: AI paint a picture
 
-code at [simple_paint.py](simple_paint.py)
-Inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html
+code: [simple_paint.py](simple_paint.py)
+
+my inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html
 
