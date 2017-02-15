@@ -9,7 +9,7 @@ All example coding in python language, so you need to setup your environment bel
 
 `pip install tensorflow`
 
-## my example (not yet) 
+## My example (not yet) 
 
 * [Linear regression](Linear_regression)
 * [Neural network](Neural_network)
