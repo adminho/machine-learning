@@ -27,7 +27,6 @@ import tensorflow as tf
 import numpy as np
 import scipy.io
 import time
-import myutil as ut
 from matplotlib import pyplot as plt
 
 try:
@@ -239,13 +238,13 @@ def getStyleBlendWeights(styleBlendWeights=None ):
         
     return 1
 
-def trainModel(initImgData, contentFeature, allStyleFeautures, allStep):	
-	with tf.Graph().as_default():
-		# Random a picture here		
+def trainModel(initImg, contentFeature, allStyleFeautures, allStep):	
+	with tf.Graph().as_default():		
 		#initImg = tf.random_normal(imgShape) * 0.256
+		initImg = preprocess(initImg, meanColor )
 		# create size: 1 x height x weight x weight
 		# variable will to be uppadated values while train the model each step
-		image = tf.Variable(initImgData)
+		image = tf.Variable(initImg)
 		
 		# create deep learning model and put image's variable into it
 		# and then get layer: conv4_2, [conv1_1, conv2_1, conv3_1, conv4_1, conv5_1]
@@ -268,7 +267,7 @@ def trainModel(initImgData, contentFeature, allStyleFeautures, allStep):
 		styleBlendWeights = getStyleBlendWeights();
 		styleLoss += STYLE_WEIGHT * styleBlendWeights * reduce(tf.add, styleLosses)
 		
-		imgShape = initImgData.shape
+		imgShape = initImg.shape
 		# total variation denoising
 		tv_y_size = _tensor_size(image[:,1:,:,:])
 		tv_x_size = _tensor_size(image[:,:,1:,:])
@@ -331,31 +330,34 @@ def resizeImgData(imgData):
 	resizedImg = scipy.misc.imresize(cropImg, (224, 224))
 	return resizedImg
 
-start_time = time.time() # start timmer
+def createImg():
+	start_time = time.time() # start timmer
 
-imgData = imread3d("1-content.jpg")
-imgData = resizeImgData(imgData)		# to: 244 x 244 x chanel
-assert imgData.shape[0:2] == (224, 224)
+	imgData = imread3d("1-content.jpg")
+	imgData = resizeImgData(imgData)		# to: 244 x 244 x chanel
+	assert imgData.shape[0:2] == (224, 224)
 
-styleData = imread3d("1-style.jpg")
-styleData = resizeImgData(styleData)	# to: 244 x 244 x chanel
-assert styleData.shape[0:2] == (224, 224)
+	styleData = imread3d("1-style.jpg")
+	styleData = resizeImgData(styleData)	# to: 244 x 244 x chanel
+	assert styleData.shape[0:2] == (224, 224)
 
-# get content feauture
-contentFeature = getcontentFeature(imgData) 
-# get all style features
-allStyleFeautures = getAllStyleFeatures(styleData)
+	# get content feauture
+	contentFeature = getcontentFeature(imgData) 
+	# get all style features
+	allStyleFeautures = getAllStyleFeatures(styleData)
 
-initImg = np.random.rand( *imgData.shape)  *  0.256
-#initImg = np.abs(imgData + (imgData - styleData))
-initImg = preprocess(initImg, meanColor )
-initImg = initImg.astype('float32')
+	initImg = np.random.randn( *imgData.shape)  *  0.256
+	#initImg = np.abs(imgData + (imgData - styleData))
+	initImg = initImg.astype('float32')
 
-resultImg = trainModel(initImg, contentFeature, allStyleFeautures,1000)
-print("Creating image inished: %ds" % (time.time() - start_time))
+	# waiting for many hours
+	resultImg = trainModel(initImg, contentFeature, allStyleFeautures,1000)
+	print("Creating image inished: %ds" % (time.time() - start_time))
 
-scipy.misc.imsave("output.jpg", resultImg)
-plt.imshow(resultImg)
-plt.show()
+	scipy.misc.imsave("output.jpg", resultImg)
+	plt.imshow(resultImg)
+	plt.show()
 
 ##  This code use 1 sytle, But in original code can use more than 1 styles
+if __name__ == 'main':
+	createImg()
