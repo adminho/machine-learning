@@ -11,6 +11,7 @@ All example coding in python language, so you need to setup your environment bel
 
 ## My examples (not yet) 
 
+* [Prepare datasets](Prepare_datasets)
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Linear regression](Linear_regression)
 * [Neural network](Neural_network)
