@@ -8,7 +8,6 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 import tensorflow as tf
-#import util as ut
 
 def show_result(w0, w1, mse):
 	print('\nf(x) = %s + %sx , and MSE = %s' % (w0, w1, mse))
@@ -57,82 +56,8 @@ def train_method3(X, Y):
 	fx = w1*X + [w0]					# Linear line for prediction
 	mse = mean_squared_error(Y, fx )
 	show_result(w0, w1, mse)
-		
-# Method 4: use gradient descent algorithm
-def isConvergence(value):				# check condition of convergence
-	return np.absolute(value) <= 0.01  	# set threshold
 
-def plot_contour_error(data_X, Y): 		# for visualization
-	x_range = np.arange(-5,15,1)		# -5< x-axis < 15 (increase 1 step)
-	y_range = np.arange(-5,15,1)		# -5< y-axis < 15 (increase 1 step)
-
-	w0, w1 = np.meshgrid(x_range, y_range)
-	Z = np.empty(w0.shape) 	# same size as w0 and w1
-	X = add_one(data_X)	
-	
-	for i in x_range: 		# calculate mse of all (w0, w1) and save to Z
-		for j in y_range: 
-			C = np.matrix( [w0[i, j] , w1[i, j]]).T			
-			fx = X * C
-			Z[i,j] = mean_squared_error(Y, fx )	 		
-
-	fig = plt.figure() 
-	ax = fig.add_subplot(111, projection='3d')
-	ax.set_xlabel('wo axis'); ax.set_ylabel('w1 axis'); ax.set_zlabel('MSE axis')  
-	surf = ax.plot_surface(w0, w1, Z, rstride=1, cstride=1, cmap=cm.coolwarm, linewidth=0, antialiased=False)		
-	#ax.zaxis.set_major_locator(LinearLocator(10))
-	#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
-	plt.show()
-
-def isNan(value):
-	if np.sum( np.isnan(value)) > 0 :
-		return True
-		
-# Method 4: 	
-def train_method4(data_X, Y):
-	X = add_one(data_X)	
-	learningRate = 0.0001				# initial learning rate
-	C = np.matrix([0, 0]).T				# initial coefficients
-	
-	FX_init = X * C							
-	mse = mean_squared_error(Y, FX_init)
-	print('\nFirst: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse))
-	
-	while(True):		
-		SLOPE = X.T * ( X * C - Y) 		# vector 2 x 1
-		new_C = C - (learningRate * SLOPE)		# vector 2 x 1
-				
-		if isNan(SLOPE):
-			print('Slope is NaN:', SLOPE)
-			break
-			
-		w0, w1 = C[0,0], C[1,0]
-		s0, s1 = SLOPE[0,0], SLOPE[1,0]
-		
-		if isConvergence(s0) == False:
-			w0 = new_C[0,0]				# new w0
-				
-		if isConvergence(s1) == False:
-			w1 = new_C[1,0]				# new w1
-		
-		C = np.matrix([ w0, w1]).T			# update new coefficients
-		
-		# stop while_loop when w0 and w1 meet convergence condition
-		if isConvergence(s0) and isConvergence(s1): 
-			break
-	#Finish training
-	
-	#Show model
-	FX_final = X * C							# Linear line for prediction
-	mse = mean_squared_error(Y, FX_final )
-	w0, w1 = C
-	show_result(w0, w1, mse)
-	
-	# for visualization
-	plt.plot(data_X, Y, 'bs', data_X, FX_final, 'r-')
-	plt.show()
-
-# method5: use tensorflow library
+# method4: use tensorflow library
 def train_method5(data_X, data_Y):
 	# Try to find values for W_1 and W_0 that compute Y = W_1 * data_X + W_0
 	W_1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
@@ -161,6 +86,94 @@ def train_method5(data_X, data_Y):
 			
 	#Show model
 	show_result(w0, w1, mse)
+
+# Method 5: use gradient descent algorithm (hard code manual)
+def isConvergence(value):				# check condition of convergence
+	return np.absolute(value) <= 0.01  	# set threshold
+
+def plot_contour_error(data_X, Y): 		# for visualization
+	x_range = np.arange(-5,15,1)		# -5< x-axis < 15 (increase 1 step)
+	y_range = np.arange(-5,15,1)		# -5< y-axis < 15 (increase 1 step)
+
+	w0, w1 = np.meshgrid(x_range, y_range)
+	Z = np.empty(w0.shape) 	# same size as w0 and w1
+	X = add_one(data_X)	
+	
+	for i in x_range: 		# calculate mse of all (w0, w1) and save to Z
+		for j in y_range: 
+			C = np.matrix( [w0[i, j] , w1[i, j]]).T			
+			fx = X * C
+			Z[i,j] = mean_squared_error(Y, fx )	 		
+
+	fig = plt.figure() 
+	ax = fig.add_subplot(111, projection='3d')
+	ax.set_xlabel('wo axis'); ax.set_ylabel('w1 axis'); ax.set_zlabel('MSE axis')  
+	surf = ax.plot_surface(w0, w1, Z, rstride=1, cstride=1, cmap=cm.coolwarm, linewidth=0, antialiased=False)		
+	#ax.zaxis.set_major_locator(LinearLocator(10))
+	#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+	plt.show()
+
+def isNan(value):
+	if np.sum( np.isnan(value)) > 0 :
+		return True
+
+import animation as am		
+# Method 4: 	
+def train_method4(data_X, Y):
+	X = add_one(data_X)	
+	learningRate = 0.0001				# initial learning rate
+	C = np.matrix([0, 0]).T				# initial coefficients
+	
+	FX_init = X * C							
+	mse = mean_squared_error(Y, FX_init)
+	print('\nFirst: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse))
+	
+	FX_List = [FX_init]					# save predicted price for visualization later
+	step = 0
+	
+	while(True):		
+		SLOPE = X.T * ( X * C - Y) 		# vector 2 x 1
+		new_C = C - (learningRate * SLOPE)		# vector 2 x 1
+				
+		if isNan(SLOPE):
+			print('Slope is NaN:', SLOPE)
+			break
+			
+		w0, w1 = C[0,0], C[1,0]
+		s0, s1 = SLOPE[0,0], SLOPE[1,0]
+		
+		if isConvergence(s0) == False:
+			w0 = new_C[0,0]				# new w0
+				
+		if isConvergence(s1) == False:
+			w1 = new_C[1,0]				# new w1
+		
+		C = np.matrix([ w0, w1]).T		# update new coefficients
+		
+		if step % 100 == 0: # for visualization later
+			FX = X * C
+			FX_List = np.append(FX_List, FX) 	
+		step +=1
+		
+		# stop while_loop when w0 and w1 meet convergence condition
+		if isConvergence(s0) and isConvergence(s1): 
+			break
+	#Finish training
+	print("Total step to learning:", step)
+	
+	#Show model
+	FX_final = X * C							
+	mse = mean_squared_error(Y, FX_final )
+	w0, w1 = C
+	show_result(w0, w1, mse)
+	
+	# for visualization
+	FX_List = np.append(FX_List, FX_final) 
+	FX_List = np.reshape(FX_List,(-1, X.shape[0]))  # number of fx values x number of DatasetX
+		
+	am.visualize(data_X, Y, FX_List)	
+	#plt.plot(data_X, Y, 'bs', data_X, FX_final, 'r-')
+	#plt.show()
 
 def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	# read csv file with pandas module	
@@ -194,9 +207,11 @@ if __name__ == '__main__':
 	print("\n+++++Show method 3++++")
 	train_method3(train_X, train_Y)
 	
-	plot_contour_error(train_X, train_Y)
 	print("\n+++++Show method 4++++")
+	train_method5(train_X, train_Y)		
+
+	plot_contour_error(train_X, train_Y)
+	print("\n+++++Show method 5++++")
 	train_method4(train_X, train_Y)
 	
-	print("\n+++++Show method 5++++")
-	train_method5(train_X, train_Y)		
+	
