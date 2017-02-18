@@ -249,7 +249,8 @@ def getAllStyleFeatures(styleData):
 		# Run tensorflow: feed style data into the model 
 		# and then get output from layers: [conv1_1, conv2_1, conv3_1, conv4_1 ,conv5_1]
 		output = sess.run(styleLayer, {imgInput: styleData})
-		
+
+		# Compute style feature map
 		styleFeatures={}		
 		for index, features in enumerate(output):						
 			chanel = features.shape[3]
@@ -278,6 +279,7 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 		# size: 1 x height x weight x weight
 		#initImg = preprocess(initImg, meanColor )
 		#initImg = initImg.astype('float32')		
+
 		# variable will to be uppadated values while train the model each step
 		image = tf.Variable(initImg)
 		
@@ -285,10 +287,10 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 		# and then get layer: conv4_2, [conv1_1, conv2_1, conv3_1, conv4_1, conv5_1]
 		conv4_2, styleLayer= createModel(image) 					
 		
-		# content loss
+		# compute content loss
 		contentLoss = CONTENT_WEIGHT * (2 * tf.nn.l2_loss(conv4_2 - contentFeature) / contentFeature.size)
 		
-		# style loss
+		# compute style loss
 		styleLoss = 0		
 		styleLosses = []
 		for index, layer in enumerate(styleLayer):				
@@ -302,7 +304,6 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 		styleBlendWeights = getStyleBlendWeights();
 		styleLoss += STYLE_WEIGHT * styleBlendWeights * reduce(tf.add, styleLosses)
 		
-		#imgShape = initImg.shape
 		# total variation denoising
 		tv_y_size = _tensor_size(image[:,1:,:,:])
 		tv_x_size = _tensor_size(image[:,:,1:,:])
@@ -312,11 +313,11 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 				(tf.nn.l2_loss(image[:,:,1:,:] - image[:,:,:imgShape[2]-1,:]) /
 				    tv_x_size))
 		
-		# all loss fucntion
+		# all loss function
 		loss = contentLoss + styleLoss + tvLoss
 
 		# optimizer setup
-		# TensorFlow doesn't support L-BFGS (which is what the original authors used), 
+		# TensorFlow doesn't support L-BFGS (the original authors used),
 		# so use Adam for optimizer
 		optimizer = tf.train.AdamOptimizer(LEARNING_RATE).minimize(loss)
 		
@@ -349,15 +350,15 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 
 def imread3d(path): 
 	# read image from file name 
-	# and return array in 3 dimensiion height  x width x chanel
+	# and return array in 3 dimensions height  x width x chanel
 	img = scipy.misc.imread(path).astype(np.float)
-	if len(img.shape) == 2: # grayscale
+	if len(img.shape) == 2: # gray scale
 		img = np.dstack((img,img,img))		
 	return img 
 
 def restoreImage(imgData):
-	img = imgData[0] 		# becase shpae imgData is 1 x height  x width x chanel
-	img = img + meanColor 	# plus mean of color (R,G,B)
+	img = imgData[0] 		# because shape is 1 x height  x width x chanel
+	img = img + meanColor 	# plus color mean(R,G,B)
 	img = np.clip(img, 0, 255).astype(np.uint8)
 	return img
 	
@@ -386,9 +387,9 @@ def createImg():
 	styleData = resizeImgData(styleData)	# to: 244 x 244 x chanel
 	assert styleData.shape[0:2] == (224, 224)
 
-	# get content feauture
+	# get content feature map
 	contentFeature = getcontentFeature(imgData) 
-	# get all style features
+	# get all style features map
 	allStyleFeautures = getAllStyleFeatures(styleData)
 
 	#initImg = np.random.randn( *imgData.shape)  *  0.256
@@ -400,6 +401,6 @@ def createImg():
 	plt.imshow(resultImg)
 	plt.show()
 
-##  This code use 1 sytle, But in original code can use more than 1 styles
+##  This code use 1 style, But in original code can use more than 1 styles
 if __name__ == '__main__':
 	createImg()
