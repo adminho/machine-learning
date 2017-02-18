@@ -19,8 +19,13 @@ I borrowed some code  from [Anish Athalye's Neural Style]
   howpublished = {url{https://github.com/jcjohnson/neural-style}},
 }
 '''
-# The next plan I would like to try coding follow : https://github.com/jcjohnson/fast-neural-style 
-# and try to implement on https://arxiv.org/abs/1607.08022
+
+# My next plan I would like to try implement  
+#https://github.com/lengstrom/fast-style-transfer 
+#https://github.com/jcjohnson/fast-neural-style 
+#http://cs.stanford.edu/people/jcjohns/eccv16/
+#https://arxiv.org/abs/1607.08022 (paper)
+#https://arxiv.org/abs/1603.08155 (paper)
 
 
 import tensorflow as tf
@@ -41,10 +46,60 @@ TV_WEIGHT = 1e2
 LEARNING_RATE = 1e1
 STYLE_SCALE = 1.0
 ITERATIONS = 1000
-# download file at here: http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-19.mat
-VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
+DIR_IMAGE_STEP = 'ckeckpoint'
 
-# Use 16 conventional layer 
+# Use VGG Model: https://arxiv.org/abs/1409.1556 (paper)	
+# download : http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-19.mat
+VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
+"""
+There are 43 layer in VGG 19 model
+layer name		weights(shape)		bias(shape) 
+['conv1_1'] 	(3, 3, 3, 64) 		(1, 64)
+['relu1_1']
+['conv1_2'] 	(3, 3, 64, 64) 		(1, 64)
+['relu1_2']
+['pool']
+['conv2_1'] 	(3, 3, 64, 128) 	(1, 128)
+['relu2_1']
+['conv2_2'] 	(3, 3, 128, 128) 	(1, 128)
+['relu2_2']
+['pool']
+['conv3_1'] 	(3, 3, 128, 256) 	(1, 256)
+['relu3_1']
+['conv3_2'] 	(3, 3, 256, 256) 	(1, 256)
+['relu3_2']
+['conv3_3'] 	(3, 3, 256, 256) 	(1, 256)
+['relu3_3']
+['conv3_4'] 	(3, 3, 256, 256) 	(1, 256)
+['relu3_4']
+['pool']
+['conv4_1'] 	(3, 3, 256, 512) 	(1, 512)
+['relu4_1']
+['conv4_2'] 	(3, 3, 512, 512) 	(1, 512)
+['relu4_2']
+['conv4_3'] 	(3, 3, 512, 512) 	(1, 512)
+['relu4_3']
+['conv4_4'] 	(3, 3, 512, 512) 	(1, 512)
+['relu4_4']
+['pool']
+['conv5_1'] 	(3, 3, 512, 512) 	(1, 512)
+['relu5_1']
+['conv5_2'] 	(3, 3, 512, 512) 	(1, 512)
+['relu5_2']
+['conv5_3'] 	(3, 3, 512, 512) 	(1, 512)
+['relu5_3']
+['conv5_4'] 	(3, 3, 512, 512) 	(1, 512)
+['relu5_4']
+['pool']
+['fc6'] 		(7, 7, 512, 4096) 		(1, 4096)
+['relu6']
+['fc7'] 		(1, 1, 4096, 4096) 		(1, 4096)
+['relu7']
+['fc8'] 		(1, 1, 4096, 1000) 		(1, 1000)
+['prob']
+"""
+
+# But use 16 conventional layer only
 layers = (
 	'conv1_1', 'relu1_1', 'conv1_2', 'relu1_2', 'pool1',
 	'conv2_1', 'relu2_1', 'conv2_2', 'relu2_2', 'pool2',
@@ -53,30 +108,9 @@ layers = (
 	'conv5_1', 'relu5_1', 'conv5_2', 'relu5_2', 'conv5_3', 'relu5_3', 'conv5_4', 'relu5_4'
  )
 
-"""
-					Weight					  bias
-(width, height, in_channels, out_channels)	  				layer
-(3, 3, 3, 64)								(1, 64)			conv1_1
-(3, 3, 64, 64)								(1, 64)			conv1_2
-(3, 3, 64, 128)								(1, 128)		conv2_1
-(3, 3, 128, 128)							(1, 128)		conv2_2
-(3, 3, 128, 256)							(1, 256)		conv3_1
-(3, 3, 256, 256)							(1, 256)		conv3_2
-(3, 3, 256, 256)							(1, 256)		conv3_3
-(3, 3, 256, 256)							(1, 256)		conv3_4
-(3, 3, 256, 512)							(1, 512)		conv4_1
-(3, 3, 512, 512)							(1, 512)		conv4_2
-(3, 3, 512, 512)							(1, 512)		conv4_3
-(3, 3, 512, 512)							(1, 512)		conv4_4
-(3, 3, 512, 512)							(1, 512)		conv5_1
-(3, 3, 512, 512)							(1, 512)		conv5_2
-(3, 3, 512, 512)							(1, 512)		conv5_3
-(3, 3, 512, 512)							(1, 512)		conv5_4
-""" 
-
-""" Network Architecture
-image size: height x weight x chanel (1, h, w, c)
-but the input into the network. it has size [1, h, w, c]
+""" This is model structure for this code
+image size: height x weight x chanel or [h, w, c]
+but the input into the model has size: [1, h, w, c]
 
 ###
 layer		 stride		Activation function						 output size
@@ -106,9 +140,7 @@ layer		 stride		Activation function						 output size
 'conv5_4'		1			'relu5_4'							[1, h/16, w/16 ,512]
 """
 
-def getVGGdata():
-	# Use VGG-Network: https://arxiv.org/abs/1409.1556 (paper)
-	# http://www.vlfeat.org/matconvnet/pretrained/ (.mat)
+def getVGGdata():	
 	dataVGG = scipy.io.loadmat(VGG_PATH)	
 	dd = dataVGG['layers'][0]
 	assert dd.shape == (43,)
@@ -128,6 +160,8 @@ def getVGGdata():
 			# mat file	: weights are [width, height, in_channels, out_channels]
 			# tensorflow: weights are [height, width, in_channels, out_channels]
 			weights = np.transpose(weights, (1, 0, 2, 3))
+			# bias : 1 x chanels
+			# convert to a vector: chanels x 1		
 			bias = bias.reshape(-1)
 			W[name] = weights
 			B[name] = bias
@@ -234,15 +268,16 @@ def _tensor_size(tensor):
 def getStyleBlendWeights(styleBlendWeights=None ):	
     #if styleBlendWeights is None:
         # default is equal weights
-        #styleBlendWeights = 1.0/len(styleDataList)
-        
+        #styleBlendWeights = 1.0/len(styleDataList)        
     return 1
 
-def trainModel(initImg, contentFeature, allStyleFeautures, allStep):	
+def trainModel(imgData, contentFeature, allStyleFeautures, allStep):			
 	with tf.Graph().as_default():		
-		#initImg = tf.random_normal(imgShape) * 0.256
-		initImg = preprocess(initImg, meanColor )
-		# create size: 1 x height x weight x weight
+		imgShape = (1,) + imgData.shape
+		initImg = tf.random_normal(imgShape) * 0.256
+		# size: 1 x height x weight x weight
+		#initImg = preprocess(initImg, meanColor )
+		#initImg = initImg.astype('float32')		
 		# variable will to be uppadated values while train the model each step
 		image = tf.Variable(initImg)
 		
@@ -267,7 +302,7 @@ def trainModel(initImg, contentFeature, allStyleFeautures, allStep):
 		styleBlendWeights = getStyleBlendWeights();
 		styleLoss += STYLE_WEIGHT * styleBlendWeights * reduce(tf.add, styleLosses)
 		
-		imgShape = initImg.shape
+		#imgShape = initImg.shape
 		# total variation denoising
 		tv_y_size = _tensor_size(image[:,1:,:,:])
 		tv_x_size = _tensor_size(image[:,:,1:,:])
@@ -298,12 +333,20 @@ def trainModel(initImg, contentFeature, allStyleFeautures, allStep):
 				bestLoss = currentLoss
 				bestImg = resultImg					
 			
+			resultImg = restoreImage(bestImg)
+			
 			if step %2 == 0:
 				print('step %d | loss %.2f' % (step, currentLoss))
-			
-		resultImg = restoreImage(bestImg)
+			if step %10 == 0:
+				#saver = tf.train.Saver()	# save your model					
+				#saver.save(sess, DIR_IMAGE_STEP, global_step=step)
+				#saver.save(sess, DIR_IMAGE_STEP)
+				scipy.misc.imsave("output.jpg", resultImg)
+				
 		return resultImg
-               
+
+# saver.restore(sess, ckpt.model_checkpoint_path)               
+
 def imread3d(path): 
 	# read image from file name 
 	# and return array in 3 dimensiion height  x width x chanel
@@ -332,12 +375,14 @@ def resizeImgData(imgData):
 
 def createImg():
 	start_time = time.time() # start timmer
-
-	imgData = imread3d("1-content.jpg")
+	#fileName = "1-content.jpg"
+	fileName = "pic_4.jpg"
+	sytleName = "the_scream.jpg"
+	imgData = imread3d(fileName)
 	imgData = resizeImgData(imgData)		# to: 244 x 244 x chanel
 	assert imgData.shape[0:2] == (224, 224)
 
-	styleData = imread3d("1-style.jpg")
+	styleData = imread3d(sytleName)
 	styleData = resizeImgData(styleData)	# to: 244 x 244 x chanel
 	assert styleData.shape[0:2] == (224, 224)
 
@@ -346,12 +391,9 @@ def createImg():
 	# get all style features
 	allStyleFeautures = getAllStyleFeatures(styleData)
 
-	initImg = np.random.randn( *imgData.shape)  *  0.256
-	#initImg = np.abs(imgData + (imgData - styleData))
-	initImg = initImg.astype('float32')
-
+	#initImg = np.random.randn( *imgData.shape)  *  0.256
 	# waiting for many hours
-	resultImg = trainModel(initImg, contentFeature, allStyleFeautures,1000)
+	resultImg = trainModel(imgData, contentFeature, allStyleFeautures,1000)
 	print("Creating image inished: %ds" % (time.time() - start_time))
 
 	scipy.misc.imsave("output.jpg", resultImg)
@@ -359,5 +401,5 @@ def createImg():
 	plt.show()
 
 ##  This code use 1 sytle, But in original code can use more than 1 styles
-if __name__ == 'main':
+if __name__ == '__main__':
 	createImg()
