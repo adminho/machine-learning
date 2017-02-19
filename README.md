@@ -4,12 +4,18 @@ For many years, I have studied machine learning and practiced coding. This repos
 
 ## Requirement
 
-All example coding in python language, so you need to setup your environment bellow 
+All examples are written in Python language, so you need to setup your environment bellow 
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
-* Then, install tensorflow library with command
+* Then, install library for Deep learning that I use 2 library including TensorFlow and Keras 
+
+You can install TensorFlow from PyPI with command
 
 `pip install tensorflow`
+
+You can also install Keras from PyPI:
+
+`pip install keras`
 
 ## My examples (not yet) 
 
