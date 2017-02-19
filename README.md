@@ -1,5 +1,7 @@
 # Machine learning examples
 
+For many years, I have studied machine learning and practiced coding and this repository has published my source codes
+
 ## Requirement
 
 All example coding in python language, so you need to setup your environment bellow 
