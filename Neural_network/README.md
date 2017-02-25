@@ -6,7 +6,7 @@ Use AI to calculate the logic `X1 or X1 xor X3`
 
 ![dataset_logic.PNG](images/dataset_logic.PNG)
 
-In file [__'tensorflow_2_layer.py'__](tensorflow_2_layer.py), you can edit the root path and dataset file 
+In [__'tensorflow_2_layer.py'__](tensorflow_2_layer.py), you can edit the root path and dataset file name
 
 ```
 csv_dir = 'D:/MyProject/machine-learning/Neural network' 	# your root path of a the dataset file		
