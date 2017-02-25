@@ -4,7 +4,7 @@ For many years, I have studied Machine Learning and practiced coding. This repos
 
 ## Requirement
 
-All examples are written in Python language, so you need to setup your environments as bellow 
+All examples are written in Python language, so you need to setup your environments as below 
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
 * Then, install library for Deep learning that I use 2 library including TensorFlow and Keras
