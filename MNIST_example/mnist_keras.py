@@ -217,13 +217,13 @@ def build_lstm(image_shape):
 	# apply a LSM with 8 sequences (row) and 8 features (column) on a 8 x 8 image:
 	model.add(LSTM(input_dim=features, 
 				input_length=sequence,
-				output_dim=100,
+				output_dim=150,
 				dropout_W=0.2, dropout_U=0.2,
 				return_sequences=True))
 	# now model.output_shape == (None, 100)
 	# note: `None` is the batch dimension.
 	#
-	model.add(LSTM(100, dropout_W=0.2, dropout_U=0.2, return_sequences=False))
+	model.add(LSTM(150, dropout_W=0.2, dropout_U=0.2, return_sequences=False))
 	# now model.output_shape == (None, 100)	
 	#
 	model.add(Dense(10))
@@ -282,4 +282,4 @@ if __name__ == "__main__":
 	XtestLSTM = reshapeLSTMInput(Xtest)
 	image_shape = XtrainLSTM.shape[1:]	# select (row, column)
 	model = build_lstm(image_shape)
-	trainModel(model, XtrainLSTM, YtrainEncoded, XtestLSTM, YtestEncoded, epochs=50)	
+	trainModel(model, XtrainLSTM, YtrainEncoded, XtestLSTM, YtestEncoded, epochs=30)	
