@@ -7,10 +7,16 @@ from os.path import join
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
+from scipy.stats import linregress
 import tensorflow as tf
+import animation as am		
+
+from keras.layers.core import Dense
+from keras.optimizers import Adam
+from keras.models import Sequential
 
 def show_result(w0, w1, mse):
-	print('\nf(x) = %s + %sx , and MSE = %s' % (w0, w1, mse))
+	print('f(x) = %s + %sX , and MSE = %s' % (w0, w1, mse))
 	print('Coefficients are w0 = %s, w1 = %s' % (w0, w1))
 		
 def add_one(data_X):
@@ -28,8 +34,8 @@ def train_method1(data_X, Y):
 	#Finish training
 	
 	#Show model
-	fx = X * C							# Linear line for prediction
-	mse = mean_squared_error(Y, fx )
+	FX = X * C							# Linear line for prediction
+	mse = mean_squared_error(Y, FX )
 	w0, w1 = C
 	show_result(w0, w1, mse)	
 
@@ -40,8 +46,8 @@ def train_method2(X, Y):
 	#Finish training
 	
 	#Show model
-	fx = regr.predict(X)				# Linear line for prediction
-	mse = mean_squared_error(Y, fx )
+	FX = regr.predict(X)				# Linear line for prediction
+	mse = mean_squared_error(Y, FX )
 	show_result(regr.intercept_, regr.coef_, mse)
 	
 # Method 3: use numpy module (polyfit)
@@ -53,19 +59,30 @@ def train_method3(X, Y):
 	
 	#Show model
 	# use  broadcasting rules in numpy to add matrix
-	fx = w1*X + [w0]					# Linear line for prediction
-	mse = mean_squared_error(Y, fx )
+	FX = w1*X + [w0]					# Linear line for prediction
+	mse = mean_squared_error(Y, FX)
 	show_result(w0, w1, mse)
 
-# method4: use tensorflow library
-def train_method5(data_X, data_Y):
-	# Try to find values for W_1 and W_0 that compute Y = W_1 * data_X + W_0
+# method 4 : use scipy module(linregress)
+def train_method4(X, Y):
+	X = X.reshape(1,-1)
+	Y = Y.reshape(1,-1)
+	slope, intercept, r, p, stderr = linregress(X, Y)
+	
+	#Show model
+	FX = intercept + slope*X				# Linear line for prediction
+	mse = mean_squared_error(Y, FX)
+	show_result(intercept, slope, mse)
+	
+# method 5: use tensorflow library
+def train_method5(X, Y):
+	# Try to find values for W_1 and W_0 that compute FX = W_1 * X + W_0
 	W_1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-	W_0 = tf.Variable(tf.zeros([1]))
-	Y = W_1 * data_X + W_0
+	W_0 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
+	FX = W_1*X + W_0
 
 	# Minimize the mean squared errors.
-	loss = tf.reduce_mean(tf.square(Y - data_Y))
+	loss = tf.reduce_mean(tf.square(FX - Y))
 	
 	# Use gradient descent algorithm for optimizing
 	learningRate = 0.01
@@ -87,11 +104,29 @@ def train_method5(data_X, data_Y):
 	#Show model
 	show_result(w0, w1, mse)
 
-# Method 5: use gradient descent algorithm (hard code manual)
+# method 6: use Skera library
+# doesn't work and slowly
+def train_method6(X, Y):
+	model = Sequential()	
+	model.add(Dense(1, input_dim=1, init='normal'))
+	model.compile(loss='mean_squared_error', optimizer=Adam(lr=3.5, decay=1.9))
+	weights = model.layers[0].get_weights()	
+	model.fit(X, Y, nb_epoch=25000, verbose=0)
+	
+	weights = model.layers[0].get_weights()
+	w1 = weights[0][0][0]
+	w0 = weights[1][0]
+	
+	#Show model
+	FX = w0 + w1*X				# Linear line for prediction
+	mse = mean_squared_error(Y, FX )
+	show_result(w0, w1, mse)
+	
+# Method 6: use gradient descent algorithm (hard code manual)
 def isConvergence(value):				# check condition of convergence
 	return np.absolute(value) <= 0.01  	# set threshold
 
-def plot_contour_error(data_X, Y): 		# for visualization
+def plot_surface_error(data_X, Y): 		# for visualization
 	x_range = np.arange(-5,15,1)		# -5< x-axis < 15 (increase 1 step)
 	y_range = np.arange(-5,15,1)		# -5< y-axis < 15 (increase 1 step)
 
@@ -117,18 +152,18 @@ def isNan(value):
 	if np.sum( np.isnan(value)) > 0 :
 		return True
 
-import animation as am		
 # Method 4: 	
-def train_method4(data_X, Y):
+def train_method7(data_X, Y):
 	X = add_one(data_X)	
 	learningRate = 0.0001				# initial learning rate
 	C = np.matrix([0, 0]).T				# initial coefficients
 	
 	FX_init = X * C							
-	mse = mean_squared_error(Y, FX_init)
-	print('\nFirst: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse))
+	mse_init = mean_squared_error(Y, FX_init)
+	print('First: f(x) = %s + %sx , and MSE = %s' % (C[0,0] , C[1,0] , mse_init))
 	
-	FX_List = [FX_init]					# save predicted price for visualization later
+	# save predicted price for visualization later
+	FX_List = [FX_init]		
 	step = 0
 	
 	while(True):		
@@ -151,8 +186,8 @@ def train_method4(data_X, Y):
 		C = np.matrix([ w0, w1]).T		# update new coefficients
 		
 		if step % 100 == 0: # for visualization later
-			FX = X * C
-			FX_List = np.append(FX_List, FX) 	
+			FX = X * C			
+			FX_List = np.append(FX_List, FX) 
 		step +=1
 		
 		# stop while_loop when w0 and w1 meet convergence condition
@@ -163,18 +198,15 @@ def train_method4(data_X, Y):
 	
 	#Show model
 	FX_final = X * C							
-	mse = mean_squared_error(Y, FX_final )
+	mse_final = mean_squared_error(Y, FX_final )
 	w0, w1 = C
-	show_result(w0, w1, mse)
+	show_result(w0, w1, mse_final)
 	
 	# for visualization
 	FX_List = np.append(FX_List, FX_final) 
 	FX_List = np.reshape(FX_List,(-1, X.shape[0]))  # number of fx values x number of DatasetX
-		
-	am.visualize(data_X, Y, FX_List)	
-	#plt.plot(data_X, Y, 'bs', data_X, FX_final, 'r-')
-	#plt.show()
-
+	return FX_List	
+	
 def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	# read csv file with pandas module	
 	df = pd.read_csv(join(base_dir, csv_dataset))
@@ -208,10 +240,17 @@ if __name__ == '__main__':
 	train_method3(train_X, train_Y)
 	
 	print("\n+++++Show method 4++++")
-	train_method5(train_X, train_Y)		
+	train_method4(train_X, train_Y)		
 
-	plot_contour_error(train_X, train_Y)
 	print("\n+++++Show method 5++++")
-	train_method4(train_X, train_Y)
+	train_method5(train_X, train_Y)
 	
+	print("\n+++++Show method 6++++")
+	#train_method6(train_X, train_Y)
+	
+		# uncomment this if you want to show contour of error graph
+	#plot_surface_error(train_X, train_Y)
+	print("\n+++++Show method 7++++")
+	FX_List = train_method7(train_X, train_Y)
+	am.visualize(train_X, train_Y, FX_List)	
 	
