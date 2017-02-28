@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import util as ut
 from os.path import join
+import animation as am		
 
 def sigmoid(z):
 	return 1/(1+np.exp(-z))
@@ -96,8 +97,8 @@ def splitFeature(dfClass):
 
 def plot2Class(classA, classB, X1, FX):
 	# plot class A
-	X1A, X1B = splitFeature(classA)	
-	plt.plot(X1A, X1B, 'ro')	# red circle
+	X1A, X2B = splitFeature(classA)	
+	plt.plot(X1A, X2B, 'ro')	# red circle
 	
 	# plot class B
 	X1B, X2B = splitFeature(classB)
@@ -161,7 +162,11 @@ def train_method(data_X, Y):
 	
 	SX_init = sigmoid(X * C)			# multiply matrix	
 	loss = np.mean(cost_function(SX_init.reshape(-1)[0], Y.reshape(-1)[0]))
-	print('\nFirst: %s + %sx1 +%sx2 , and loss = %s' % (C[0,0], C[1,0], C[2,0], loss))
+	print('\nFirst: %s + %sX1 +%sX2 , and loss = %s' % (C[0,0], C[1,0], C[2,0], loss))
+	
+	# save predicted price for visualization later
+	C_List = [C]	
+	step = 0
 	
 	while(True):
 		SX = sigmoid(X * C)				# multiply matrix
@@ -186,7 +191,9 @@ def train_method(data_X, Y):
 	
 		C = np.matrix([ w0, w1, w2]).T		# update new coefficients	
 				
-		#C = np.matrix(W)		# update new coefficients
+		if step % 20 == 0: # for visualization later			
+			C_List = np.append(C_List, C) 
+		step +=1
 		
 		# stop while_loop when w0 and w1 meet convergence condition
 		if np.sum(isConvergence(SLOPE)) == len(SLOPE): 
@@ -198,8 +205,21 @@ def train_method(data_X, Y):
 	
 	SX_final = sigmoid(X * C)					
 	loss = np.mean(cost_function(SX_final.reshape(-1)[0], Y.reshape(-1)[0]))
-	print('\nFinal: %s + %sx1 +%sx2 , and loss = %s' % (C[0,0], C[1,0], C[2,0], loss))
-	return C
+	print('\nFinal: %s + %sX1 +%sX2 , and loss = %s' % (C[0,0], C[1,0], C[2,0], loss))
+	
+	C_List = np.append(C_List, C) 
+	C_List = np.reshape(C_List,(-1, X.shape[1])) # num interate x feature
+	return C_List
+
+def getDecisionFunc(X1, C_List):
+	FX_List = []
+	for C in C_List:
+		w0, w1, w2 = C
+		FX = (w0 + w1*X1 )/-w2
+		FX_List = np.append(FX_List, FX)
+	
+	FX_List = np.reshape(FX_List,(-1, X1.shape[0])) # num interate x num sample
+	return FX_List
 
 # for nomalize easy
 X1X2_mean = df[x_column_names].mean()
@@ -209,18 +229,27 @@ dfNorm[x_column_names] = dfNorm[x_column_names]/X1X2_mean
 train_X1X2 = dfNorm[x_column_names]				# X1, X2 training set
 train_Y = dfNorm[y_column_name].reshape(-1,1)	# Y (Output) training set	
 
-C = train_method(train_X1X2, train_Y)
+C_List = train_method(train_X1X2, train_Y)
 
 classA, classB = seperateClass(dfNorm)
-
+X1A, X2A = splitFeature(classA)			
+X1B, X2B = splitFeature(classB)
+	
 # margin = w0 + w1*X1 + w2*X2
-# margin/w2 = w0/w2 + (w1/w2)*X1 - X2
+# margin/w2 = w0/-w2 + (w1/-w2)*X1 - X2
 # ถ้าให้ 0 =  w0/w2 + (w1/w2)*X1 - X2 มันคือสมการเส้นตรง ที่ทำนาย X2
-# w0/w2 + (w1/w2)*X1 -> the decision boundary Equation
+# w0/-w2 + (w1/-w2)*X1 -> the decision boundary Equation
 
-X1 = dfNorm['X1']
-FX = (C[0,0] + C[1,0]* X1 )/-C[2,0]						
-plot2Class(classA, classB, X1, FX) # normalize classA and classB
+X1_norm = dfNorm['X1']
+X2_norm = dfNorm['X2']
+FX_List = getDecisionFunc(X1_norm, C_List)
+
+am.visualize(X1A, X2A, X1B, X2B, X1_norm, X2_norm, FX_List)	
+#plot2Class(classA, classB, X1_norm, FX_List[len(FX_List)-1]) # normalize classA and classB
+
+#w0, w1, w2 = C_List[len(C_List)-1]
+#plot2Class(classA, classB, X1, FX[len(FX)-1]) # normalize classA and classB
+
 
 # for visualization
 #plt.plot(data_X, Y, 'bs', data_X, fx_final, 'r-')
