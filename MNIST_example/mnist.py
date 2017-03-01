@@ -92,7 +92,7 @@ def train_nearest_neighbors(Xtrain, Ytrain, Xtest, Yexpected):
 
 	# Calculate accuracy (True in python is 1, and False is 0
 	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
-	print("Accuracy %.4f" % accuracy)	
+	print("Accuracy: %.4f" % accuracy)
 	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
 	
 # Example 2
@@ -106,7 +106,7 @@ def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
 	
 	# Calculate accuracy (True in python is 1, and False is 0
 	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
-	print("Accuracy %.4f" % accuracy)	
+	print("Accuracy: %.4f" % accuracy)
 	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
 
 # For example 3, 4, 5, 6
