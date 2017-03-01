@@ -39,9 +39,8 @@ def encode(Y):
 	return Yencoded
 	
 def decode(Ydigits):
-	# Returns the indices that would sort an array
-	# max values is at last
-	return np.array( [ np.argsort(list)[9]	 for list in Ydigits] )
+	# np.argmax: Returns the indices of the maximum values along an axis.	
+	return np.array( [ np.argmax(list) for list in Ydigits] )
 	
 def getDatasets():
 	digits = datasets.load_digits()
@@ -126,6 +125,11 @@ def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
 	scores = model.evaluate(Xtest, Yexpected, verbose=0)
 	print("Test model: %s = %.4f" % (model.metrics_names[0] ,scores[0]))
 	print("Test model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))
+	
+	Ypredicted = model.predict(Xtest, verbose=0)
+	Yexpected = decode(Yexpected)
+	Ypredicted = decode(Ypredicted)
+	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
 	
 # Example 3
 def build_logistic_regression(features):
