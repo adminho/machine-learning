@@ -3,6 +3,9 @@
     learning applied to document recognition." Proceedings of the IEEE,
     86(11):2278-2324, November 1998.
 Links: [MNIST Dataset] http://yann.lecun.com/exdb/mnist/
+Thank you
+* http://scikit-learn.org/
+* https://keras.io/
 """
 import math
 import scipy.io
@@ -13,11 +16,9 @@ import datetime
 import numpy as np
 import pandas as pd
 
-from sklearn import datasets
+from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
-from sklearn.datasets import load_digits
 from matplotlib import pyplot as plt
-
 from keras.layers.core import Dense, Activation, Dropout, Flatten
 from keras.layers.recurrent import LSTM
 from keras.models import Sequential
@@ -43,7 +44,7 @@ def decode(Ydigits):
 	return np.array( [ np.argsort(list)[9]	 for list in Ydigits] )
 	
 def getDatasets():
-	digits = load_digits()
+	digits = datasets.load_digits()
 	x = digits.data
 	y = digits.target	
 	x_train, x_test, y_train, y_test = train_test_split(x, y,
@@ -78,24 +79,41 @@ def plotExampleImg(title,imageData, Ydigits):
 	plt.show()
 
 # Example 1	
-def train_nearest_neighbors(Xtrain, Ytrain, Xtest):
+def train_nearest_neighbors(Xtrain, Ytrain, Xtest, Yexpected):
 	numSample,_ = Xtest.shape
 	# compute distance with Manhattan formula	
-	Ypredict = np.zeros(numSample)	
+	Ypredicted = np.zeros(numSample)	
 	for index in range(0,numSample):
 		# minus with broadcasting in numpy
 		ditanceList = np.sum(np.abs(Xtrain - Xtest[index]), axis=1)		
 		# min distance at first of list	and get Index
 		minDistanceIndex = np.argsort(ditanceList)[0] 
-		Ypredict[index] = Ytrain[minDistanceIndex]
+		Ypredicted[index] = Ytrain[minDistanceIndex]
 
-	return Ypredict
+	# Calculate accuracy (True in python is 1, and False is 0
+	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
+	print("Accuracy %.4f" % accuracy)	
+	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
+	
+# Example 2
+def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
+	# a support vector classifier
+	classifier = svm.SVC(gamma=0.001)
+	# learning
+	classifier.fit(Xtrain, Ytrain)
+	# predict
+	Ypredicted = classifier.predict(Xtest)
+	
+	# Calculate accuracy (True in python is 1, and False is 0
+	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
+	print("Accuracy %.4f" % accuracy)	
+	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
 
-# For example 2, 3, 4, 5
-def trainModel(model, Xtrain, Ytrain, Xtest, Ytest, epochs):
+# For example 3, 4, 5, 6
+def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
 	global_start_time = time.time()		
 	#automatic validation dataset 
-	model.fit(Xtrain, Ytrain, batch_size=100, nb_epoch=epochs, verbose=0, validation_data=(Xtest, Ytest))			
+	model.fit(Xtrain, Ytrain, batch_size=500, nb_epoch=epochs, verbose=0, validation_data=(Xtest, Yexpected))			
 	sec = datetime.timedelta(seconds=int(time.time() - global_start_time))
 	print ('Training duration : ', str(sec))
 	
@@ -105,11 +123,11 @@ def trainModel(model, Xtrain, Ytrain, Xtest, Ytest, epochs):
 	print("Evalute model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))
 		
 	# for test
-	scores = model.evaluate(Xtest, Ytest, verbose=0)
+	scores = model.evaluate(Xtest, Yexpected, verbose=0)
 	print("Test model: %s = %.4f" % (model.metrics_names[0] ,scores[0]))
-	print("Test model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))	
-		
-# Example 2
+	print("Test model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))
+	
+# Example 3
 def build_logistic_regression(features):
 	model = Sequential()		
 	# L2 is weight regularization penalty, also known as weight decay, or Ridge
@@ -126,7 +144,7 @@ def build_logistic_regression(features):
 			  metrics=['accuracy'])
 	return model
 
-# Example 3
+# Example 4
 def build_neural_network(features):		
 	model = Sequential()
 	model.add(Dense(input_dim=features, output_dim=500))
@@ -147,7 +165,7 @@ def build_neural_network(features):
 			  metrics=['accuracy'])	
 	return model
 
-# For example 4 :Convolutional Neural Networks
+# For example 5 :Convolutional Neural Networks
 def reshapeCNNInput(X): 
 	exampleNum, D = X.shape	
 	W = int(math.sqrt(D))	
@@ -168,7 +186,7 @@ def reshapeCNNInput(X):
 		
 	return XImg
 
-# Example 4
+# Example 5
 def build_cnn(image_shape):	
 	model = Sequential()
 	# apply a 3x3 convolution with 80 output filters on a 8 x 8 image:
@@ -199,7 +217,7 @@ def build_cnn(image_shape):
 			  metrics=['accuracy'])
 	return model
 
-# For example 5: Long short-term memory
+# For example 6: Long short-term memory
 def reshapeLSTMInput(X): 
 	exampleNum, D = X.shape	
 	W = int(math.sqrt(D))	
@@ -209,7 +227,7 @@ def reshapeLSTMInput(X):
 	XImg = X.reshape(exampleNum, W, W)
 	return XImg
 
-# Example 5
+# Example 6
 def build_lstm(image_shape):	
 	global_start_time = time.time()	
 	sequence, features = image_shape
@@ -249,10 +267,10 @@ if __name__ == "__main__":
 	plotExampleImg("Show example:", imageData, Ytrain)	
 	
 	print("\n+++++ Nearest neighbors method ++++")
-	Ypredict = train_nearest_neighbors(Xtrain, Ytrain, Xtest)
-	# Calculate accuracy (True in python is 1, and False is 0
-	accuracy = np.sum(Ypredict == Ytest)/ len(Ytest) * 100
-	print("Accuracy %.4f" % accuracy)
+	train_nearest_neighbors(Xtrain, Ytrain, Xtest, Ytest)
+	
+	print("\n+++++ Support vector method ++++")
+	train_support_vector(Xtrain, Ytrain, Xtest, Ytest)	
 	
 	#number of examples, features (8x8)
 	_, features = Xtrain.shape
@@ -264,7 +282,7 @@ if __name__ == "__main__":
 	print("\n+++++ Logistic regression method ++++")
 	model = build_logistic_regression(features)	
 	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=200)	
-	
+		
 	print("\n+++++ Neural network method ++++")
 	model = build_neural_network(features)
 	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=50)	
@@ -278,6 +296,7 @@ if __name__ == "__main__":
 	trainModel(model, XtrainCNN, YtrainEncoded, XtestCNN, YtestEncoded, epochs=50)
 	
 	print("\n+++++ Long short-term memory method ++++")
+	print("Take a minute.....")
 	XtrainLSTM = reshapeLSTMInput(Xtrain)
 	XtestLSTM = reshapeLSTMInput(Xtest)
 	image_shape = XtrainLSTM.shape[1:]	# select (row, column)
