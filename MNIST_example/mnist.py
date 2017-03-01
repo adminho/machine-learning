@@ -92,7 +92,8 @@ def train_nearest_neighbors(Xtrain, Ytrain, Xtest, Yexpected):
 	# Calculate accuracy (True in python is 1, and False is 0
 	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
 	print("Accuracy: %.4f" % accuracy)
-	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
+	print("Classification report")
+	print(metrics.classification_report(Yexpected, Ypredicted))
 	
 # Example 2
 def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
@@ -106,7 +107,8 @@ def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
 	# Calculate accuracy (True in python is 1, and False is 0
 	accuracy = np.sum(Yexpected == Ypredicted)/ len(Yexpected) * 100
 	print("Accuracy: %.4f" % accuracy)
-	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
+	print("Classification report")
+	print(metrics.classification_report(Yexpected, Ypredicted))
 
 # For example 3, 4, 5, 6
 def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
@@ -129,7 +131,8 @@ def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
 	Ypredicted = model.predict(Xtest, verbose=0)
 	Yexpected = decode(Yexpected)
 	Ypredicted = decode(Ypredicted)
-	print("Classification report %s\n" % (metrics.classification_report(Yexpected, Ypredicted)))
+	print("Classification report")
+	print(metrics.classification_report(Yexpected, Ypredicted))
 	
 # Example 3
 def build_logistic_regression(features):
