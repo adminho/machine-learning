@@ -72,7 +72,9 @@ def plotExampleImg(title,imageData, Ydigits):
 		numberImg = imageData[np.where(Ydigits == num)[0]]
 		#Return random integers from 0 (inclusive) to high (exclusive).
 		randomIndex = np.random.randint(0, numberImg.shape[0])		
-		axList[num].imshow(numberImg[randomIndex], cmap=plt.cm.gray)
+		#axList[num].imshow(numberImg[randomIndex], cmap=plt.cm.gray)
+		plt.gray()
+		axList[num].imshow(numberImg[randomIndex])
 	
 	plt.axis('off')
 	plt.show()
