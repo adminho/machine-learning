@@ -148,12 +148,12 @@ if __name__ == '__main__':
 	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
 	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 	"""
-	#model = VGG16(weights='imagenet')
-	#preds_top5 = predict(model, imgData)	
-	#showPredict(img, preds_top5)
+	model = VGG16(weights='imagenet')
+	preds_top5 = predict(model, imgData)	
+	showPredict(img, preds_top5)
 	
 	print('\nWaiting visualize....')
-	#visualizeVGG_block1_pool(model, imgData)
+	visualizeVGG_block1_pool(model, imgData)
 	
 	print('\n+++++Example: Image classification with VGG19 model++++++')
 	img = image.load_img('tiger.jpg', target_size=(224, 224))
@@ -164,12 +164,12 @@ if __name__ == '__main__':
 	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_th_dim_ordering_th_kernels_notop.h5'
 	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5'
 	"""
-	#model = VGG19(weights='imagenet')
-	#preds_top5 = predict(model, imgData)
-	#showPredict(img, preds_top5)
+	model = VGG19(weights='imagenet')
+	preds_top5 = predict(model, imgData)
+	showPredict(img, preds_top5)
 	
 	print('\nWaiting visualize....')
-	#visualizeVGG_block1_pool(model, imgData)
+	visualizeVGG_block1_pool(model, imgData)
 	
 	print('\n+++++Example: Image classification with ResNet50 model++++++')
 	img = image.load_img('bicycle.jpg', target_size=(224, 224))
