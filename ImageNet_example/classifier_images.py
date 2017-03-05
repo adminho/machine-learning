@@ -33,23 +33,46 @@ https://arxiv.org/abs/1512.00567 ( Inception v3 model )
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
 from keras.applications.resnet50 import ResNet50
+from keras.applications.inception_v3 import InceptionV3
+from keras.applications.xception import Xception
 from keras.preprocessing import image
-from keras.applications. imagenet_utils import preprocess_input, decode_predictions
+from keras.applications.imagenet_utils import decode_predictions
 from keras.models import Model
 
-def prepareImage(img):
+def prepareImage(img, modelName):
 	# dim_ordering == 'th': backend is Theano , 	chanel x heigh x width
 	# dim_ordering == 'tf': backend is TensorFlow, 	heigh x width x chanel
 	imgData = image.img_to_array(img)
 	
-	# image shape: [1, heigh, width, chanel]
-	# image shape: [1, chanel, heigh, width]
+	# image shape (th): [1, chanel, width, height]
+	# image shape (tf): [1, width, height, chanel]	
 	imgData = np.expand_dims(imgData, axis=0)
 	
-	# 'RGB'->'BGR'
+	# select function: preprocess_input for VGG16, VGG19, ResNet50 model (same functions)
+	# Convert 'RGB'->'BGR'
+	# and then subtract color mean values (BGR): [123.68, 116.779, 103.939]
+	if modelName == 'VGG16':
+		from keras.applications.vgg16 import preprocess_input
+	elif modelName == 'VGG19':
+		from keras.applications.vgg19 import preprocess_input
+	elif modelName == 'ResNet50':
+		from keras.applications.resnet50 import preprocess_input
+		
+	# select function: preprocess_input for InceptionV3 and Xception model (same functions)
+	# imgData /= 255.
+	# imgData -= 0.5
+	# imgData *= 2.
+	elif modelName == 'InceptionV3':
+		from keras.applications.inception_v3 import preprocess_input
+	elif modelName == 'Xception':
+		from keras.applications.xception import preprocess_input
+	else:
+		raise ValueError
+		
 	imgData = preprocess_input(imgData)
+	print('Input image shape:', imgData.shape)
 	return imgData
-	
+
 def _deprocessImg(imgData):
 	# an interval of [0, 255] is specified, values smaller than 0 become 0, 
 	# and values larger than 255 become 255.
@@ -60,7 +83,7 @@ def showPredict(orgImg, predicted):
 	prop = [val[2] for val in predicted[0]]
 	
 	f, (ax1, ax2) = plt.subplots(2)
-	ax2.set_title('Resize to 224 x 224')	
+	ax1.set_title('Resize the image: %s' % str(np.shape(orgImg)) )	
 	ax1.imshow(orgImg)
 	ax1.set_axis_off()
 	
@@ -87,13 +110,14 @@ def showPredict(orgImg, predicted):
 	plt.gcf().canvas.set_window_title('Image classification')
 	plt.show()
 
-def predict(model, imgData):
+def getPreds_top5(model, imgData):
 	preds = model.predict(imgData)
 	preds_top5 = decode_predictions(preds, top=5)
 	print('Predicted:', preds_top5)
 	return preds_top5
 
-def visualizeVGG_block1_pool(base_model, imgData):
+def visualizeModel(base_model, imgData, block_name):
+	# Never been tested for ResNet50 InceptionV3 and Xception model
 	"""
 	Structure: VGG16 model
 	# Block 1:  			'block1_conv1', 'block1_conv2', 'block1_pool'
@@ -112,16 +136,14 @@ def visualizeVGG_block1_pool(base_model, imgData):
 	# Classification block: 'fc1', 'fc2', 'predictions'
 	"""
 	
-	feature_model = Model(input=base_model.input, output=base_model.get_layer('block1_pool').output)
+	feature_model = Model(input=base_model.input, output=base_model.get_layer(block_name).output)
 	features = feature_model.predict(imgData)
 	# [1, heigh, width, filter]	
 	features = features[0] 
 	
 	_, _, totalFilter = features.shape
-	assert features.shape == (112, 112, 64)
 	features = features.transpose(2,0,1)
-	assert features.shape == (64, 112, 112)
-	
+		
 	f, (axList) = plt.subplots(2,4)
 	axList = np.reshape(axList, (-1,))
 	randIndex = np.random.randint(0, totalFilter, size=8)
@@ -138,9 +160,10 @@ def visualizeVGG_block1_pool(base_model, imgData):
 	plt.show()
 	
 if __name__ == '__main__':
-	print('\n+++++Example: Image classification with VGG16 model++++++')
+	print('\n+++++Example 1: Image classification with VGG16 model++++++')
+	# The default input size for VGG16 model is 224x224.
 	img = image.load_img('monkey.jpg', target_size=(224, 224))
-	imgData = prepareImage(img)
+	imgData = prepareImage(img, 'VGG16')
 	
 	"""
 	TH_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels.h5'
@@ -148,43 +171,68 @@ if __name__ == '__main__':
 	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_th_dim_ordering_th_kernels_notop.h5'
 	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
 	"""
-	model = VGG16(weights='imagenet')
-	preds_top5 = predict(model, imgData)	
+	model = VGG16(include_top=True, weights='imagenet')
+	preds_top5 = getPreds_top5(model, imgData)	
 	showPredict(img, preds_top5)
 	
 	print('\nWaiting visualize....')
-	visualizeVGG_block1_pool(model, imgData)
+	visualizeModel(model, imgData, block_name='block1_pool')
 	
-	print('\n+++++Example: Image classification with VGG19 model++++++')
+	print('\n+++++Example 2: Image classification with VGG19 model++++++')
+	# The default input size for VGG19 model is 224x224.
 	img = image.load_img('tiger.jpg', target_size=(224, 224))
-	imgData = prepareImage(img)
+	imgData = prepareImage(img, 'VGG19')
 	"""
 	TH_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_th_dim_ordering_th_kernels.h5'
 	TF_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels.h5'
 	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_th_dim_ordering_th_kernels_notop.h5'
 	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg19_weights_tf_dim_ordering_tf_kernels_notop.h5'
 	"""
-	model = VGG19(weights='imagenet')
-	preds_top5 = predict(model, imgData)
+	model = VGG19(include_top=True, weights='imagenet')
+	preds_top5 = getPreds_top5(model, imgData)
 	showPredict(img, preds_top5)
 	
 	print('\nWaiting visualize....')
-	visualizeVGG_block1_pool(model, imgData)
+	visualizeModel(model, imgData, block_name='block1_pool')
 	
-	print('\n+++++Example: Image classification with ResNet50 model++++++')
+	print('\n+++++Example 3: Image classification with ResNet50 model++++++')
+	# The default input size for ResNet50 model is 224x224.
 	img = image.load_img('bicycle.jpg', target_size=(224, 224))
-	imgData = prepareImage(img)
+	imgData = prepareImage(img, 'ResNet50')
 	"""
 	TH_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_th_dim_ordering_th_kernels.h5'
 	TF_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels.h5'
 	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_th_dim_ordering_th_kernels_notop.h5'
 	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'	
 	"""	
-	model = ResNet50(weights='imagenet')
-	preds_top5 = predict(model, imgData)
+	model = ResNet50(include_top=True, weights='imagenet')
+	preds_top5 = getPreds_top5(model, imgData)
 	showPredict(img, preds_top5)
-
 	
-
-
-
+	print('\n+++++Example 4: Image classification with InceptionV3 model++++++')
+	#The default input size for InceptionV3 model is 299x299.
+	img = image.load_img('bird.jpg', target_size=(299, 299))
+	imgData = prepareImage(img, 'InceptionV3')	
+	"""
+	TH_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/inception_v3_weights_th_dim_ordering_th_kernels.h5'
+	TF_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/inception_v3_weights_tf_dim_ordering_tf_kernels.h5'
+	TH_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/inception_v3_weights_th_dim_ordering_th_kernels_notop.h5'
+	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.2/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5'
+	"""
+	model = InceptionV3(include_top=True, weights='imagenet')
+	preds_top5 = getPreds_top5(model, imgData)
+	showPredict(img, preds_top5)
+	
+	print('\n+++++Example 5: Image classification with Xception model++++++')
+	# Xception model is only available for the TensorFlow backend, 
+	# The default input size for Xception model is 299x299.
+	img = image.load_img('rabbit.jpg', target_size=(299, 299))
+	imgData = prepareImage(img, 'Xception')	
+	"""
+	TF_WEIGHTS_PATH = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.4/xception_weights_tf_dim_ordering_tf_kernels.h5'
+	TF_WEIGHTS_PATH_NO_TOP = 'https://github.com/fchollet/deep-learning-models/releases/download/v0.4/xception_weights_tf_dim_ordering_tf_kernels_notop.h5'
+	"""
+	model = Xception(include_top=True, weights='imagenet')
+	preds_top5 = getPreds_top5(model, imgData)
+	showPredict(img, preds_top5)
+	
