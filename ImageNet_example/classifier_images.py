@@ -28,8 +28,8 @@ https://arxiv.org/abs/1512.00567 ( Inception v3 model )
 """
 
 # imagenet class index: 'https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json'
-# code example from: https://keras.io/applications
-# source code of module: https://github.com/fchollet/deep-learning-models
+# credit library: https://keras.io/applications
+# source code of library: https://github.com/fchollet/deep-learning-models
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
 from keras.applications.resnet50 import ResNet50
@@ -158,7 +158,8 @@ def visualizeModel(base_model, imgData, block_name):
 	
 	plt.gcf().canvas.set_window_title('Visualize VGG model')	
 	plt.show()
-	
+
+# test here
 if __name__ == '__main__':
 	print('\n+++++Example 1: Image classification with VGG16 model++++++')
 	# The default input size for VGG16 model is 224x224.
