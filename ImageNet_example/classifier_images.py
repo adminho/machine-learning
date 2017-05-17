@@ -136,7 +136,7 @@ def visualizeModel(base_model, imgData, block_name):
 	# Classification block: 'fc1', 'fc2', 'predictions'
 	"""
 	
-	feature_model = Model(input=base_model.input, output=base_model.get_layer(block_name).output)
+	feature_model = Model(inputs=base_model.input, outputs=base_model.get_layer(block_name).output)
 	features = feature_model.predict(imgData)
 	# [1, heigh, width, filter]	
 	features = features[0] 
