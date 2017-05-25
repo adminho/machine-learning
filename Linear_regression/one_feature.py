@@ -1,4 +1,3 @@
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
@@ -104,7 +103,7 @@ def train_method5(X, Y):
 	#Show model
 	show_result(w0, w1, mse)
 
-# method 6: use Skera library
+# method 6: use Keras library
 # doesn't work and slowly
 def train_method6(X, Y):
 	model = Sequential()	
@@ -221,18 +220,14 @@ def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	return train_X, train_Y
 	
 #######################	
-## for test only	
-if __name__ == '__main__':
-	# เดี่ยวไปหา dataset ชุดใหม่
-	train_X, train_Y = prepare_dataset('dataset.csv' 
-							,x_column_name='Input', y_column_name='Output')
-	
+## for test only
+def run_testsuite(train_X, train_Y):		
 	print("\nSize of training set X: {}".format(train_X.shape))
 	print("Size of training set Y: {}".format(train_Y.shape))
 
 	print("\n+++++Show method 1++++")
 	train_method1(train_X, train_Y)
-
+	
 	print("\n+++++Show method 2++++")	
 	train_method2(train_X, train_Y)
 	
@@ -248,9 +243,23 @@ if __name__ == '__main__':
 	print("\n+++++Show method 6++++")
 	#train_method6(train_X, train_Y)
 	
-		# uncomment this if you want to show contour of error graph
+	# uncomment this if you want to show contour of error graph
 	#plot_surface_error(train_X, train_Y)
 	print("\n+++++Show method 7++++")
 	FX_List = train_method7(train_X, train_Y)
 	am.visualize(train_X, train_Y, FX_List)	
+		
+if __name__ == '__main__':	
+	train_X, train_Y = prepare_dataset(csv_dataset='food_truck.csv'
+								,x_column_name='population'
+								,y_column_name='profit')
+	run_testsuite(train_X, train_Y)	
+ 
+	train_X, train_Y = prepare_dataset(csv_dataset='example_price_house_40_headcolumn.csv'
+								,x_column_name='area'
+								,y_column_name='price')
+	scaler = StandardScaler().fit(train_X)
+	train_X_new = scaler.transform(train_X)	 # Normalized
+
+	run_testsuite(train_X_new, train_Y)	
 	
