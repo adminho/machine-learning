@@ -9,7 +9,7 @@ import numpy as np
 import random
 
 source_code = open('index.php', encoding="utf8").read().lower()
-# I'm split to array easily (In practise, don't it)
+# I'm split to an array easily (In practise, don't it)
 source_code = source_code.split() # default is space to split 
 print('source code exampe:')
 print(source_code)
