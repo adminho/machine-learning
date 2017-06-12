@@ -20,8 +20,15 @@ And you can also install Keras from PyPI with the command
 ## My examples (not yet) 
 
 * [Activation function](Activation_function)
+* [Art example](Art example)
+* [Autoencoder](Autoencoder)
+* [Convolutional neural network](Convolutional_neural_network)
+* [ImageNet example](ImageNet_example)
+* [Linear regression](Linear_regression)
+* [Logistic regression](Logistic_regression)
+* [MNIST example](MNIST_example)
+* [Neural network](Neural_network)
 * [Prepare datasets](Prepare_datasets)
 * [Principal Component Analysis](Principal_Component_Analysis)
-* [Linear regression](Linear_regression)
-* [Neural network](Neural_network)
-* [Convolutional neural network](Convolutional_neural_network)
+* [Recurrent neural network](Recurrent_neural_network)
+
