@@ -20,7 +20,7 @@ And you can also install Keras from PyPI with the command
 ## My examples (not yet) 
 
 * [Activation function](Activation_function)
-* [Art example](Art example)
+* [Art example](Art_example)
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [ImageNet example](ImageNet_example)
