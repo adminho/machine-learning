@@ -47,7 +47,6 @@ from keras.datasets import imdb
                                                       start_char=1,
                                                       oov_char=2,
                                                       index_from=3)
-
 """
 Returns:
 2 tuples:
@@ -82,7 +81,6 @@ from keras.datasets import reuters
                                                          start_char=1,
                                                          oov_char=2,
                                                          index_from=3)
-
 """
 The specifications are the same as that of the IMDB dataset, with the addition of:
 
