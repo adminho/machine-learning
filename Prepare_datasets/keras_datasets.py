@@ -1,6 +1,28 @@
-# Copy from: https://keras.io/datasets/ (14/06/2017)
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
-## CIFAR10 small image classification
+def show_examplePic(img, label, title , label_range=range(0,10)):	
+	fig = plt.figure()	
+	plt.gcf().canvas.set_window_title(title)	
+	axList = []
+	for position in range (1,11):
+		ax = fig.add_subplot(2,5,position)
+		ax.set_axis_off()
+		axList.append(ax)	
+		
+	for ax_index, num in enumerate(label_range):	
+		ax = axList[ax_index]						
+		ax.set_title("Label: %d" % num)
+		index_list = np.where(label == num)[0]
+		selected_imgList = img[index_list]
+		random_index = np.random.randint(0, selected_imgList.shape[0])
+		ax.imshow(selected_imgList[random_index])			
+	plt.show()
+
+# Copy codes from: https://keras.io/datasets/ (14/06/2017)
+
+##### CIFAR10 small image classification ##### 
 # Dataset of 50,000 32x32 color training images, labeled over 10 categories, and 10,000 test images.
 from keras.datasets import cifar10
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -11,12 +33,13 @@ x_train, x_test: uint8 array of RGB image data with shape (num_samples, 3, 32, 3
 y_train, y_test: uint8 array of category labels (integers in range 0-9) with shape (num_samples,).
 """
 print("++++++ Dataset: CIFAR10 small image ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
+show_examplePic(x_train, y_train, title="Dataset: CIFAR10 small image")
 print()
 
 
-## CIFAR100 small image classification
+##### CIFAR100 small image classification ##### 
 # Dataset of 50,000 32x32 color training images, labeled over 100 categories, and 10,000 test images.
 from keras.datasets import cifar100
 (x_train, y_train), (x_test, y_test) = cifar100.load_data(label_mode='fine')
@@ -30,12 +53,14 @@ Arguments:
 label_mode: "fine" or "coarse".
 """
 print("++++++ Dataset: CIFAR100 small image ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
+random_label = np.random.randint(0, 100,size=10)
+show_examplePic(x_train, y_train, title="Dataset: CIFAR100 small image", label_range=random_label)
 print()
 
 
-## IMDB Movie reviews sentiment classification
+##### IMDB Movie reviews sentiment classification ##### 
 # Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations such as: "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
 # As a convention, "0" does not stand for a specific word, but instead is used to encode any unknown word.
 from keras.datasets import imdb
@@ -64,12 +89,12 @@ oov_char: int. words that were cut out because of the num_words or skip_top limi
 index_from: int. Index actual words with this index and higher.
 """
 print("++++++ Dataset: IMDB Movie reviews sentiment ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
 print()
 
 
-## Reuters newswire topics classification
+##### Reuters newswire topics classification ##### 
 # Dataset of 11,228 newswires from Reuters, labeled over 46 topics. As with the IMDB dataset, each wire is encoded as a sequence of word indexes (same conventions).
 from keras.datasets import reuters
 (x_train, y_train), (x_test, y_test) = reuters.load_data(path="reuters.npz",
@@ -96,12 +121,12 @@ Arguments:
 path: if you do not have the index file locally (at '~/.keras/datasets/' + path), it will be downloaded to this location.
 """
 print("++++++ Dataset: Reuters newswire topics ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
 print()
 
 
-## MNIST database of handwritten digits
+##### MNIST database of handwritten digits ##### 
 # Dataset of 60,000 28x28 grayscale images of the 10 digits, along with a test set of 10,000 images.
 from keras.datasets import mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -115,12 +140,13 @@ Arguments:
 path: if you do not have the index file locally (at '~/.keras/datasets/' + path), it will be downloaded to this location.
 """
 print("++++++ Dataset: MNIST database of handwritten digits ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
+show_examplePic(x_train, y_train, title="Dataset: MNIST database of handwritten digits")
 print()
 
 
-## Boston housing price regression dataset
+##### Boston housing price regression dataset ##### 
 # Dataset taken from the StatLib library which is maintained at Carnegie Mellon University.
 # Samples contain 13 attributes of houses at different locations around the Boston suburbs in the late 1970s. Targets are the median values of the houses at a location (in k$).
 from keras.datasets import boston_housing
@@ -133,6 +159,10 @@ test_split: fraction of the data to reserve as test set.
 Returns: Tuple of Numpy arrays: (x_train, y_train), (x_test, y_test).
 """
 print("++++++ Dataset: Boston housing price dataset ++++++")
-print("Shape (x_tranin, y_train) : ", x_train.shape, y_train.shape)
+print("Shape (x_train, y_train) : ", x_train.shape, y_train.shape)
 print("Shape (x_test, y_test) : ", x_test.shape, y_test.shape)
 print()
+column_head = ["CRIM", "ZN", "INDUS", "CHAS", "NOX", "RM", "AGE" , "DIS", "RAD", "TAX", "PTRATIO", "B", "LSTAT"]
+df =pd.DataFrame(columns=column_head, data=x_train)
+df["MEDV"] = y_train
+print(df.head())
