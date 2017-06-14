@@ -2,7 +2,6 @@ import numpy as np
 import scipy.io
 import pickle
 
- 
 VGG_PATH = "D:\MyProject\machine-learning\Convolutional_neural_network\imagenet-vgg-verydeep-19"
 # Use VGG-Network: https://arxiv.org/abs/1409.1556 (paper)
 # http://www.vlfeat.org/matconvnet/pretrained/ (.mat)
@@ -35,7 +34,7 @@ for index, layer in enumerate(dataLayer):
 		#	continue		
 		W[name] = weights
 		B[name] = bias				
-		
+
 #print all layer (43) in VGG 19 model
 """
 layer name		Size's weights			Size's bias 
