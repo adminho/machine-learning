@@ -48,7 +48,7 @@ def build_model_example2(max_seq_len, encoding_len):
 	model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 	return model
 	
-def test_LSTM(content, tokens, max_seq_len, build_model, epochs=10):	
+def test_LSTM(content, tokens, max_seq_len, build_model, epochs=10, step=1):
 	encoding_len = len(tokens)	
 	print("tokens:\n", tokens)
 	print("total tokens: ", encoding_len)
@@ -62,7 +62,7 @@ def test_LSTM(content, tokens, max_seq_len, build_model, epochs=10):
 	# cut the content in semi-redundant sequences of max_seq_len characters	
 	batch_seq_tokens = []
 	next_tokens = []
-	for i in range(0, len(content) - max_seq_len):
+	for i in range(0, len(content) - max_seq_len, step):
 		batch_seq_tokens.append(content[i: i + max_seq_len])
 		next_tokens.append(content[i + max_seq_len])
 	
