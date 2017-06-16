@@ -145,8 +145,7 @@ if __name__ == "__main__":
 	chars = sorted(list(set(content)))
 	max_seq_len=10
 	
-	generate = test_LSTM(list(content), chars, max_seq_len , build_model_example2, epochs=20)
-	print(len(generate))
+	generate = test_LSTM(list(content), chars, max_seq_len , build_model_example2, epochs=20)	
 	text = ''.join(generate)
 	print('Generate text:\n', text)
 	file = open("testfile.txt","w") 
