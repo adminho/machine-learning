@@ -77,8 +77,8 @@ def train_method4(X, Y):
 def train_method5(X, Y):
 	# Try to find values for W_1 and W_0 that compute FX = W_1 * X + W_0
 	W_1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-	W_0 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-	FX = W_1*X + W_0
+	B = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
+	FX = W_1*X + B
 
 	# Minimize the mean squared errors.
 	loss = tf.reduce_mean(tf.square(FX - Y))
@@ -98,7 +98,7 @@ def train_method5(X, Y):
 	# Try fit the line
 	w0, w1, mse = (0, 0, 0)
 	for step in range(3000):
-		_, w0, w1, mse = sess.run([train, W_0, W_1, loss])		
+		_, w0, w1, mse = sess.run([train, B, W_1, loss])		
 			
 	#Show model
 	show_result(w0, w1, mse)
@@ -121,7 +121,7 @@ def train_method6(X, Y):
 	mse = mean_squared_error(Y, FX )
 	show_result(w0, w1, mse)
 	
-# Method 6: use gradient descent algorithm (hard code manual)
+# Method 7: use gradient descent algorithm (hard code manual)
 def isConvergence(value):				# check condition of convergence
 	return np.absolute(value) <= 0.01  	# set threshold
 
@@ -151,7 +151,7 @@ def isNan(value):
 	if np.sum( np.isnan(value)) > 0 :
 		return True
 
-# Method 4: 	
+# Method 7: 	
 def train_method7(data_X, Y):
 	X = add_one(data_X)	
 	learningRate = 0.0001				# initial learning rate
@@ -215,8 +215,8 @@ def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	print("\nTail of 5 row in Dataset")
 	print(df.tail())
 	
-	train_X = df[x_column_name].reshape(-1,1)		# X (Input) training set
-	train_Y = df[y_column_name].reshape(-1,1)			# Y (Output) training set	
+	train_X = df[x_column_name].values.reshape(-1,1)		# X (Input) training set
+	train_Y = df[y_column_name].values.reshape(-1,1)			# Y (Output) training set	
 	return train_X, train_Y
 	
 #######################	
