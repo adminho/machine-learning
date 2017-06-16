@@ -9,22 +9,24 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
+from sklearn import preprocessing
+from sklearn.datasets import load_boston
 
 from scipy.stats import linregress
 import tensorflow as tf
 
 from keras.layers.core import Dense
-from keras.optimizers import Adam
+from keras.optimizers import SGD
 from keras.models import Sequential
 
 def show_result(w0, w_remain, mse):
-	print('Coefficients are w0 = %s and other w = %s' % (w0, w_remain))
+	print('Bias  = %s , Coefficients = %s , MSE = %s' % (w0, w_remain, mse))
 
 def show_graph(X, Y, predict, title, xlabel, ylabel):
 	plt.scatter(X, Y, color='b', label='data')
 	plt.plot(X, predict, color='r', label='predict')
 	plt.title('Thailand population')
-	plt.xlabel('Years')
+	plt.xlabel('Years')	
 	plt.ylabel('Population')
 	plt.show()	
 
@@ -61,43 +63,22 @@ def predict_example2(X, Y):
 	show_result(regr.intercept_, regr.coef_, mse)
 	return predict
 	
-# Method 3: use numpy module (polyfit)
-def train_method3(X, Y):
-	X = X.reshape(-1)
-	Y = Y.reshape(-1)
-	w1, w0 = np.polyfit(X, Y, 1)
-	#Finish training
-	
-	#Show model
-	# use  broadcasting rules in numpy to add matrix
-	FX = w1*X + [w0]					# Linear line for prediction
-	mse = mean_squared_error(Y, FX)
-	show_result(w0, w1, mse)
-
-# method 4 : use scipy module(linregress)
-def train_method4(X, Y):
-	X = X.reshape(1,-1)
-	Y = Y.reshape(1,-1)
-	slope, intercept, r, p, stderr = linregress(X, Y)
-	
-	#Show model
-	FX = intercept + slope*X				# Linear line for prediction
-	mse = mean_squared_error(Y, FX)
-	show_result(intercept, slope, mse)
 	
 # method 5: use tensorflow library
-def train_method5(X, Y):
-	# Try to find values for W_1 and W_0 that compute FX = W_1 * X + W_0
-	W_1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-	W_0 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
-	FX = W_1*X + W_0
-
+def predict_example3(X, Y):
+	# Try to find values for weights and bias that compute FX = W * X + B	
+	num_feature = X.shape[1]
+	W = tf.Variable(tf.truncated_normal((num_feature, 1)))
+	B = tf.Variable(tf.truncated_normal((1, 1)))	
+	X = X.astype(np.float32)	
+	FX =tf.matmul(X, W) + B	
+	
 	# Minimize the mean squared errors.
 	loss = tf.reduce_mean(tf.square(FX - Y))
 	
 	# Use gradient descent algorithm for optimizing
 	learningRate = 0.01
-	optimizer = tf.train.GradientDescentOptimizer(learningRate)
+	optimizer = tf.train.GradientDescentOptimizer(learningRate)	
 	train = optimizer.minimize(loss)
 
 	# Before starting, initialize the variables.  We will 'run' this first.
@@ -108,32 +89,31 @@ def train_method5(X, Y):
 	sess.run(init)
 
 	# Try fit the line
-	w0, w1, mse = (0, 0, 0)
+	b, w, mse = (None, None, None)
 	for step in range(3000):
-		_, w0, w1, mse = sess.run([train, W_0, W_1, loss])		
-			
+		_, b, w, mse, fx = sess.run([train, B, W, loss, FX])				
+		
 	#Show model
-	show_result(w0, w1, mse)
+	show_result(b, w ,mse )
 
 # method 6: use Keras library
-# doesn't work and slowly
-def train_method6(X, Y):
-	model = Sequential()	
-	model.add(Dense(1, input_dim=1, init='normal'))
-	model.compile(loss='mean_squared_error', optimizer=Adam(lr=3.5, decay=1.9))
+def predict_example4(X, Y):
+	model = Sequential()
+	num_feature = X.shape[1]	
+	model.add(Dense(1, input_dim=num_feature, kernel_initializer='normal'))
+	model.compile(loss='mean_squared_error', optimizer=SGD(lr=0.01))
 	weights = model.layers[0].get_weights()	
-	model.fit(X, Y, nb_epoch=25000, verbose=0)
+	model.fit(X, Y, epochs=3000, verbose=0)
 	
 	weights = model.layers[0].get_weights()
-	w1 = weights[0][0][0]
-	w0 = weights[1][0]
+	w = weights[0]
+	b = weights[1][0]
 	
 	#Show model
-	FX = w0 + w1*X				# Linear line for prediction
-	mse = mean_squared_error(Y, FX )
-	show_result(w0, w1, mse)
+	FX = model.predict(X)				# Linear line for prediction
+	mse = mean_squared_error(Y, FX)
+	show_result(b, w, mse)
 
-	
 def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	# read csv file with pandas module	
 	df = pd.read_csv(join(base_dir, csv_dataset))
@@ -143,20 +123,19 @@ def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	print("\nTail of 5 row in Dataset")
 	print(df.tail())
 	
-	train_X = df[x_column_name].reshape(-1,1)		# X (Input) training set
-	train_Y = df[y_column_name].reshape(-1,1)		# Y (Output) training set	
+	train_X = df[x_column_name].values.reshape(-1,1)		# X (Input) training set
+	train_Y = df[y_column_name].values.reshape(-1,1)		# Y (Output) training set	
 	return train_X, train_Y
 
 #######################	
 ## for test only
-def test_one_input(X, train_Y ,title, xlabel, ylabel):
-	
-	# normalize easily
-	FRIST_X = X[0:1]
-	FRIST_Y = train_Y[0:1]
-	X = X/FRIST_X 					# start at 1 value (divide with frist year)
-	train_Y = train_Y/FRIST_Y 		# start value (divide with population of first year)
-	#print(X[0:5])
+def test_one_input(X, train_Y ,title, xlabel, ylabel):	
+	# Preprocessing data
+	scaler_X = preprocessing.StandardScaler().fit(X)
+	scaler_Y = preprocessing.StandardScaler().fit(train_Y)
+	X__ = scaler_X.transform(X)
+	train_Y = scaler_Y.transform(train_Y)	
+	#print(X__[0:5])
 	#print(train_Y[0:5])
 	
 	# Generate polynomial features (2 degree).
@@ -164,7 +143,7 @@ def test_one_input(X, train_Y ,title, xlabel, ylabel):
 	poly = PolynomialFeatures(degree)	
 	# output for degree 2 = [1, x, x^2]
 	# output for degree 3 = [1, x, x^2, x^3]
-	train_X = poly.fit_transform(X)
+	train_X = poly.fit_transform(X__)
 	#print(train_X[0:5])
 	
 	# remove 1 value from array (index 0)
@@ -174,31 +153,59 @@ def test_one_input(X, train_Y ,title, xlabel, ylabel):
 	assert train_X.shape == (len(train_X), degree)  # (xxx, degree)
 	assert train_Y.shape == (len(train_Y), 1) 		# (xxx, 1)
 		
-	print("\n+++++Show example 1++++")
+	print("\n+++++ Example 1++++")
 	predict = predict_example1(train_X, train_Y)
-	show_graph(X*FRIST_X, train_Y*FRIST_Y, predict*FRIST_Y ,title, xlabel, ylabel) # restore input data before showing graph
-	
+	show_graph(X, 
+			scaler_Y.inverse_transform(train_Y), 
+			scaler_Y.inverse_transform(predict) 
+			,title, xlabel, ylabel) 	
 
-	print("\n+++++Show example 2++++")	
+	print("\n+++++ Example 2++++")	
 	predict = predict_example2(train_X, train_Y)
-	#show_graph(X*FRIST_X, train_Y*FRIST_Y, predict*FRIST_Y ,title, xlabel, ylabel) # restore input data before showing graph
+		
+	print("\n+++++ Example 3++++")
+	predict = predict_example3(train_X, train_Y)
 	
-	print("\n+++++Show method 3++++")
-	#train_method3(train_X, train_Y)
+	print("\n+++++ Example 4++++")
+	predict_example4(train_X, train_Y)		
+
+def test_many_input(train_X, train_Y):	
+	scaler_X = preprocessing.StandardScaler().fit(train_X)
+	scaler_Y = preprocessing.StandardScaler().fit(train_Y)
+	train_X = scaler_X.transform(train_X)
+	train_Y = scaler_Y.transform(train_Y)
 	
-	print("\n+++++Show method 4++++")
-	#train_method4(train_X, train_Y)		
-
-	print("\n+++++Show method 5++++")
-	#train_method5(train_X, train_Y)
-
-if __name__ == '__main__':	
+	print("\n+++++ Example 1++++")
+	predict = predict_example1(train_X, train_Y)
+	
+	print("\n+++++ Example 2++++")	
+	predict = predict_example2(train_X, train_Y)
+	
+	print("\n+++++ Example 3++++")	
+	predict = predict_example3(train_X, train_Y)
+	
+	print("\n+++++ Example 4++++")	
+	predict = predict_example4(train_X, train_Y)
+	
+if __name__ == '__main__':
+	print("------- One input but many features (polynomial features) --------")
+	print("++++++++ Example: Thailand population history ++++++++")
 	X, train_Y = prepare_dataset('Thailand_population_history.csv'
 									,x_column_name='Year'
 									,y_column_name='Population')
 	test_one_input(X, train_Y, title='Thailand population', xlabel='Years', ylabel='Population')
 	
+	print("\n+++++++++++++++++++++++++++++++++++++++++++++")	
+	print("++++++++ Example: Average income per month per household (B.E 41-58) ++++++++")
 	X, train_Y = prepare_dataset('average_income_per_month_per_household_41-58.csv'
 									,x_column_name='Years'
 									,y_column_name='Average Monthly Income Per Household')
 	test_one_input(X, train_Y, title='Thailand monthly income', xlabel='Years', ylabel='Average Monthly Income Per Household')
+
+	print("\n++++++++++++ Many input ++++++++++++")
+	print("++++++++++++ Boston datasets +++++++++")
+	boston = load_boston()
+	train_X, train_Y = boston.data, boston.target	
+	train_Y = np.reshape(train_Y, (len(train_Y),1)) # shape: len(train_Y) x 1	
+	test_many_input(train_X, train_Y)
+	
