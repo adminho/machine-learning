@@ -110,17 +110,19 @@ for iteration in range(1, 15):
               epochs=10, verbose=0) # verbose = 1, 2 print a progress status 
 
 # for begining			  
-generate ="<html> <head>"
-seq_tokens = generate.split()
+begin ="<html> <head>"
+seq_tokens = begin.split()
 print("Tokens for begining:")
 print(seq_tokens) # ['<html>', '<head>']
 
+generate = []
 for i in range(0, len(source_code) - MAX_SEQ_LEN):    
 	sequences_encode = encode_X(seq_tokens)	
 	preds = model.predict(sequences_encode, verbose=0)[0]
 	next_index = get_probIndex(preds)
 	next_char = indices_token[next_index]
-	generate += ' ' + next_char
+	generate = generate.append(next_char)
 	seq_tokens = np.append(seq_tokens[1:],next_char)         
 
+text = ' '.join(generate)
 print('Generate text:\n', generate)
