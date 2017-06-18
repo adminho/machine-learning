@@ -38,33 +38,33 @@ def add_one(data_X):
 	X = np.matrix(X)
 	return X	
 	
-# Method 1: solve eqation
+# example 1: solve eqation
 def predict_example1(data_X, Y):
 	X = add_one(data_X)	
 	C = (X.T * X).I * (X.T * Y) 			# Answer of coefficients 	
 	#Finish training
 	
 	#Show model
-	predict = X * C							# nonlinear line for prediction
+	predict = X * C							# prediction
 	mse = mean_squared_error(Y, predict )
 	b, w = C[0], C[1:]
 	show_result(b, w, mse)	
 	return predict
 
-# Method 2: use sklearn library
+# example 2: use sklearn library
 def predict_example2(X, Y):
 	regr = linear_model.LinearRegression()
 	regr.fit(X, Y)
 	#Finish training
 	
 	#Show model
-	predict = regr.predict(X)				# nonlinear line for prediction
+	predict = regr.predict(X)				# prediction
 	mse = mean_squared_error(Y, predict)
 	show_result(regr.intercept_, regr.coef_, mse)
 	return predict
 	
 	
-# method 5: use tensorflow library
+# example 3: use tensorflow library
 def predict_example3(X, Y):
 	# Try to find values for weights and bias that compute FX = W * X + B	
 	num_feature = X.shape[1]
@@ -81,7 +81,7 @@ def predict_example3(X, Y):
 	optimizer = tf.train.GradientDescentOptimizer(learningRate)	
 	train = optimizer.minimize(loss)
 
-	# Before starting, initialize the variables.  We will 'run' this first.
+	# Before starting, initialize the variables. We will 'run' this first.
 	init = tf.global_variables_initializer()
 
 	# Launch the graph.
@@ -97,7 +97,7 @@ def predict_example3(X, Y):
 	show_result(b, w ,mse )
 	return predict
 
-# method 6: use Keras library
+# example 4: use Keras library
 def predict_example4(X, Y):
 	model = Sequential()
 	num_feature = X.shape[1]	
@@ -111,11 +111,35 @@ def predict_example4(X, Y):
 	b = weights[1][0]
 	
 	#Show model
-	predict = model.predict(X)				# Linear line for prediction
+	predict = model.predict(X)				# prediction
 	mse = mean_squared_error(Y, predict)
 	show_result(b, w, mse)
 	return predict
 
+# For one input	
+# example 6: use numpy module (polyfit)
+def predict_example6(X, Y):
+	X = X.reshape(-1)
+	Y = Y.reshape(-1)
+	w1, w0 = np.polyfit(X, Y, 1)
+	#Finish training
+	
+	#Show model
+	# use  broadcasting rules in numpy to add matrix
+	predict = w1*X + [w0]					# prediction
+	mse = mean_squared_error(Y, predict)
+	show_result(w0, w1, mse)
+
+# example 7 : use scipy module(linregress)
+def predict_example7(X, Y):
+	X = X.reshape(1,-1)
+	Y = Y.reshape(1,-1)
+	slope, intercept, r, p, stderr = linregress(X, Y)		
+	#Show model
+	predict = intercept + slope*X				# prediction	
+	mse = mean_squared_error(Y, predict)
+	show_result(intercept, slope, mse)
+	
 def prepare_dataset(csv_dataset,x_column_name, y_column_name, base_dir  = "" ):
 	# read csv file with pandas module	
 	df = pd.read_csv(join(base_dir, csv_dataset))
@@ -157,6 +181,12 @@ def test_one_input(X, train_Y ,title, xlabel, ylabel):
 	
 	print("\n+++++ Example 4++++")
 	predict = predict_example4(train_X, train_Y)		
+	
+	print("\n+++++ Example 6++++")
+	predict = predict_example6(train_X, train_Y)		
+	
+	print("\n+++++ Example 7++++")
+	predict = predict_example7(train_X, train_Y)		
 	
 def test_polynomial(X, train_Y ,title, xlabel, ylabel):	
 	# Preprocessing data
