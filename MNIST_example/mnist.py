@@ -18,16 +18,16 @@ import pandas as pd
 
 from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
+from sklearn import preprocessing
+
 from matplotlib import pyplot as plt
 from keras.layers.core import Dense, Activation, Dropout, Flatten
 from keras.layers.recurrent import LSTM
 from keras.models import Sequential
 from keras.optimizers import Adam
-from keras.regularizers import l2, activity_l2
+from keras.regularizers import l2
 from keras import backend as K
 from keras.layers import Convolution2D, MaxPooling2D
-from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
 
 #np.random.seed(137)  # for reproducibility
 LABEL = np.arange(10) # [0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9]
@@ -156,7 +156,7 @@ def build_logistic_regression(features):
 # Example 4
 def build_neural_network(features):		
 	model = Sequential()
-	model.add(Dense(input_dim=features, output_dim=500))
+	model.add(Dense(input_dim=features, units=500))
 	# now model.output_shape == (None, 500)
 	# note: `None` is the batch dimension.
 	#
@@ -201,11 +201,13 @@ def build_cnn(image_shape):
 	# apply a 3x3 convolution with 80 output filters on a 8 x 8 image:
 	# Theano: image data size is chanel x row x colum (1 x 8 x 8)
 	# Tensorflow: image data size is row x colum x chanel (8 x 8 x 1)
-	model.add(Convolution2D(nb_filter=100, nb_row=3, nb_col=3,
-                        border_mode='same',
+	model.add(Convolution2D(filters=100, kernel_size=(3, 3), padding='same',
                         input_shape=image_shape))
 	# now model.output_shape == (None, 100, 8, 8)
 	# note: `None` is the batch dimension.
+	#
+	model.add(Convolution2D(filters=100, kernel_size=(3, 3), padding='same'))
+	# now model.output_shape(None, 100, 8, 8)
 	#
 	model.add(Activation('relu'))
 	model.add(MaxPooling2D(pool_size=(2,2)))
@@ -242,16 +244,13 @@ def build_lstm(image_shape):
 	sequence, features = image_shape
 	model = Sequential()
 	# apply a LSM with 8 sequences (row) and 8 features (column) on a 8 x 8 image:
-	model.add(LSTM(input_dim=features, 
-				input_length=sequence,
-				output_dim=150,
-				dropout_W=0.2, dropout_U=0.2,
-				return_sequences=True))
-	# now model.output_shape == (None, 100)
+	model.add(LSTM(	input_shape=(sequence,features),				
+					units=200, dropout=0.2, recurrent_dropout=0.2, 	return_sequences=True))
+	# now model.output_shape == (None, 200)
 	# note: `None` is the batch dimension.
 	#
-	model.add(LSTM(150, dropout_W=0.2, dropout_U=0.2, return_sequences=False))
-	# now model.output_shape == (None, 100)	
+	model.add(LSTM(200, dropout=0.2, recurrent_dropout=0.2, return_sequences=False))
+	# now model.output_shape == (None, 200)	
 	#
 	model.add(Dense(10))
 	#now model.output_shape == (None, 10)	
@@ -264,6 +263,9 @@ def build_lstm(image_shape):
 			  loss='categorical_crossentropy',
 			  metrics=['accuracy'])	
 	return model
+
+# Example Conditional Generative Adversarial Networks.
+# Waiting example
 
 if __name__ == "__main__":
 	Xtrain, Xtest, Ytrain, Ytest = getDatasets()
