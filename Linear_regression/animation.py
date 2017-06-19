@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 import numpy as np
 
-def visualize(datasetX, datasetY, fxList):
+def visualize(datasetX, datasetY, fxList ,title='Linear Regression'):
 	#fig, ax1 = plt.subplots()
 	fig = plt.figure()
 	
@@ -20,7 +20,7 @@ def visualize(datasetX, datasetY, fxList):
 		#ax1.set_xlim(min(datasetX), max(datasetX))
 		#ax1.set_ylim(min(datasetY), max(datasetY))
 		#plt.title('Linear Regression')
-		plt.title('Linear Regression')
+		plt.title(title)
 		plt.xlim(min(datasetX), max(datasetX))
 		plt.ylim(min(datasetY), max(datasetY))
 		return lnPlot, lnFx, lnFinal
