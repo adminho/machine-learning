@@ -57,26 +57,20 @@ def trainModel(model, Xtrain, epochs):
 def build_neural_network(input_len):		
 	model = Sequential()
 	model.add(Dense(input_dim=input_len, units=200 , activation='tanh'))
-	# now model.output_shape == (None, 500)
+	# now model.output_shape == (None, 200)
 	# note: `None` is the batch dimension.
 	#
 	model.add(Dense(200, activation='tanh'))
 	model.add(Dense(200, activation='tanh'))
-	model.add(Dense(200, activation='tanh'))
-	#now model.output_shape == (None, 50)	
+	model.add(Dense(200, activation='tanh'))	
 	#
 	model.add(Dense(30, activation='tanh'))
-	#now model.output_shape == (None, 50)	
+	#now model.output_shape == (None, 30)	
 	#
 	model.add(Dense(200, activation='tanh'))
 	model.add(Dense(200, activation='tanh'))
-	model.add(Dense(200, activation='tanh'))
-	#now model.output_shape == (None, 50)	
-	#
-	model.add(Dense(200, activation='tanh'))
-	#now model.output_shape == (None, 50)	
-	#
-	
+	model.add(Dense(200, activation='tanh'))	
+	#	
 	model.add(Dense(input_len))		
 	#print(model.summary())
 	
