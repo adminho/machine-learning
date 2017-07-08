@@ -84,10 +84,10 @@ def scan(image, filter, pad, to_do):
 def convolve(image, filter, pad):	
 	return scan(image, filter, pad, lambda crop, filter: np.sum(crop * filter))
 
-def max_polling(feature_map, size_hight, size_width):	
+def max_polling(feature_map, size_hight, size_width, pad="valid"):	
 	filter = np.zeros((size_hight, size_width))
 	# resue this function same as convolve
-	return scan(feature_map, filter, "valid", lambda crop, filter: np.max(crop))
+	return scan(feature_map, filter, pad, lambda crop, filter: np.max(crop))
 
 def relu(feature_map):
 	return np.maximum(feature_map, 0)
