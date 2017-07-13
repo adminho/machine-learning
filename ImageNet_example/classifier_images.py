@@ -44,8 +44,8 @@ def prepareImage(img, modelName):
 	# dim_ordering == 'tf': backend is TensorFlow, 	heigh x width x chanel
 	imgData = image.img_to_array(img)
 	
-	# image shape (th): [1, chanel, width, height]
-	# image shape (tf): [1, width, height, chanel]	
+	# image shape (th): [1, chanel, heigh, width]
+	# image shape (tf): [1, heigh, width, chanel]	
 	imgData = np.expand_dims(imgData, axis=0)
 	
 	# select function: preprocess_input for VGG16, VGG19, ResNet50 model (same functions)
