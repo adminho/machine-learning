@@ -8,23 +8,18 @@ Thank you
 * https://keras.io/
 """
 import math
-import scipy.io
-import shutil
-import os
 import time
 import datetime
 import numpy as np
-import pandas as pd
 
 from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
-from sklearn import preprocessing
+from sklearn.decomposition import PCA
 
 from matplotlib import pyplot as plt
 from keras.layers.core import Dense, Activation, Dropout, Flatten
-from keras.layers.recurrent import LSTM
+from keras.layers.recurrent import SimpleRNN, LSTM, GRU 
 from keras.models import Sequential
-from keras.optimizers import Adam
 from keras.regularizers import l2
 from keras import backend as K
 from keras.layers import Convolution2D, MaxPooling2D
@@ -55,31 +50,43 @@ def restoreImg(X):
 	_, D = X.shape	
 	W = int(math.sqrt(D))	
 	assert D == W * W
-	imageData = X.reshape((-1, W, W))
-	return imageData
+	X_image = X.reshape((-1, W, W))
+	return X_image
 	
-def plotExampleImg(title,imageData, Ydigits):	
-	fig = plt.figure()
+def plotExampleImg(title, X_image, Ydigits):
+	fig, axarr = plt.subplots(2, 5)
+	axList = np.reshape(axarr, (2*5,))
 	plt.gcf().canvas.set_window_title(title)
 	fig.set_facecolor('#FFFFFF')
-	axList = []
-	for position in range (1,11):
-		ax = fig.add_subplot(2,5,position)
-		ax.set_axis_off()
-		axList.append(ax)		
-		
 	for num in range(0,10):		
-		numberImg = imageData[np.where(Ydigits == num)[0]]
+		digitsImg = X_image[np.where(Ydigits == num)[0]]
 		#Return random integers from 0 (inclusive) to high (exclusive).
-		randomIndex = np.random.randint(0, numberImg.shape[0])		
-		#axList[num].imshow(numberImg[randomIndex], cmap=plt.cm.gray)
+		randomIndex = np.random.randint(0, digitsImg.shape[0])		
+		#axList[num].imshow(digitsImg[randomIndex], cmap=plt.cm.gray)	
 		plt.gray()
-		axList[num].imshow(numberImg[randomIndex])
+		axList[num].set_axis_off() # turn off axis x, y
+		axList[num].imshow(digitsImg[randomIndex])	
+	plt.tight_layout()
+	plt.show()
 	
-	plt.axis('off')
+def plotPCA2d(title, X_train, Ydigits):
+	estimator = PCA(n_components=2)
+	Xpca = estimator.fit_transform(X_train)	
+	colors = ['red', 'green','blue', 'black', 'purple', 'yellow', 'orange', 'gray', 'lime', 'cyan']
+	for number in range(0, 10): # 0 to 9
+		select_index = np.where(Ydigits == number)[0]
+		XY = Xpca[select_index]
+		# seperate to x, y component
+		x = XY[:, 0]	
+		y = XY[:, 1]		
+		plt.scatter(x, y, c=colors[number])	
+	plt.title(title)
+	plt.legend(np.arange(0,10), loc='upper right')
+	plt.xlabel('First Principal Component')
+	plt.ylabel('Second Principal Component')
 	plt.show()
 
-# Example 1	
+# Example 1: Nearest neighbors	
 def train_nearest_neighbors(Xtrain, Ytrain, Xtest, Yexpected):
 	numSample,_ = Xtest.shape
 	# compute distance with Manhattan formula	
@@ -97,7 +104,7 @@ def train_nearest_neighbors(Xtrain, Ytrain, Xtest, Yexpected):
 	print("Classification report")
 	print(metrics.classification_report(Yexpected, Ypredicted))
 	
-# Example 2
+# Example 2: Support vector
 def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
 	# a support vector classifier
 	classifier = svm.SVC(gamma=0.001)
@@ -114,9 +121,10 @@ def train_support_vector(Xtrain, Ytrain, Xtest, Yexpected):
 
 # For example 3, 4, 5, 6
 def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
-	global_start_time = time.time()		
+	global_start_time = time.time()
 	#automatic validation dataset 
-	model.fit(Xtrain, Ytrain, batch_size=500, nb_epoch=epochs, verbose=0, validation_data=(Xtest, Yexpected))			
+	model.fit(Xtrain, Ytrain, batch_size=500, nb_epoch=epochs, verbose=0, validation_data=(Xtest, Yexpected))		
+	#model.fit(Xtrain, Ytrain, batch_size=500, nb_epoch=epochs, verbose=0, validation_split=0.8)
 	sec = datetime.timedelta(seconds=int(time.time() - global_start_time))
 	print ('Training duration : ', str(sec))
 	
@@ -136,7 +144,7 @@ def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
 	print("Classification report")
 	print(metrics.classification_report(Yexpected, Ypredicted))
 	
-# Example 3
+# Example 3: Logistic regression
 def build_logistic_regression(features):
 	model = Sequential()		
 	# L2 is weight regularization penalty, also known as weight decay, or Ridge
@@ -144,7 +152,7 @@ def build_logistic_regression(features):
 	# now model.output_shape == (None, 10)
 	# note: `None` is the batch dimension.	
 	#
-	model.add(Activation("sigmoid"))
+	model.add(Activation("softmax"))
 		
 	# algorithim to train models use RMSprop
 	# compute loss with function: categorical crossentropy
@@ -153,7 +161,7 @@ def build_logistic_regression(features):
 			  metrics=['accuracy'])
 	return model
 
-# Example 4
+# Example 4: Neural Network
 def build_neural_network(features):		
 	model = Sequential()
 	model.add(Dense(input_dim=features, units=500))
@@ -165,7 +173,7 @@ def build_neural_network(features):
 	#
 	model.add(Dense(10))
 	#now model.output_shape == (None, 10)	
-	model.add(Activation("sigmoid")) #outputs are independent 
+	model.add(Activation("softmax")) #outputs are independent 
 		
 	# algorithim to train models use RMSprop
 	# compute loss with function: categorical crossentropy
@@ -174,29 +182,26 @@ def build_neural_network(features):
 			  metrics=['accuracy'])	
 	return model
 
-# For example 5 :Convolutional Neural Networks
+# For example 5: Convolutional Neural Networks (CNN)
 def reshapeCNNInput(X): 
 	exampleNum, D = X.shape	
 	W = int(math.sqrt(D))	
 	assert W == 8 # size of image == 8 x 8
 	
-	# change shape of image data
-	input_shape = None 			
+	# change shape of image data	 			
 	if K.image_dim_ordering() == 'th': 
 		# backend is Theano
 		# Image dimension = chanel x row x colum (chanel = 1, if it is RGB: chanel = 3)
-		XImg = X.reshape(exampleNum, 1, W, W)	
-		#input_shape = (1, W, W)
+		XImg = X.reshape(exampleNum, 1, W, W)			
 	else: 
 		# 'tf' backend is Tensorflow
 		# Image dimension = row x colum x chanel (chanel = 1, if it is RGB: chanel = 3)
-		XImg = X.reshape(exampleNum, W, W, 1)		
-		#input_shape = (W, W, 1)
+		XImg = X.reshape(exampleNum, W, W, 1)				
 		
 	return XImg
 
 # Example 5
-def build_cnn(image_shape):	
+def build_CNN(image_shape):	
 	model = Sequential()
 	# apply a 3x3 convolution with 80 output filters on a 8 x 8 image:
 	# Theano: image data size is chanel x row x colum (1 x 8 x 8)
@@ -219,7 +224,7 @@ def build_cnn(image_shape):
 	# now model.output_shape == (None, 64x4x4)
 	#
 	model.add(Dense(10))
-	model.add(Activation('sigmoid')) #outputs are independent 
+	model.add(Activation('softmax')) #outputs are independent 
 
 	# algorithim to train models use ADAdelta
 	# compute loss with function: categorical crossentropy
@@ -228,8 +233,8 @@ def build_cnn(image_shape):
 			  metrics=['accuracy'])
 	return model
 
-# For example 6: Long short-term memory
-def reshapeLSTMInput(X): 
+# For example 6, 7, 8: Recurrent Neural Networks
+def getSequenceInput(X): 
 	exampleNum, D = X.shape	
 	W = int(math.sqrt(D))	
 	assert W == 8 # size of image == 8 x 8
@@ -238,9 +243,32 @@ def reshapeLSTMInput(X):
 	XImg = X.reshape(exampleNum, W, W)
 	return XImg
 
-# Example 6
-def build_lstm(image_shape):	
-	global_start_time = time.time()	
+# Example 7: Recurrent Neural Networks (RNNs)
+def build_RNN(image_shape):			
+	sequence, features = image_shape
+	model = Sequential()
+	# apply a LSM with 8 sequences (row) and 8 features (column) on a 8 x 8 image:
+	model.add(SimpleRNN(	input_shape=(sequence,features),				
+					units=200, dropout=0.2, recurrent_dropout=0.2, 	return_sequences=True))
+	# now model.output_shape == (None, 200)
+	# note: `None` is the batch dimension.
+	#
+	model.add(SimpleRNN(200, dropout=0.2, recurrent_dropout=0.2, return_sequences=False))
+	# now model.output_shape == (None, 200)	
+	#
+	model.add(Dense(10))
+	#now model.output_shape == (None, 10)	
+	model.add(Activation("softmax")) #outputs are independent 
+		
+	# algorithim to train models use RMSProp
+	# compute loss with function: categorical crossentropy
+	model.compile(optimizer='rmsprop',
+			  loss='categorical_crossentropy',
+			  metrics=['accuracy'])	
+	return model
+	
+# Example 7: Long short-term memory (LSTM)
+def build_LSTM(image_shape):		
 	sequence, features = image_shape
 	model = Sequential()
 	# apply a LSM with 8 sequences (row) and 8 features (column) on a 8 x 8 image:
@@ -254,9 +282,8 @@ def build_lstm(image_shape):
 	#
 	model.add(Dense(10))
 	#now model.output_shape == (None, 10)	
-	model.add(Activation("sigmoid")) #outputs are independent 
-	
-	start = time.time()
+	model.add(Activation("softmax")) #outputs are independent 
+		
 	# algorithim to train models use RMSProp
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
@@ -264,9 +291,30 @@ def build_lstm(image_shape):
 			  metrics=['accuracy'])	
 	return model
 
-# Example Conditional Generative Adversarial Networks.
-# Waiting example
-
+# Example 8: Gated Recurrent Unit (GRU)
+def build_GRU(image_shape):			
+	sequence, features = image_shape
+	model = Sequential()
+	# apply a LSM with 8 sequences (row) and 8 features (column) on a 8 x 8 image:
+	model.add(GRU(	input_shape=(sequence,features),				
+					units=200, dropout=0.2, recurrent_dropout=0.2, 	return_sequences=True))
+	# now model.output_shape == (None, 200)
+	# note: `None` is the batch dimension.
+	#
+	model.add(GRU(200, dropout=0.2, recurrent_dropout=0.2, return_sequences=False))
+	# now model.output_shape == (None, 200)	
+	#
+	model.add(Dense(10))
+	#now model.output_shape == (None, 10)	
+	model.add(Activation("softmax")) #outputs are independent 
+		
+	# algorithim to train models use RMSProp
+	# compute loss with function: categorical crossentropy
+	model.compile(optimizer='rmsprop',
+			  loss='categorical_crossentropy',
+			  metrics=['accuracy'])	
+	return model
+	
 if __name__ == "__main__":
 	Xtrain, Xtest, Ytrain, Ytest = getDatasets()
 	assert Xtrain.shape[0] == Ytrain.shape[0]	# number of samples
@@ -274,13 +322,14 @@ if __name__ == "__main__":
 	print("Size of training input:", Xtrain.shape)
 	print("Size of testing input:", Xtest.shape)
 	
-	imageData = restoreImg(Xtrain)
-	plotExampleImg("Show example:", imageData, Ytrain)	
-	
-	print("\n+++++ Nearest neighbors method ++++")
+	X_image = restoreImg(Xtrain)
+	plotExampleImg("Show image examples", X_image, Ytrain)
+	plotPCA2d("Show PCA example", Xtrain, Ytrain)
+		
+	print("\n+++++ Nearest neighbors example ++++")
 	train_nearest_neighbors(Xtrain, Ytrain, Xtest, Ytest)
 	
-	print("\n+++++ Support vector method ++++")
+	print("\n+++++ Support vector example ++++")
 	train_support_vector(Xtrain, Ytrain, Xtest, Ytest)	
 	
 	#number of examples, features (8x8)
@@ -290,26 +339,39 @@ if __name__ == "__main__":
 	assert YtrainEncoded.shape[0] == Ytrain.shape[0]
 	assert YtestEncoded.shape[0] == Ytest.shape[0]
 	
-	print("\n+++++ Logistic regression method ++++")
+	print("\n+++++ Logistic regression example ++++")
 	model = build_logistic_regression(features)	
 	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=200)	
 		
-	print("\n+++++ Neural network method ++++")
+	print("\n+++++ Neural network example ++++")
 	model = build_neural_network(features)
 	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=50)	
 	
-	print("\n+++++ Convolutional neural network method ++++")
+	print("\n+++++ Convolutional neural network example ++++")
+	print("Take a minute.....")		
 	# reshape to (batchsize, chanel, row, colum) or (batchsize, row, column, chanel)
 	XtrainCNN = reshapeCNNInput(Xtrain)
 	XtestCNN = reshapeCNNInput(Xtest)
 	image_shape = XtrainCNN.shape[1:]	# select (chanel, row, column) or (row, column, chanel)
-	model = build_cnn(image_shape)
+	model = build_CNN(image_shape)
 	trainModel(model, XtrainCNN, YtrainEncoded, XtestCNN, YtestEncoded, epochs=50)
 	
-	print("\n+++++ Long short-term memory method ++++")
-	print("Take a minute.....")
-	XtrainLSTM = reshapeLSTMInput(Xtrain)
-	XtestLSTM = reshapeLSTMInput(Xtest)
-	image_shape = XtrainLSTM.shape[1:]	# select (row, column)
-	model = build_lstm(image_shape)
-	trainModel(model, XtrainLSTM, YtrainEncoded, XtestLSTM, YtestEncoded, epochs=30)	
+	# reshape to sequences for Recurrent Neural Networks
+	XtrainSeq = getSequenceInput(Xtrain)
+	XtestSeq = getSequenceInput(Xtest)
+	image_shape = XtrainSeq.shape[1:]	# select (row, column)
+	
+	print("\n+++++ Recurrent Neural Networks example ++++")
+	print("Take a minute.....")	
+	model = build_RNN(image_shape)
+	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)
+	
+	print("\n+++++ Long short-term memory example ++++")
+	print("Take a minute.....")		
+	model = build_LSTM(image_shape)
+	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)
+
+	print("\n+++++ Gated Recurrent Unit example ++++")
+	print("Take a minute.....")		
+	model = build_GRU(image_shape)
+	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)	
