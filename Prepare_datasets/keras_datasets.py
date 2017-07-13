@@ -3,13 +3,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def show_examplePic(img, label, title , label_range=range(0,10)):	
-	fig = plt.figure()	
-	plt.gcf().canvas.set_window_title(title)	
-	axList = []
-	for position in range (1,11):
-		ax = fig.add_subplot(2,5,position)
-		ax.set_axis_off()
-		axList.append(ax)	
+	fig, axarr = plt.subplots(2, 5)
+	axList = np.reshape(axarr, (2*5,))
+	plt.gcf().canvas.set_window_title(title)
 		
 	for ax_index, num in enumerate(label_range):	
 		ax = axList[ax_index]						
@@ -17,7 +13,9 @@ def show_examplePic(img, label, title , label_range=range(0,10)):
 		index_list = np.where(label == num)[0]
 		selected_imgList = img[index_list]
 		random_index = np.random.randint(0, selected_imgList.shape[0])
+		ax.set_axis_off()
 		ax.imshow(selected_imgList[random_index])			
+	plt.tight_layout()
 	plt.show()
 
 # Copy codes from: https://keras.io/datasets/ (14/06/2017)
