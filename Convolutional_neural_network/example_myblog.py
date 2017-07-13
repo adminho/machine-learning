@@ -1,6 +1,8 @@
-# Convolution example easy
+# Convolution example is easy
 import numpy as np
-image   = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
+import matplotlib.pyplot as plt
+
+image1   = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
@@ -14,13 +16,38 @@ image2  = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
 			[1, 5, 1, 1, 1, 1, 1, 5, 1],
 			[1, 1, 5, 1, 1, 1, 5, 1, 1],
 			[1, 1, 1, 5, 1, 5, 1, 1, 1],
-			[1, 1, 5, 1, 5, 1, 1, 1, 1],
+			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 5, 1, 5, 1, 1, 1],
 			[1, 1, 5, 1, 1, 1, 5, 1, 1],
 			[1, 5, 1, 1, 1, 1, 1, 5, 1],
 			[1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-			
+image3   =[ [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],			
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1],
+			[1, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1],
+			[1, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],		
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+
 filter1 =  [[-1,  1, -1],
 			[ 1,  1,  1],
 			[-1,  1, -1]]
@@ -92,55 +119,62 @@ def max_polling(feature_map, size_hight, size_width, pad="valid"):
 def relu(feature_map):
 	return np.maximum(feature_map, 0)
 
-image = image2
-print("|||||||||Image|||||||||||\n") 
-print(np.array(image))
+def test(image):
+	print("Shape image:", np.shape(image))
+	plt.imshow(image)
+	plt.axis("off")
+	plt.show()
 
-print("\n+++++++Convolution without padding++++++++")
-print(convolve(image, filter1,  pad="valid"))
+	print("|||||||||Image|||||||||||\n") 
+	print(np.array(image))
 
-print("\n+++++++++Convolution with padding+++++++")
-c1 = convolve(image, filter1,  pad="same")
-c2 = convolve(image, filter2,  pad="same")
-c3 = convolve(image, filter3,  pad="same")
-print("Feature map1 with filter 1") 
-print(c1)
-print("\nFeature map2 with filter 2\n")
-print(c2)
-print("\nFeature map3 with filter 3\n")
-print(c3)
+	print("\n+++++++Convolution without padding++++++++")
+	print(convolve(image, filter1,  pad="valid"))
 
+	print("\n+++++++++Convolution with padding+++++++")
+	c1 = convolve(image, filter1,  pad="same")
+	c2 = convolve(image, filter2,  pad="same")
+	c3 = convolve(image, filter3,  pad="same")
+	print("Feature map1 with filter 1") 
+	print(c1)
+	print("\nFeature map2 with filter 2\n")
+	print(c2)
+	print("\nFeature map3 with filter 3\n")
+	print(c3)
 
-print("\n+++++++++Max polling layer+++++++")
-p1 = max_polling(c1, 3, 3)
-p2 = max_polling(c2, 3, 3)
-p3 = max_polling(c3, 3, 3)
-print("Feature map1 with max polling") 
-print(p1)
-print("\nFeature map2 with max polling")
-print(p2)
-print("\nFeature map3 with max polling")
-print(p3)
+	print("\n+++++++++Max polling layer+++++++")
+	p1 = max_polling(c1, 3, 3)
+	p2 = max_polling(c2, 3, 3)
+	p3 = max_polling(c3, 3, 3)
+	print("Feature map1 with max polling") 
+	print(p1)
+	print("\nFeature map2 with max polling")
+	print(p2)
+	print("\nFeature map3 with max polling")
+	print(p3)
 
-print("\n+++++++++ReLU activation +++++++++++++++++")
-relu1 = relu(p1)
-relu2 = relu(p2)
-relu3 = relu(p3)
-print("Feature map1 with max polling") 
-print(relu1)
-print("\nFeature map2 with max polling")
-print(relu2)
-print("\nFeature map3 with max polling")
-print(relu3)
+	print("\n+++++++++ReLU activation +++++++++++++++++")
+	relu1 = relu(p1)
+	relu2 = relu(p2)
+	relu3 = relu(p3)
+	print("Feature map1 with max polling") 
+	print(relu1)
+	print("\nFeature map2 with max polling")
+	print(relu2)
+	print("\nFeature map3 with max polling")
+	print(relu3)
 
-print("\n+++++++++Flatten +++++++++++++++++")
-# concatenate 
-X = np.array( [ relu1, relu2, relu3] )
-# reshpape to 1 dimension
-X = X.reshape(-1, )
-print("Length of vector:", np.shape(X))
+	print("\n+++++++++Flatten +++++++++++++++++")
+	# concatenate 
+	X = np.array( [ relu1, relu2, relu3] )
+	# reshpape to 1 dimension
+	X = X.reshape(-1, )
+	print("Length of vector:", np.shape(X))
 
-print("\n+++++++++Fully connected layer +++++++++++++++++")
+	print("\n+++++++++Fully connected layer don't have any example +++++++++++++++++")
+	
+if __name__ == "__main__":
+	test(image1)
 """
 def sigmoid(X):
 	return 1/(1+np.exp(-X))
