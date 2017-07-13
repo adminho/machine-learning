@@ -1,6 +1,8 @@
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import matplotlib.pyplot as plt
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+
 import numpy as np
 import pandas as pd
 from os.path import join
@@ -11,6 +13,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn import preprocessing
 from sklearn.datasets import load_boston
+from sklearn.metrics import r2_score
 
 from scipy.stats import linregress
 import tensorflow as tf
@@ -143,21 +146,34 @@ def plot_surface_error(data_X, Y): 		# for visualization
 
 	fig = plt.figure() 
 	ax = fig.add_subplot(111, projection='3d')
-	ax.set_xlabel('wo axis'); ax.set_ylabel('w1 axis'); ax.set_zlabel('MSE axis')  
-	surf = ax.plot_surface(w0, w1, Z, rstride=1, cstride=1, cmap=cm.coolwarm, linewidth=0, antialiased=False)		
-	#ax.zaxis.set_major_locator(LinearLocator(10))
-	#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+	ax.set_xlabel('wo axis'); ax.set_ylabel('w1 axis'); ax.set_zlabel('MSE axis')  	
+	surf = ax.plot_surface(w0, w1, Z, rstride=1, cstride=1, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+	# Customize the z axis.
+	ax.zaxis.set_major_locator(LinearLocator(10))
+	ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+	# Add a color bar which maps values to colors.
+	fig.colorbar(surf, shrink=0.5, aspect=5)
 	plt.show()
 
 def predict_example5(data_X, Y):
 	X = add_one(data_X)	                               # add one to first column
-	learningRate = 0.0001				                 # initial learning rate
-	C = np.matrix(np.zeros(data_X.shape[1]+1)).T		   # initial coefficients		
+	learningRate = 0.0001				               # initial learning rate
+	C = np.matrix(np.zeros(data_X.shape[1]+1)).T	   # initial coefficients		
 	assert C.shape == (data_X.shape[1]+1, 1)
-    
-	FX_init = X * C							
-	# save predicted price for visualization later
-	FX_List = [FX_init]		
+
+	FX_List, Acc_List, Loss_List = [], [], [] 		# decrare empty list
+	def evaluate():
+		FX = X * C						# predict prices
+		score = 100*r2_score(Y, FX) 		# calculate R2 score for accuracy
+		MSE = mean_squared_error(Y, FX) # calculate mean squared error for loss
+		#save it  for visualization later
+		FX_List.append(FX) 
+		Acc_List.append(score) 
+		Loss_List.append(MSE) 
+	
+	# for visualization before training
+	evaluate()
+	
 	step = 0
 	while(True):		
 		SLOPE = X.T * ( X * C - Y) 		# vector 2 x 1
@@ -178,8 +194,7 @@ def predict_example5(data_X, Y):
 		C = C_update		# update new coefficients include bias
 		
 		if step % 100 == 0: # for visualization later
-			FX = X * C			
-			FX_List = np.append(FX_List, FX) 
+			evaluate()
 		step +=1
 		
 		# stop while_loop when all weights (coefficients) meet convergence condition
@@ -191,15 +206,13 @@ def predict_example5(data_X, Y):
 	print("Total step to learning:", step)
 	
 	#Show model
-	FX_final = X * C							
-	mse_final = mean_squared_error(Y, FX_final )
+	evaluate()
 	b, w = C[0,0], C[1:,0]
-	show_result(b, w, mse_final)
+	show_result(b, w, Loss_List[-1:])
 	
-	# for visualization
-	FX_List = np.append(FX_List, FX_final) 
-	FX_List = np.reshape(FX_List,(-1, X.shape[0]))  # number of fx values x number of DatasetX
-	return FX_List	
+	# For visualization finally
+	FX_List = np.reshape(FX_List,(-1, X.shape[0]))		
+	return FX_List, Acc_List, Loss_List
 	
 ########## For one input ###################	
 # example 6: use numpy module (polyfit)
@@ -270,11 +283,12 @@ def test_one_input(X, train_Y ,title, xlabel, ylabel):
 	predict = predict_example4(train_X, train_Y)		
     
 	print("\n+++++ Example 5++++")
-	predictList = predict_example5(train_X, train_Y)
+	predictList, accuracyList, lossList = predict_example5(train_X, train_Y)
 	am.visualize(X, 
 			scaler_Y.inverse_transform(train_Y), 
-			scaler_Y.inverse_transform(predictList)
-			, title=title)	 
+			scaler_Y.inverse_transform(predictList),
+			accuracyList, lossList, title=title)
+	plot_surface_error(train_X, train_Y)			
 	
 	print("\n+++++ Example 6++++")
 	predict = predict_example6(train_X, train_Y)		
@@ -323,11 +337,11 @@ def test_polynomial(X, train_Y ,title, xlabel, ylabel):
 	predict = predict_example4(train_X, train_Y)		
 	
 	print("\n+++++ Example 5++++")	
-	predictList = predict_example5(train_X, train_Y)
+	predictList, accuracyList, lossList = predict_example5(train_X, train_Y)
 	am.visualize(X, 
 			scaler_Y.inverse_transform(train_Y), 
-			scaler_Y.inverse_transform(predictList)
-			, title=title)	
+			scaler_Y.inverse_transform(predictList),
+			accuracyList, lossList, title=title)	
 	
 def test_many_input(train_X, train_Y):	
 	scaler_X = preprocessing.StandardScaler().fit(train_X)
