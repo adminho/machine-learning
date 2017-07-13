@@ -38,6 +38,7 @@ for position in range (1, len(img_data)+1):
 	ax.set_axis_off()
 	ax.set_title(filenames[position-1])
 	ax.imshow(img_data[position-1])	
+plt.tight_layout()
 plt.show()
 print()
 
@@ -132,21 +133,18 @@ print("++++++ Load and return the digits dataset (classification) ++++++\n")
 print("Shape X:", digits.images.shape)
 print("Shape y:", digits.target.shape)
 print()
-fig = plt.figure()
-plt.gcf().canvas.set_window_title("Digits dataset")
-axList = []
-for position in range (1,11):
-		ax = fig.add_subplot(2,5,position)
-		ax.set_axis_off()
-		axList.append(ax)	
+fig, axarr = plt.subplots(2, 5)
+axList = np.reshape(axarr, (2*5,))
+plt.gcf().canvas.set_window_title("Digits dataset")	
 for num in range(0,10):	
 		ax = axList[num]						
 		ax.set_title("Label: %d" % num)
 		index_list = np.where(digits.target == num)[0]
 		selected_imgList = digits.images[index_list]
 		random_index = np.random.randint(0, selected_imgList.shape[0])
+		plt.gray()
+		ax.set_axis_off()
 		ax.imshow(selected_imgList[random_index])			
-plt.gray()
 plt.show()
 print()
 
