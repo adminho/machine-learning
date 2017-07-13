@@ -52,7 +52,7 @@ def plotPCA2d(Xpca, Ydigits):
 		x = XY[:, 0]	
 		y = XY[:, 1]
 		plt.scatter(x, y, c=colors[number])
-	plt.legend(np.arange(0,10))
+	plt.legend(np.arange(0,10), loc='upper right')
 	plt.xlabel('First Principal Component')
 	plt.ylabel('Second Principal Component')
 	plt.show()
@@ -60,7 +60,6 @@ def plotPCA2d(Xpca, Ydigits):
 def plotPCA3d(Xpca, Ydigits):
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
-
 	colors = ['red', 'green','blue', 'black', 'purple', 'yellow', 'orange', 'gray', 'lime', 'cyan']
 	for number in range(0, 10): # 0 to 9
 		XYZ = Xpca[np.where(Ydigits == number)[0]]
@@ -68,9 +67,8 @@ def plotPCA3d(Xpca, Ydigits):
 		x = XYZ[:, 0]	
 		y = XYZ[:, 1]
 		z = XYZ[:, 1]
-		ax.scatter(x, y, z, c=colors[number])
-	
-	ax.legend(np.arange(0,10))
+		ax.scatter(x, y, z, c=colors[number])	
+	ax.legend(np.arange(0,10), loc='lower left')
 	ax.set_xlabel('First Principal Component')
 	ax.set_ylabel('Second Principal Component')
 	ax.set_zlabel('Third Principal Component')
