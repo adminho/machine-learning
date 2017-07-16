@@ -1,4 +1,4 @@
-# Reference: http://adataanalyst.com/scikit-learn/principal-component-analysis-scikit-learn/
+# Reference code example: http://adataanalyst.com/scikit-learn/principal-component-analysis-scikit-learn/
 import numpy as np
 import math
 from sklearn.decomposition import PCA
@@ -47,11 +47,11 @@ def restoreImg(X):
 def plotPCA2d(Xpca, Ydigits):
 	colors = ['red', 'green','blue', 'black', 'purple', 'yellow', 'orange', 'gray', 'lime', 'cyan']
 	for number in range(0, 10): # 0 to 9
-		XY = Xpca[np.where(Ydigits == number)[0]]
-		# seperate to x, y component
-		x = XY[:, 0]	
-		y = XY[:, 1]
-		plt.scatter(x, y, c=colors[number])
+		AB = Xpca[np.where(Ydigits == number)[0]]
+		# seperate to a, b component
+		a = AB[:, 0]	
+		b = AB[:, 1]
+		plt.scatter(a, b, c=colors[number])
 	plt.legend(np.arange(0,10), loc='upper right')
 	plt.xlabel('First Principal Component')
 	plt.ylabel('Second Principal Component')
@@ -63,7 +63,7 @@ def plotPCA3d(Xpca, Ydigits):
 	colors = ['red', 'green','blue', 'black', 'purple', 'yellow', 'orange', 'gray', 'lime', 'cyan']
 	for number in range(0, 10): # 0 to 9
 		XYZ = Xpca[np.where(Ydigits == number)[0]]
-		# seperate to x, y component
+		# seperate to x, y, z component
 		x = XYZ[:, 0]	
 		y = XYZ[:, 1]
 		z = XYZ[:, 1]
