@@ -135,7 +135,7 @@ def main():
 	print("\n------- Convert 'novel' dataset to set of indexs----------")
 	novel =dataset2index( join(SOURCE_PATH, "novel") , join(output_path,"novel_thai.p"))
 
-	print("\n------------create dataset for classify task----------")
+	print("\n------------ Create dataset for classify task----------")
 	dataset_list = [article, encyclopedia, news, novel]
 	X_trainList, X_testList, Y_trainList, Y_testList  = create_classify_dataset(dataset_list)
 	assert len(X_trainList) + len(X_testList)  == len(Y_trainList) +  len(Y_testList) 	
