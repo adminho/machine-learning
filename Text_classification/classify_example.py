@@ -77,8 +77,8 @@ def build_CNN(num_classes):
 	model.add(Conv1D(filters=64, kernel_size=3, padding="same", activation='relu', input_shape=(MAX_WORDS, 1 )))
 	model.add(Conv1D(filters=64, kernel_size=3, padding="same", activation='relu'))
 	model.add(MaxPooling1D(3))
-	model.add(Conv1D(filters=128, kernel_size=3, padding="same", activation='relu'))
-	model.add(Conv1D(filters=128, kernel_size=3, padding="same", activation='relu'))
+	model.add(Conv1D(filters=64, kernel_size=3, padding="same", activation='relu'))
+	model.add(Conv1D(filters=64, kernel_size=3, padding="same", activation='relu'))
 	#model.add(GlobalAveragePooling1D())
 	model.add(Flatten())
 	model.add(Dense(units=10))
@@ -110,21 +110,11 @@ def train(model, X_train, X_test, Y_train, Y_test ):
 	print("Classification report")
 	print(metrics.classification_report( Yexpected, Ypredicted))
 	
-def test(model):		
-	# label 0: 	"article", label 1: "encyclopedia", label 2: "news", label 4: "novel"
-	label = ["Article", "Encyclopedia", "News", "Novel"]	
-	# I used this text file for test from : https://www.nectec.or.th/corpus/index.php?league=pm		
-	file_name = "TEST_NOVEL.txt.p"
-	contentList = load_dataset_unknown(file_name)
-	# subsample to small
-	contentList = [contentList] # input shape to the model is [1, number word]
-	
-	# Convert sequences of words (index) to binary matrix
-	tokenizer = Tokenizer(num_words=MAX_WORDS)
-	content_binary = tokenizer.sequences_to_matrix(contentList, mode='binary')
-	predict = model.predict(content_binary) 	# output shape is (1, number label)
-	index_label = np.argmax(predict[0])
-	print("Predict: this file '%s' is '%s'" % (file_name , label[index_label])) 	
+def test(model, X_input):	
+	predict = model.predict(X_input) 	# output shape is (1, number label)
+	print("Predict: ", predict)
+	index_label = np.argmax(predict[0])	
+	return index_label
 	
 if __name__ == "__main__":	
 	print('Loading data...')
@@ -142,7 +132,7 @@ if __name__ == "__main__":
 	print(model_MPL.summary())
 	print('Training with MPL model...')
 	train(model_MPL, X_trainNew, X_testNew, Y_trainNew, Y_testNew)
-	
+			
 	print('\n+++++ Example: Convolutional Neural Networks (CNN) with Convolution1D +++++')
 	model_CNN = build_CNN(num_classes)
 	print(model_CNN.summary())
@@ -151,11 +141,28 @@ if __name__ == "__main__":
 	XX_trainNew = np.reshape(X_trainNew, (-1, MAX_WORDS, 1))
 	XX_testNew = np.reshape(X_testNew, (-1, MAX_WORDS, 1))
 	# Training CNN is very slow
-	train(model_CNN, XX_trainNew , XX_testNew, Y_trainNew, Y_testNew)
+	train(model_CNN, XX_trainNew, XX_testNew, Y_trainNew, Y_testNew)
 	
-	# +++++++++++++ test a data that never found ++++++++++++++++
-	print('Testinng data that never found')		
-	test(model_MPL)
-	test(model_CNN)
+	# +++++++++++++++++++ For test only +++++++++++++++++++++++++++++++
+	# label 0: 	"article", label 1: "encyclopedia", label 2: "news", label 4: "novel"
+	label = ["Article", "Encyclopedia", "News", "Novel"]	
+	# I used this text file for test from : https://www.nectec.or.th/corpus/index.php?league=pm		
+	file_name = "TEST_NOVEL.txt.p"
+	name = file_name.replace('.p', '')
+	content_index = load_dataset_unknown(file_name)
+	
+	# Convert sequences of words (index) to binary matrix
+	tokenizer = Tokenizer(num_words=MAX_WORDS)	
+	content_binary = tokenizer.sequences_to_matrix([content_index], mode='binary')
+	
+	print("\n Test with data that never found: ", name)
+	print('\nTesting for MPL model')		
+	index_label = test(model_MPL ,content_binary)
+	print("Predict: '%s' is '%s'" % (name , label[index_label])) 
+	
+	print('\nTesting for CNN model')		
+	input = np.reshape(content_binary, (-1, MAX_WORDS, 1)) 	
+	index_label = test(model_CNN, input)
+	print("Predict: '%s' is '%s'" % (name , label[index_label])) 
 	
 	
