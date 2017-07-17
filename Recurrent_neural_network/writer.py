@@ -169,7 +169,7 @@ if __name__ == "__main__":
 		
 	# I'm split word in content to a list easily
 	source_codeList = source_code.split() # default is space to split 	
-	# select words (not duplicated)
+	# select words (unique)
 	words = sorted(list(set(source_codeList)))	
 		
 	max_seqlen=2
@@ -185,7 +185,7 @@ if __name__ == "__main__":
 	print('\ncorpus length:', len(content))
 
 	contentList = list(content)
-	# select characters (not duplicated)
+	# select characters (unique)
 	chars = sorted(list(set(content)))	
 		
 	max_seqlen=10
@@ -198,7 +198,7 @@ if __name__ == "__main__":
 	contentList = tudkum_thai('TEST_NOVEL_small.txt')
 	print('\ncorpus length:', len(contentList))	
 	
-	# select thai word (not duplicated)
+	# select thai words (unique)
 	word_thai = sorted(list(set(contentList)))	
 		
 	max_seqlen=10
