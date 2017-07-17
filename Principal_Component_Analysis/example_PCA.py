@@ -1,4 +1,4 @@
-# Reference: http://adataanalyst.com/scikit-learn/principal-component-analysis-scikit-learn/
+# Reference code example: http://adataanalyst.com/scikit-learn/principal-component-analysis-scikit-learn/
 import numpy as np
 import math
 from sklearn.decomposition import PCA
