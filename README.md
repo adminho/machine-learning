@@ -7,7 +7,7 @@ For many years, I have studied Machine Learning and practiced coding. This repos
 All examples are written in Python language, so you need to setup your environments as below 
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
-* Then, install library for Deep learning that I use 2 library including TensorFlow and Keras
+* For Deep learning, I used 2 library including TensorFlow and Keras
 
 You can install TensorFlow from PyPI with the command
 
@@ -16,6 +16,10 @@ You can install TensorFlow from PyPI with the command
 And you can also install Keras from PyPI with the command
 
 `pip install keras`
+
+* Install tqdm to make my loops show a smart progress meter 
+
+`pip install tqdm`
 
 ## My examples (not yet) 
 
