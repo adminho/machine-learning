@@ -1,3 +1,5 @@
+# thank you idea from: https://github.com/fchollet/keras/blob/master/examples/reuters_mlp.py
+
 from __future__ import print_function
 
 import numpy as np
