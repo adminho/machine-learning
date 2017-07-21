@@ -49,23 +49,34 @@ def getDatasets():
 def restoreImg(X):
 	_, D = X.shape	
 	W = int(math.sqrt(D))	
-	assert D == W * W
+	assert D == W * W	
 	X_image = X.reshape((-1, W, W))
 	return X_image
 	
-def plotExampleImg(title, X_image, Ydigits):
+def plotExampleImg(title, X_image, Ydigits, Y_predict=None):
 	fig, axarr = plt.subplots(2, 5)
 	axList = np.reshape(axarr, (2*5,))
 	plt.gcf().canvas.set_window_title(title)
 	fig.set_facecolor('#FFFFFF')
-	for num in range(0,10):		
-		digitsImg = X_image[np.where(Ydigits == num)[0]]
+	assert X_image.shape[0] == Ydigits.shape[0]
+		
+	for num in range(0,10):	 # label 0 to 9
+		selectIndex = np.where(Ydigits == num)[0] # select all indexs followed the label number
+		digitsImg = X_image[selectIndex]		
+		# random images
 		#Return random integers from 0 (inclusive) to high (exclusive).
 		randomIndex = np.random.randint(0, digitsImg.shape[0])		
 		#axList[num].imshow(digitsImg[randomIndex], cmap=plt.cm.gray)	
 		plt.gray()
 		axList[num].set_axis_off() # turn off axis x, y
 		axList[num].imshow(digitsImg[randomIndex])	
+		if Y_predict is not None:
+			assert Ydigits.shape[0] == Y_predict.shape[0]
+			ySelect = Y_predict[selectIndex]
+			axList[num].set_title("%s=> (%.2f)" % (num, ySelect[randomIndex]))		
+		else:			
+			axList[num].set_title("Number %s" % num)
+		
 	plt.tight_layout()
 	plt.show()
 	
@@ -131,18 +142,22 @@ def trainModel(model, Xtrain, Ytrain, Xtest, Yexpected, epochs):
 	# evaluate all training set after trained
 	scores = model.evaluate(Xtrain, Ytrain, verbose=0)
 	print("Evalute model: %s = %.4f" % (model.metrics_names[0] ,scores[0]))
-	print("Evalute model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))
-		
-	# for test
+	print("Evalute model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))	
+
+	# for test only
 	scores = model.evaluate(Xtest, Yexpected, verbose=0)
 	print("Test model: %s = %.4f" % (model.metrics_names[0] ,scores[0]))
 	print("Test model: %s = %.4f %%" % (model.metrics_names[1] ,scores[1]*100))
+	return model
 	
-	Ypredicted = model.predict(Xtest, verbose=0)
-	Yexpected = decode(Yexpected)
-	Ypredicted = decode(Ypredicted)
+def testModel(model, X_image, Xtest, Yexpected,  title_graph=""):
+	Ypredicted 			= model.predict(Xtest, verbose=0)
+	#Yexpected 			= decode(Yexpected) 	# convert binary to digits 0-9
+	Ypredicted_decode 	= decode(Ypredicted) # convert binary to digits 0-9
 	print("Classification report")
-	print(metrics.classification_report(Yexpected, Ypredicted))
+	print(metrics.classification_report(Yexpected, Ypredicted_decode))	
+	Y_max = np.array( [ np.max(list) for list in Ypredicted] )
+	plotExampleImg(title_graph, X_image, Ypredicted_decode, Y_max)
 	
 # Example 3: Logistic regression (1 neural)
 def build_logistic_regression(features):
@@ -353,73 +368,3 @@ def build_GRU(image_shape):
 			  loss='categorical_crossentropy',
 			  metrics=['accuracy'])	
 	return model
-	
-if __name__ == "__main__":
-	Xtrain, Xtest, Ytrain, Ytest = getDatasets()
-	assert Xtrain.shape[0] == Ytrain.shape[0]	# number of samples
-	assert Xtrain.shape[1] == 64   				# total pixel per a image
-	print("Size of training input:", Xtrain.shape)
-	print("Size of testing input:", Xtest.shape)
-	
-	X_image = restoreImg(Xtrain)
-	plotExampleImg("Show image examples", X_image, Ytrain)
-	plotPCA2d("Show PCA example", Xtrain, Ytrain)
-		
-	print("\n+++++ Nearest neighbors example ++++")
-	train_nearest_neighbors(Xtrain, Ytrain, Xtest, Ytest)
-	
-	print("\n+++++ Support vector example ++++")
-	train_support_vector(Xtrain, Ytrain, Xtest, Ytest)	
-	
-	#number of examples, features (8x8)
-	_, features = Xtrain.shape
-	YtrainEncoded = encode(Ytrain) 	# transform labels format to digits
-	YtestEncoded = encode(Ytest)	# transform labels format to digits
-	assert YtrainEncoded.shape[0] == Ytrain.shape[0]
-	assert YtestEncoded.shape[0] == Ytest.shape[0]
-	
-	print("\n+++++ Example: Logistic regression ++++")
-	model = build_logistic_regression(features)	
-	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=200)	
-		
-	print("\n+++++ Example: Multilayer Perceptron (MLP) ++++")
-	model = build_MLP(features)
-	trainModel(model, Xtrain, YtrainEncoded, Xtest, YtestEncoded, epochs=50)	
-	
-	print("\n+++++ Example: Convolutional neural network (CNN) with Convolution2D ++++")
-	print("Take a minute.....")		
-	# reshape to Theano: (batchsize, chanel, row, colum) or Tensorflow: (batchsize, row, column, chanel)
-	XtrainCNN = reshapeCNN2D_Input(Xtrain)
-	XtestCNN = reshapeCNN2D_Input(Xtest)
-	image_shape = XtrainCNN.shape[1:]	# select (chanel, row, column) or (row, column, chanel)
-	model = build_CNN_2D(image_shape)
-	trainModel(model, XtrainCNN, YtrainEncoded, XtestCNN, YtestEncoded, epochs=50)
-	
-	print("\n+++++ Example: Convolutional neural network (CNN) with Convolution1D ++++")
-	print("Take a minute.....")		
-	# reshape to Theano: (batchsize, row, colum) without chanel
-	XtrainCNN = reshapeCNN1D_Input(Xtrain)
-	XtestCNN = reshapeCNN1D_Input(Xtest)
-	image_shape = XtrainCNN.shape[1:]	# select (row, column)
-	model = build_CNN_1D(image_shape)
-	trainModel(model, XtrainCNN, YtrainEncoded, XtestCNN, YtestEncoded, epochs=50)
-	
-	# reshape to sequences for Recurrent Neural Networks
-	XtrainSeq = getSequenceInput(Xtrain)
-	XtestSeq = getSequenceInput(Xtest)
-	image_shape = XtrainSeq.shape[1:]	# select (row, column)
-	
-	print("\n+++++ Recurrent Neural Networks (RNN) example ++++")
-	print("Take a minute.....")	
-	model = build_RNN(image_shape)
-	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)
-	
-	print("\n+++++ Long short-term memory (LSTM) example ++++")
-	print("Take a minute.....")		
-	model = build_LSTM(image_shape)
-	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)
-
-	print("\n+++++ Gated Recurrent Unit (GRU) example ++++")
-	print("Take a minute.....")		
-	model = build_GRU(image_shape)
-	trainModel(model, XtrainSeq, YtrainEncoded, XtestSeq, YtestEncoded, epochs=30)	
