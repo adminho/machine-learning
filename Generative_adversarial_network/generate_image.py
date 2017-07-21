@@ -1,6 +1,6 @@
-# Paper: https://arxiv.org/abs/1406.2661
-# refrence code example from : https://github.com/osh/KerasGAN/blob/master/MNIST_CNN_GAN.ipynb
-# Blog: https://oshearesearch.com/index.php/2016/07/01/mnist-generative-adversarial-model-in-keras/
+# paper: https://arxiv.org/abs/1406.2661
+# reference code example from : https://github.com/osh/KerasGAN/blob/master/MNIST_CNN_GAN.ipynb
+# reference blog: https://oshearesearch.com/index.php/2016/07/01/mnist-generative-adversarial-model-in-keras/
 
 from __future__ import print_function
 import os.path
@@ -20,6 +20,18 @@ from keras import backend as K
 
 import matplotlib.pyplot as plt
 
+generative_h5_file = "mnist_generator.h5"
+discriminative_h5_file = "mnist_discriminator.h5"
+
+def load_weights(model, h5_file):
+	try:
+		if os.path.exists(h5_file):
+			print("\nLoaded model(weights) from file: %s" % (self.h5_file))
+			model.load_weights(self.h5_file)	
+	except Exception as inst:
+		print(inst)
+	return model
+			
 # Build Discriminative model 
 def build_discriminative_model(shape):
 	model = Sequential()
@@ -36,6 +48,7 @@ def build_discriminative_model(shape):
 	model.add(Dense(units=1, activation='sigmoid'))
 	# Output is binary classification
 	
+	model = load_weights(model, discriminative_h5_file)			
 	#opt = Adam(1e-5)
 	opt = Adam(1e-4)
 	model.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
@@ -72,6 +85,8 @@ def build_generative_model(discriminator, shape=(100, )):
 	generator.add(Activation('relu'))
 	# images color (gray) are between 0 to 1 (depends on sigmoid values)
 	generator.add(Conv2D(filters=1, kernel_size=(1, 1), padding="same", kernel_initializer='glorot_uniform', activation='sigmoid'))
+	
+	generator = load_weights(generator, generative_h5_file)
 	#++++++Finish build generative_model mode +++++++++++++++++++++++
 
 	#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -89,14 +104,14 @@ def build_generative_model(discriminator, shape=(100, )):
 	train_generator.compile(loss='binary_crossentropy', optimizer=opt, metrics=['accuracy'])
 	return generator, train_generator
 	
-def plot_loss(losses):
+def save_accuracy(acc_dis, acc_gen):
 	plt.figure(figsize=(10,8))	
-	plt.plot(losses["d"], label='discriminitive loss')
-	plt.plot(losses["g"], label='generative loss')
+	plt.plot(acc_dis, label='discriminitive accuracy')
+	plt.plot(acc_gen, label='generative accuracy')
 	plt.legend()	
-	plt.savefig("MNIST_LOSS.png")
+	plt.savefig("MNIST_ACCURACY.png")
 
-def plot_gen(n_ex=16,dim=(4,4), figsize=(10,10) ):
+def save_genImage(generator, n_ex=16,dim=(4,4), figsize=(10,10) ):
 	noise = np.random.uniform(0,1,size=[n_ex,100])
 	generated_images = generator.predict(noise)	
 	plt.figure(figsize=figsize)
@@ -118,8 +133,9 @@ def plot_gen(n_ex=16,dim=(4,4), figsize=(10,10) ):
 	print("Picture color: min = %f and max = %f" % (np.min(generated_images), np.max(generated_images)))
 	plt.savefig("MNIST_GENERATE.png")
 
-# set up loss storage vector
-losses = {"d":[], "g":[]}
+# save accuracy and generated image to graph
+acc_dis = []
+acc_gen = []
 
 def train_GAN(X_train, discriminator, generator, nb_epoch=5000, num_sampling=32):
 	for e in range(nb_epoch): 
@@ -156,11 +172,10 @@ def train_GAN(X_train, discriminator, generator, nb_epoch=5000, num_sampling=32)
 			discriminator.fit(X_concat, Y_label, verbose =0, epochs=1, batch_size=128)			
 				
 		scores = discriminator.train_on_batch(X_concat, Y_label )
-		losses["d"].append(scores[1])			
+		acc_dis.append(scores[1])			
 		print("Discriminator: loss = %f and accuracy = %f" % ( scores[0], scores[1]))		
 		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		
 		
 		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		#+++++++++++++++++++++ Training Generative Model +++++++++++++++++++++++++
@@ -172,36 +187,37 @@ def train_GAN(X_train, discriminator, generator, nb_epoch=5000, num_sampling=32)
 		for i in range(0,1):
 			# train Generator-Discriminator stack on input noise		
 			scores = train_generator.train_on_batch(Z_noise, Y_fake)
-			losses["g"].append(scores[1])
+		acc_gen.append(scores[1])
 		print("Generator: loss = %f and accuracy = %f" % ( scores[0], scores[1]))		
 		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-		
-		
-		# Updates plots
-		if e%2== 0:
-			plot_loss(losses)
-			plot_gen()
+		#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				
+		if e%2 == 0:
+			# save all data to graphs
+			save_accuracy(acc_dis, acc_gen)
+			save_genImage(generator)
+			# Backup model
+			discriminator.save(discriminative_h5_file)
+			generator.save(generative_h5_file)			
 
 def reshapeCNNInput(X): 
-	exampleNum, W, W = X.shape		
-	# change shape of image data	 			
+	exampleNum, W, W = X.shape
+	# change shape of image data
 	if K.image_dim_ordering() == 'th': 
 		# backend is Theano
 		# Image dimension = chanel x row x column (chanel = 1, if it is RGB: chanel = 3)
-		XImg = X.reshape(exampleNum, 1, W, W)			
+		XImg = X.reshape(exampleNum, 1, W, W)
 	else: 
 		# 'tf' backend is Tensorflow
 		# Image dimension = row x column x chanel (chanel = 1, if it is RGB: chanel = 3)
-		XImg = X.reshape(exampleNum, W, W, 1)				
-		
+		XImg = X.reshape(exampleNum, W, W, 1)		
 	return XImg
 	
 def prepare_Dataset():
 	#X_test, Y_train, Y_test => unused
 	(X_train, Y_train), (X_test, Y_test) = mnist.load_data() 
 	# use mini examples for training and testing
-	X_train = X_train[0:1000]	
+	X_train = X_train[0:500]	
 	X_train = reshapeCNNInput(X_train)
 	print('X_train shape:', X_train.shape)
 	print('X_test shape:', X_test.shape)
@@ -211,23 +227,24 @@ def prepare_Dataset():
 	X_train /= 255	
 	print ('Min and max train dataset: %s , %s' % (np.min(X_train), np.max(X_train) ) )
 	return X_train
+
+if __name__ == "__main__":
+	# Prepare dataset
+	print("Looad and prepare datasets.....")
+	X_train = prepare_Dataset()
+
+	print("Building .....")
+	# input shape to discriminative_model is th:(chanel, row, column) or tf:(row, column, chanel)
+	discriminator = build_discriminative_model(X_train.shape[1:]) 
+	generator, train_generator = build_generative_model(discriminator)
 	
-# Prepare dataset
-print("Looad and prepare datasets.....")
-X_train = prepare_Dataset()
+	print("Training....")
+	train_GAN(X_train, discriminator, generator, nb_epoch=1000, num_sampling=32)
 
-print("Building .....")
-# input shape to discriminative_model is th:(chanel, row, column) or tf:(row, column, chanel)
-discriminator = build_discriminative_model(X_train.shape[1:]) 
-generator, train_generator = build_generative_model(discriminator)
-
-print("Training....")
-train_GAN(X_train, discriminator, generator, nb_epoch=1000, num_sampling=32)
-
-#++++++++++++++++++++++++++++show model summary++++++++++++++++++++++++++++++
-print(generator.summary())
-print(train_generator.summary())
-print(discriminator.summary())
+	#++++++++++++++++++++++++++++show model summary++++++++++++++++++++++++++++++
+	print(generator.summary())
+	print(train_generator.summary())
+	print(discriminator.summary())
 
 ##Generative model
 """
