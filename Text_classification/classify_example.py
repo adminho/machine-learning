@@ -6,15 +6,13 @@ from sklearn import metrics
 from matplotlib import pyplot as plt
 import pickle
 import re    
-
-
+import datetime, time
 
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.preprocessing.text import Tokenizer
-from keras.layers import Embedding
-from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D
+from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D, BatchNormalization
 
 from create_dataset_thai import content2index, load_dataset, load_dataset_unknown
 
@@ -89,18 +87,46 @@ def build_CNN(num_classes):
 			  metrics=['accuracy'])
 	return model
 
+# This model is not OK
+def build_CNN2(num_classes):
+	model = Sequential()	
+	model.add(Conv1D(filters=16, kernel_size=4, strides=1, padding="same", input_shape = (MAX_WORDS, 1)))	
+	model.add(BatchNormalization(trainable = True))	
+	model.add(Activation("relu"))
+	model.add(Conv1D(filters=8, kernel_size=4, strides=1, padding="same"))	
+	model.add(BatchNormalization(trainable = True))	
+	model.add(Activation("relu"))
+	model.add(Conv1D(filters=8, kernel_size=4, strides=1, padding="same"))	
+	model.add(BatchNormalization(trainable = True))	
+	model.add(Activation("relu"))
+	model.add(Flatten())
+	model.add(Dense(units = 10, activation='relu'))
+	model.add(Dropout(0.5))
+	model.add(Dense(num_classes, activation='softmax'))
+	model.compile(loss='categorical_crossentropy',
+			  optimizer='adam',
+			  metrics=['accuracy'])
+	return model
+
 def decode(Y_binary):
 	# np.argmax: Returns the indices of the maximum values along an axis.	
 	return np.array( [ np.argmax(list) for list in Y_binary] )
 	
 def train(model, X_train, X_test, Y_train, Y_test ):
-	model.fit(X_train, Y_train,
-					batch_size=32,
-					epochs=5,
-					verbose=0,
-					validation_split=0.1)
-	score = model.evaluate(X_test, Y_test,
-					   batch_size=32, verbose=0)
+	global_start_time = time.time()
+	#automatic validation dataset 
+	#model.fit(X_train, Y_train, batch_size=32, epochs=5, verbose=0, validation_split=0.1)
+	model.fit(X_train, Y_train, batch_size=32, epochs=5, verbose=0,	validation_data=(X_test, Y_test))		
+	sec = datetime.timedelta(seconds=int(time.time() - global_start_time))
+	print ('Training duration : ', str(sec))
+		
+	# evaluate all training set after trained
+	scores = model.evaluate(X_train, Y_train, verbose=0)
+	print("Evalute model: %s = %.4f" % (model.metrics_names[0] ,scores[0]))
+	print("Evalute model: %s = %.4f" % (model.metrics_names[1] ,scores[1]*100))	
+	
+	# for test only
+	score = model.evaluate(X_test, Y_test, verbose=0)
 	print('Test %s: %.4f' % (model.metrics_names[0], score[0]))
 	print('Test %s: %.4f %%' % (model.metrics_names[1], score[1]*100))
 	
@@ -139,8 +165,7 @@ if __name__ == "__main__":
 	print('Training with CNN model ...take a minute')	
 	# For Convolutional 1D only, I reshaped input to (batch_size, steps, input_dim) 
 	XX_trainNew = np.reshape(X_trainNew, (-1, MAX_WORDS, 1))
-	XX_testNew = np.reshape(X_testNew, (-1, MAX_WORDS, 1))
-	# Training CNN is very slow
+	XX_testNew = np.reshape(X_testNew, (-1, MAX_WORDS, 1))	
 	train(model_CNN, XX_trainNew, XX_testNew, Y_trainNew, Y_testNew)
 	
 	# +++++++++++++++++++ For test only +++++++++++++++++++++++++++++++
