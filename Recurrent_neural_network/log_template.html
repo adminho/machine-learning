@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 30px;
+}
+div {
+	text-align: left;
+	width: 1000px;
+	padding-left: 100px;
+}
+</style>
+</head>
+<body>
+<p id="text1">AI writing .....</P>
+<div><h3 id="gain"></h3></div>
+<div id="TEXTBOX_ID"></div>
+<script>
+var index = 0
+// For example
+var windowSize = %s;
+var tokenList = %s
+headText='';
+var x = setInterval(function() { 
+   //var img = new Image();
+   var textElement = document.getElementById('TEXTBOX_ID')   
+   if (index < tokenList.length - windowSize){
+		temp = tokenList.slice(index, index+windowSize).toString();				
+		temp = temp.replace(/,/g, "   ");
+		highlight = '<font style="background-color:#FFFF00">' + temp + '<font/>'
+		tail = '<font style="background-color:#FFA500"">' + tokenList[index+windowSize] + '<font/>';
+		showText = headText + highlight + tail;	
+		textElement.innerHTML = showText
+		// shift window
+		headText += tokenList[index]		
+		index++
+	} else {
+		temp = tokenList.slice(index, index+windowSize).toString()			
+		temp = temp.replace(/,/g, "");		
+		textElement.innerHTML = headText + temp;
+		clearInterval(x);		
+	}    
+}, 1000);
+</script>
+
+</body>
+</html>
