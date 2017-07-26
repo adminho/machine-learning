@@ -35,18 +35,17 @@ All examples are written in Python language, so you need to setup your environme
 * [ImageNet example](ImageNet_example)
 * [Linear and nonlinear regression](Linear_regression)
 * [Logistic regression](Logistic_regression)
-* [MNIST example](MNIST_example)
-  
-  9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
-  1) Nearest neighbors
-  2) Support vector
-  3) Logistic regression 
-  4) Multilayer Perceptron (MLP)
-  5) Convolutional neural network (CNN) with Convolution2D
-  6) Convolutional neural network (CNN) with Convolution1D
-  7) Recurrent Neural Networks (RNN)
-  8) Long short-term memory (LSTM)
-  9) Gated Recurrent Unit (GRU)
+* [MNIST example](MNIST_example)  
+  * 9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
+1) Nearest neighbors
+2) Support vector
+3) Logistic regression 
+4) Multilayer Perceptron (MLP)
+5) Convolutional neural network (CNN) with Convolution2D
+6) Convolutional neural network (CNN) with Convolution1D
+7) Recurrent Neural Networks (RNN)
+ 8) Long short-term memory (LSTM)
+ 9) Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
 * [Prepare datasets](Prepare_datasets)
 * [Principal Component Analysis](Principal_Component_Analysis)
