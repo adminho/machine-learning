@@ -42,7 +42,7 @@ If there are many inputs (many examples) to the model.
 
 ![My_network_paint](images/My_network_paint2.png)
 
-For target dataset for training my model, I use real image as the target dataset when neural network learns from the target image, it can predict 3 outputs are red, green, blue (RGB).
+For target dataset to train my model, I use real an image as the target dataset when neural network learns from the target image, it can predict 3 outputs are red, green, blue (RGB).
 
 
 ## Result
