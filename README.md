@@ -10,11 +10,11 @@ All examples are written in Python language, so you need to setup your environme
 
 * For deep learning example, I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
 
-Install TensorFlow from PyPI with the command
+* Install TensorFlow from PyPI with the command
 
 `pip install tensorflow`
 
-Install Keras from PyPI with the command
+* Install Keras from PyPI with the command
 
 `pip install keras`
 
@@ -22,7 +22,7 @@ Install Keras from PyPI with the command
 
 `pip install tqdm`
 
-* Download [FFmpeg](https://www.ffmpeg.org/download.html) (tool for generating mpg.4) and install it. [Option]
+* Download [FFmpeg](https://www.ffmpeg.org/download.html) (tool for generating mpg.4) and install it. [Optional]
 
 ## My examples (not yet) 
 
