@@ -26,8 +26,9 @@ All examples are written in Python language, so you need to setup your environme
 
 ## My examples (not yet) 
 
-* [Activation function](Activation_function)
+* [Activation function](Activation_function)  
 * [Art example](Art_example)
+  * AI paints a picture
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
