@@ -22,14 +22,14 @@ def getTrainModel(): # The model at here
 	# model.input_shape == (None, 2)
 	# model.output_shape == (None, K)
 	# note: `None` is the batch dimension.
-	model.add(Dense(input_dim=2, output_dim=K, activation='relu'))		
-	model.add(Dense(output_dim=L, activation='relu'))	
-	model.add(Dense(output_dim=M, activation='relu'))	
-	model.add(Dense(output_dim=N, activation='relu'))	
-	model.add(Dense(output_dim=O, activation='relu'))		
-	model.add(Dense(output_dim=P, activation='relu'))		
-	model.add(Dense(output_dim=Q, activation='relu'))		
-	model.add(Dense(output_dim=3))	 # (None, Red, Green, Blue)
+	model.add(Dense(input_dim=2, units=K, activation='relu'))
+	model.add(Dense(units=L, activation='relu'))	
+	model.add(Dense(units=M, activation='relu'))	
+	model.add(Dense(units=N, activation='relu'))	
+	model.add(Dense(units=O, activation='relu'))		
+	model.add(Dense(units=P, activation='relu'))		
+	model.add(Dense(units=Q, activation='relu'))		
+	model.add(Dense(units=3))	 # (None, Red, Green, Blue)
 
 	optm=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)		
 	# algorithim to train models use
@@ -43,7 +43,7 @@ def getTrainModel(): # The model at here
 		# colorData_train is RGB value that is normalized and matched coordinates on the picture	
 		# color_predicted size: [high*width] x 3, 1 row per RGB value		
 		
-		model.fit(coor_train, colorData_train, nb_epoch=1,  verbose=0)
+		model.fit(coor_train, colorData_train, epochs=1,  verbose=0)
 		color_predicted = model.predict(coor_train)
 		scores = model.evaluate(coor_train, colorData_train, verbose=0)
 		correct = scores[0]
