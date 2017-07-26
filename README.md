@@ -27,7 +27,7 @@ And you can also install Keras from PyPI with the command
 * [Art example](Art_example)
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
-* [Generative_adversarial_network](Generative_adversarial_network)
+* [Generative adversarial network](Generative_adversarial_network)
 * [ImageNet example](ImageNet_example)
 * [Linear and nonlinear regression](Linear_regression)
 * [Logistic regression](Logistic_regression)
@@ -36,5 +36,5 @@ And you can also install Keras from PyPI with the command
 * [Prepare datasets](Prepare_datasets)
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
-* [Text_classification](Text_classification)
-
+* [Text classification](Text_classification)
+* [Deep Q Learning] (in progress)
