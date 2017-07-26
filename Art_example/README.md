@@ -1,4 +1,4 @@
-# Example: AI paints a picture
+# Example: AI paints an image
 
 This example shows the neural network (multilayer perceptrons) to paint an image
 
