@@ -1,6 +1,6 @@
 # Example: AI paints a picture
 
-This example will show the neural network (multilayer perceptrons) paints an image
+This example shows the neural network (multilayer perceptrons) to paint an image
 
 # Code Example
 
