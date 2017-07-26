@@ -36,6 +36,7 @@ All examples are written in Python language, so you need to setup your environme
 * [Linear and nonlinear regression](Linear_regression)
 * [Logistic regression](Logistic_regression)
 * [MNIST example](MNIST_example)
+  
   9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
   1) Nearest neighbors
   2) Support vector
