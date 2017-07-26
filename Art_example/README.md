@@ -19,7 +19,7 @@ My inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regr
 
 * 7 hidden layers.
 * Input layer have 2 ( x, y coordinate or pixels on an image).
-* Output layer have 3 (Red, Green, Blue colors).
+* Output layer have 3 (red, breen and blue).
 
 ![AI architec](images/AI_Paint_architec.png)
 
