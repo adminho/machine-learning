@@ -88,7 +88,7 @@ def visualize(orgImage, savedPic, trainModel, coordTrain, colorTrain, maxStep):
 			#ani.event_source.stop()	   # stop show image
 			#saver.save(sess, saved_wieght_file, global_step=step)
 			scipy.misc.imsave(savedPic, imgShow)
-			return orginImax, paintImax
+			return orgImax, paintImax
 			
 		if step %10 == 0:
 			print('step %d | loss %f  | accuracy %f' % (step, error, correct))
