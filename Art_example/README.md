@@ -11,17 +11,6 @@ This example will show the neural network (multilayer perceptrons) paints an ima
 
 My inspiration: http://cs.stanford.edu/people/karpathy/convnetjs/demo/image_regression.html
 
-# Requirement
-
-Install [ANACONDA](https://www.continuum.io/downloads)
-
-Install TensorFlow from PyPI with the command
-
-`pip install tensorflow`
-
-After that install Keras from PyPI with the command
-
-`pip install keras`
 
 # Description
 
