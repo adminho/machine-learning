@@ -7,19 +7,23 @@ For many years, I have studied Machine Learning and practiced coding. This repos
 All examples are written in Python language, so you need to setup your environments as below 
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
-* For deep learning example, I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
 
-You can install TensorFlow from PyPI with the command
+
+For deep learning example, I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
+
+* Install TensorFlow from PyPI with the command
 
 `pip install tensorflow`
 
-And you can also install Keras from PyPI with the command
+* Install Keras from PyPI with the command
 
 `pip install keras`
 
 * Install tqdm to make my loops show a smart progress meter 
 
 `pip install tqdm`
+
+* Download [FFmpeg](https://www.ffmpeg.org/download.html) (tool for generating mpg.4) and install it. [Option]
 
 ## My examples (not yet) 
 
