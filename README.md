@@ -27,16 +27,14 @@ All examples are written in Python language, so you need to setup your environme
 ## My examples (not yet) 
 
 * [Activation function](Activation_function)  
-* [Art example](Art_example)
-  * Neural network (multilayer perceptrons) paints an image
+* [Art example](Art_example): Neural network (multilayer perceptrons) paints an image
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
 * [ImageNet example](ImageNet_example)
 * [Linear and nonlinear regression](Linear_regression)
 * [Logistic regression](Logistic_regression)
-* [MNIST example](MNIST_example)  
-  * 9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
+* [MNIST example](MNIST_example): 9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
   1) Nearest neighbors
   2) Support vector
   3) Logistic regression 
