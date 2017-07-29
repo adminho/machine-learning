@@ -2,7 +2,7 @@
 # ImageNet
 
 ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), 
-in which each node of the hierarchy is depicted by hundreds and thousands of images. (cite: [www.image-net.org](www.image-net.org))
+in which each node of the hierarchy is depicted by hundreds and thousands of images. (cite: [http://www.image-net.org](http://www.image-net.org))
 
 
 # ImageNet pre-trained models
