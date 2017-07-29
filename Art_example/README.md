@@ -4,8 +4,8 @@ This example shows the neural network (multilayer perceptrons) to paint an image
 
 # Code Example
 
-* [paint_tensorflow.py](paint_tensorflow.py) (implement with Tensorflow)
-* [paint_keras.py](paint_keras.py) (implement with Keras)
+* [paint_tensorflow.py](paint_tensorflow.py) (implemented with Tensorflow)
+* [paint_keras.py](paint_keras.py) (implemented with Keras)
 
 # Motivation
 
