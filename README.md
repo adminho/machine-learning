@@ -32,10 +32,14 @@ All examples are written in Python language, so you need to setup your environme
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
-* [ImageNet example](ImageNet_example)
+* [ImageNet example](ImageNet_example): showing how to use models (Convolutional neural network or CNN) including
+  * Xception, VGG16, 
+  * VGG19
+  * ResNet50
+  * InceptionV3
 * [Linear and nonlinear regression](Linear_regression)
 * [Logistic regression](Logistic_regression)
-* [MNIST example](MNIST_example): 9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
+* [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits (using MNIST database of handwritten digits) including 
   1) Nearest neighbors
   2) Support vector
   3) Logistic regression 
