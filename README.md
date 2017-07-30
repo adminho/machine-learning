@@ -39,6 +39,11 @@ All examples are written in Python language, so you need to setup your environme
   4. ResNet50
   5. InceptionV3
 * [Linear and nonlinear regression](Linear_regression)
+  * predict food truck.
+  * predict house price.
+  * predict Thailand population history.
+  * predict average income per month per household  of Thailand (B.E 41-58).
+  * predict Boston house-prices.  
 * [Logistic regression](Logistic_regression)
 * [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
   1. Nearest neighbors
