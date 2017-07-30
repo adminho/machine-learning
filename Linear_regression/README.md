@@ -5,9 +5,9 @@
 
 # Nonlinear regression
 
-3) Example predicts Thailand population history
-4) Example predicts average income per month per household  of Thailand (B.E 41-58)
-5) Example predicts Boston house-prices 
+1) Example predicts Thailand population history
+2) Example predicts average income per month per household  of Thailand (B.E 41-58)
+3) Example predicts Boston house-prices 
 
 # Datasets
 
