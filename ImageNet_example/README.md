@@ -1,11 +1,8 @@
 
-# ImageNet
+# ImageNet pre-trained models
 
 ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), 
 in which each node of the hierarchy is depicted by hundreds and thousands of images. (cite: [http://www.image-net.org](http://www.image-net.org))
-
-
-# ImageNet pre-trained models
 
 Models in Convolutional neural network (CNN) for image classification with weights trained on ImageNet such as:
 
