@@ -11,13 +11,13 @@
 
 # Datasets
 
-| Example | Dataset file |
-| --- | --- |
-| food truck | [food_truck.csv](food_truck.csv) (borrowed dataset from [course online](https://www.coursera.org/learn/machine-learning) taught by Andrew Ng) |
-| house price| [example_price_house_40_headcolumn.csv](example_price_house_40_headcolumn.csv) |
-| Thailand population history| [Thailand_population_history.csv](Thailand_population_history.csv) |
-| average income per month per household  of Thailand (B.E 41-58)| [average_income_per_month_per_household_41-58.csv](average_income_per_month_per_household_41-58.csv) |
-| Boston house-prices  | use sklearn.datasets.load_boston() function load the Boston dataset instead |
+| Example | Dataset file | Cites |
+| --- | --- | -- |
+| food truck | [food_truck.csv](food_truck.csv) | [course online](https://www.coursera.org/learn/machine-learning) taught by Andrew Ng) |
+| house price| [example_price_house_40_headcolumn.csv](example_price_house_40_headcolumn.csv) | |
+| Thailand population history| [Thailand_population_history.csv](Thailand_population_history.csv) | [](http://countrymeters.info/en/Thailand) |
+| average income per month per household  of Thailand (B.E 41-58)| [average_income_per_month_per_household_41-58.csv](average_income_per_month_per_household_41-58.csv) | [https://data.go.th](https://data.go.th/DatasetDetail.aspx?id=7049410f-5bb8-4c75-9e94-112ca18b63e2&AspxAutoDetectCookieSupport=1) |
+| Boston house-prices  | use sklearn.datasets.load_boston() function load the Boston dataset instead | [http://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html](http://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html) |
 
 
 
