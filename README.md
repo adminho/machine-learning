@@ -57,6 +57,8 @@ All examples are written in Python language, so you need to setup your environme
   9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
 * [Prepare datasets](Prepare_datasets)
+  * get dataset examples with Keras library.
+  * get dataset examples with scikit-learn library.
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
   * show AI writing HTML code, article and Thai novel
