@@ -59,6 +59,6 @@ All examples are written in Python language, so you need to setup your environme
 * [Prepare datasets](Prepare_datasets)
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
-  show AI writing HTML code, article and Thai novel
+  * show AI writing HTML code, article and Thai novel
 * [Text classification](Text_classification)
 * [Deep Q Learning] (in progress)
