@@ -47,5 +47,7 @@ For target dataset to train my model, I use real an image as the target dataset.
 
 ## Result
 
+![AI-Drawing](AI-Drawing-chickren.png)
+
 The picture on the left is original and the right hand side is created by my neural network.
 
