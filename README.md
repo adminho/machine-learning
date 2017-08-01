@@ -22,7 +22,7 @@ All examples are written in Python language, so you need to setup your environme
 
 `pip install tqdm`
 
-* Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [Optional]
+* Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [some examples]
 
 ## My examples (not yet) 
 
