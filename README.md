@@ -7,13 +7,14 @@ For many years, I have studied Machine Learning and practiced coding. This repos
 All examples are written in Python language, so you need to setup your environments as below 
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
-* For Deep learning, I used 2 library including TensorFlow and Keras
 
-You can install TensorFlow from PyPI with the command
+* I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) for deep learning example
+
+* Install TensorFlow from PyPI with the command
 
 `pip install tensorflow`
 
-And you can also install Keras from PyPI with the command
+* Install Keras from PyPI with the command
 
 `pip install keras`
 
@@ -21,18 +22,45 @@ And you can also install Keras from PyPI with the command
 
 `pip install tqdm`
 
+* Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [Optional]
+
 ## My examples (not yet) 
 
-* [Activation function](Activation_function)
-* [Art example](Art_example)
+* [Activation function](Activation_function)  
+* [Art example](Art_example): 
+  * Neural network (multilayer perceptrons) paints an image
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
-* [ImageNet example](ImageNet_example)
-* [Linear regression](Linear_regression)
+* [Generative adversarial network](Generative_adversarial_network)
+* [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
+  1. Xception
+  2. VGG16
+  3. VGG19
+  4. ResNet50
+  5. InceptionV3
+* [Linear and nonlinear regression](Linear_regression)
+  * predict food truck.
+  * predict house price.
+  * predict Thailand population history.
+  * predict average income per month per household  of Thailand (B.E 41-58).
+  * predict Boston house-prices.  
 * [Logistic regression](Logistic_regression)
-* [MNIST example](MNIST_example)
+* [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
+  1. Nearest neighbors
+  2. Support vector
+  3. Logistic regression 
+  4. Multilayer Perceptron (MLP)
+  5. Convolutional neural network (CNN) with Convolution2D
+  6. Convolutional neural network (CNN) with Convolution1D
+  7. Recurrent Neural Networks (RNN)
+  8. Long short-term memory (LSTM)
+  9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
 * [Prepare datasets](Prepare_datasets)
+  * get dataset examples with Keras library.
+  * get dataset examples with scikit-learn library.
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
-
+  * show AI writing HTML code, article and Thai novel
+* [Text classification](Text_classification)
+* [Deep Q Learning] (in progress)

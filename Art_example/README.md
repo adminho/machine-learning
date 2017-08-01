@@ -1,11 +1,11 @@
-# Example: AI paints a picture
+# Example: AI paints an image
 
-This example will show the neural network (multilayer perceptrons) paints an image
+This example shows the neural network (multilayer perceptrons) to paint an image
 
 # Code Example
 
-* [paint_tensorflow.py](paint_tensorflow.py)
-* [paint_keras.py](paint_keras.py)
+* [paint_tensorflow.py](paint_tensorflow.py) (implemented with Tensorflow)
+* [paint_keras.py](paint_keras.py) (implemented with Keras)
 
 # Motivation
 
@@ -32,12 +32,12 @@ Input to the model are x, y coordinates (on an target image).
 
 ** In python, size of an image is height x width
 
-
-
+      
 If there is one input to the model.
 
 ![My_network_paint](images/My_network_paint1.png)
 
+    
 If there are many inputs (many examples) to the model.
 
 ![My_network_paint](images/My_network_paint2.png)
