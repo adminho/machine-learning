@@ -1,6 +1,5 @@
-# Note
-
-## Example: Neural network 2 layers
+# Example: Neural network 2 layers
+## Descriptions
 
 Use AI to calculate the logic `X1 or X1 xor X3`
 
