@@ -56,7 +56,8 @@ All examples are written in Python language, so you need to setup your environme
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
-  * calculate a logic
+  * calculate the logic
+  * classify the elements into two groups (binary classification)
 * [Prepare datasets](Prepare_datasets)
   * get dataset examples with Keras library.
   * get dataset examples with scikit-learn library.
