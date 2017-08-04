@@ -3,6 +3,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn import preprocessing
+
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation, Dropout
 from keras.models import Model
@@ -17,26 +19,27 @@ from mnist import build_logistic_regression
 from history import TrainingHistory
 from visual import Visualization		
 
-def pad(image, x_pad=2, y_pad=1):		
-	# pad zero to image
-	#z1 = np.full((image.shape[0], x_pad) ,0 ,dtype='uint8')	
-	z1 = np.zeros((image.shape[0], x_pad))
-	# pad zero to left of image
+def pad(image, color_pad=7, x_pad=1, y_pad=3,):			
+	# pad 255 or 0 to image
+	z1 = np.full((image.shape[0], x_pad) ,color_pad ,dtype='uint8')	
+	#z1 = np.ones((image.shape[0], x_pad))
+	# pad the left of image
 	padding = np.append(z1, image, axis=1)
-	# pad zero to right of image
+	# pad the right of image
 	padding = np.append(padding, z1, axis=1)
 	
-	#z2 = np.full((y_pad, padding.shape[1]) ,0 ,dtype='uint8')
-	z2 = np.zeros((y_pad, padding.shape[1]))
-	# pad zero to up of image	
+	z2 = np.full((y_pad, padding.shape[1]) ,color_pad ,dtype='uint8')	
+	#z2 = np.ones((y_pad, padding.shape[1]))
+	# pad to up of image	
 	padding = np.vstack([z2, padding])
-	# pad zero to low of image
+	# pad to low of image
 	padding = np.vstack([padding, z2])		
 	return padding
 	
 def random10Image(Xtrain, Ydigits): # random 10 images
 	randImage = []
-	for num in range(0,10):			
+	for num in range(0,10):	
+		# select digits picture
 		digitsImg = Xtrain[np.where(Ydigits == num)[0]]
 		#Return random integers from 0 (inclusive) to high (exclusive).
 		randomIndex = np.random.randint(0, digitsImg.shape[0])		
@@ -44,20 +47,22 @@ def random10Image(Xtrain, Ydigits): # random 10 images
 		randImage.append(digitsImg[randomIndex])
 	return np.array(randImage)
 
-def preprocess(image):	
-	return np.clip(10 *image, 0 ,255) # increase color but limit between 0 - 255
-	
-def combineImage(randImage): # combine 10 images to 1 image
-	randImage = restoreImg(randImage)	
-	randImage =[ pad(preprocess(img)) for img in randImage ]	
+min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0, 125))	
+def combineImage(randImage): # combine 10 images to 1 image			
+	#preprocessing: rescale image from min to max	
+	def preprocessing(image):
+		return min_max_scaler.fit_transform(image)			
+		
+	randImage = restoreImg(randImage)		
+	randImage =[ pad(preprocessing(img)) for img in randImage ]	
 	img_top = randImage[0]
 	for i in range(1,5):
 		img_top = np.append(img_top, randImage[i], axis=1)	
-	img_upper = randImage[5]
+	img_bottom = randImage[5]
 	for i in range(6,10):		
-		img_upper = np.append(img_upper, randImage[i], axis=1)
-	return  np.append(img_top, img_upper, axis=0)
-
+		img_bottom = np.append(img_bottom, randImage[i], axis=1)
+	return np.append(img_top, img_bottom, axis=0)
+	
 def build_neural_network(features):		
 	model = Sequential()
 	model.add(Dense(input_dim=features, units=400))
@@ -95,20 +100,19 @@ if __name__ == "__main__":
 	Yexpected = encode(Ytest)
 
 	rand10Image = random10Image(Xtrain, Ytrain) # select 10 images
-	packedImage = combineImage(rand10Image)		# combine 10 images to 1 images
+	packedImage = combineImage(rand10Image)		# combine 10 images to 1 images	
 	hiddenModel = getHiddenLayer(model)
 
 	# call this function in a loop to train the model
-	def training_model(num_epochs=10, step_visual=0, visual=None): 	
+	def training_model(step_visual=0, visual=None): 	
+		num_epochs=10
 		model.fit(Xtrain, YtrainEncoded, batch_size=500, epochs=num_epochs, verbose=0, callbacks=[his], validation_data=(Xtest, Yexpected))	 	
 		if visual is None:	
 			return 
 		
-		# for visualisation 	
+		# visualisation only
 		outputHidden = hiddenModel.predict(rand10Image)	 # predict 10 images
 		packedImage2 = combineImage(outputHidden)
-		#probability = [predict[i, i] for i in range(0, 10)]
-		#visual.update_predict(probability)
 		visual.update_accuracy_line(his.accuracy, his.val_accuracy)
 		visual.update_loss_line(his.loss, his.val_loss)	
 		visual.update_image(packedImage)
@@ -117,8 +121,8 @@ if __name__ == "__main__":
 		print("Training: accuracy = %s and loss = %s" % (his.accuracy[-1:], his.loss[-1:]))
 		print("Validation: accuracy = %s and loss = %s\n" % (his.val_accuracy[-1:], his.val_loss[-1:]))
 	
-	visual = Visualization(title="MNIST example with neural network")
-	visual.train(training_model, iterations=30, save_movie=False)
+	visual = Visualization(title="Example: neural network with MNIST dataset")
+	visual.train(training_model, iterations=100, save_movie=False)
 	
 	X_testImage = restoreImg(Xtest)	
 	testModel(model, X_testImage, Xtest, Ytest, title_graph="Example 4: Multilayer Perceptron (MLP)")
