@@ -1,3 +1,5 @@
+The project will be updated continuously ......  :fire:
+
 # Machine learning examples
 
 For many years, I have studied Machine Learning and practiced coding. This repository has published my source codes.
