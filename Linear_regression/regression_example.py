@@ -394,7 +394,7 @@ if __name__ == '__main__':
 									,xlabel='Years', ylabel='Average Monthly Income Per Household')
 
 	print("\n\n----------- Many input ------------")
-	print("++++++++++++ Boston datasets +++++++++")
+	print("++++++++++++ Example: Boston house-prices dataset +++++++++")
 	boston = load_boston()
 	train_X, train_Y = boston.data, boston.target	
 	train_Y = np.reshape(train_Y, (len(train_Y),1)) # shape: len(train_Y) x 1	
