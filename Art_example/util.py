@@ -45,8 +45,17 @@ def restoreImage(colPredict, high, width):
 	imageData = colPredict.reshape((high, width , 3) )
 	return imageData
 
+import os
+import os.path
+import shutil
+
+TEMP_PATH = "log_pic"
+if os.path.exists(TEMP_PATH):
+	shutil.rmtree(TEMP_PATH)	
+os.makedirs(TEMP_PATH)
+
 # Show the image that created	
-def visualize(orgImage, savedPic, trainModel, coordTrain, colorTrain, maxStep):
+def visualize(orgImage, savedPic, trainModel, coordTrain, colorTrain, maxStep, save_movie=False):
 	fig = plt.figure()
 	plt.gcf().canvas.set_window_title("Drawing")
 	fig.set_facecolor('#FFFFFF')
@@ -79,11 +88,11 @@ def visualize(orgImage, savedPic, trainModel, coordTrain, colorTrain, maxStep):
 
 	def updateImg_func(step):		
 		# Train your model (each step)		
-		colPredict, correct, error = trainModel(step, coordTrain, colorTrain)
+		colPredict, correct, loss = trainModel(step, coordTrain, colorTrain)
 		assert colPredict.shape == colorTrain.shape
 		
 		if correct > 99 or step == maxStep-1 :		
-			print('Finised at step %d | loss %f  | accuracy %f' % (step, error, correct))
+			print('Finised at step %d | loss %f  | accuracy %f' % (step, loss, correct))
 			imgShow = showImage(colPredict) # visualize a image that AI is painting
 			#ani.event_source.stop()	   # stop show image
 			#saver.save(sess, saved_wieght_file, global_step=step)
@@ -91,12 +100,18 @@ def visualize(orgImage, savedPic, trainModel, coordTrain, colorTrain, maxStep):
 			return orgImax, paintImax
 			
 		if step %10 == 0:
-			print('step %d | loss %f  | accuracy %f' % (step, error, correct))
+			print('step %d | loss %f  | accuracy %f' % (step, loss, correct))
 			showImage(colPredict)	# visualize a image that AI is painting	
+			plt.savefig(os.path.join(TEMP_PATH, "step_%d" % (step+1) )) # save the figure
 			
 		return orgImax, paintImax
 	
 	ani = animation.FuncAnimation(fig, updateImg_func, frames=np.arange(0, maxStep),
                     init_func=initImg_func, repeat=False, blit=True)		
-	plt.show()
+	if save_movie:
+		# save all picture to mp4 file
+		mywriter = animation.FFMpegWriter(fps=24, codec='libx264', extra_args=['-pix_fmt', 'yuv420p', '-profile:v', 'high', '-tune', 'animation', '-crf', '18'])		
+		ani.save("paint_example.mp4", writer=mywriter)
+	else:
+		plt.show()
 
