@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 """
-Models for image classification with weights trained on ImageNet:
+Models (Convolutional neural network or CNN) for image classification with weights trained on ImageNet such as:
 * Xception
 * VGG16
 * VGG19
@@ -11,9 +11,9 @@ Models for image classification with weights trained on ImageNet:
 
 ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), 
 in which each node of the hierarchy is depicted by hundreds and thousands of images. 
-(Cite: www.image-net.org/)
+(cite: www.image-net.org/)
 
-Peper reference:
+Citations:
 Xception: Deep Learning with Depthwise Separable Convolutions
 https://arxiv.org/abs/1610.02357 (Xception model)
 
@@ -28,7 +28,7 @@ https://arxiv.org/abs/1512.00567 ( Inception v3 model )
 """
 
 # imagenet class index: 'https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json'
-# credit library: https://keras.io/applications
+# thank you library: https://keras.io/applications
 # source code of library: https://github.com/fchollet/deep-learning-models
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
