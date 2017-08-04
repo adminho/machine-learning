@@ -110,4 +110,4 @@ if __name__ == '__main__':
 	trainModel = getTrainModel() # get train function
 	
 	# Viaualize the image that AI are creating
-	ut.visualize(imageData, PATH_PIC_OUPUT, trainModel, coordTrain, colorTrain, MAX_STEP)
+	ut.visualize(imageData, PATH_PIC_OUPUT, trainModel, coordTrain, colorTrain, MAX_STEP, save_movie=False)
