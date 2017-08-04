@@ -46,9 +46,9 @@ def getTrainModel(): # The model at here
 		model.fit(coor_train, colorData_train, epochs=1,  verbose=0)
 		color_predicted = model.predict(coor_train)
 		scores = model.evaluate(coor_train, colorData_train, verbose=0)
-		correct = scores[0]
-		error = scores[1]		
-		return 	color_predicted, correct, error
+		correct = scores[1]
+		loss = scores[0]		
+		return 	color_predicted, correct, loss
 	
 	return trainModel # return inner function
 
@@ -71,4 +71,4 @@ if __name__ == '__main__':
 	trainModel = getTrainModel() # get train function
 	
 	# Viaualize the image that AI are creating
-	ut.visualize(imageData, PATH_PIC_OUPUT, trainModel, coordTrain, colorTrain, MAX_STEP)
+	ut.visualize(imageData, PATH_PIC_OUPUT, trainModel, coordTrain, colorTrain, MAX_STEP, save_movie=False)
