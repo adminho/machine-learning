@@ -22,7 +22,7 @@ All examples are written in Python language, so you need to setup your environme
 
 `pip install tqdm`
 
-* Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [Optional]
+* Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [some examples]
 
 ## My examples (not yet) 
 
@@ -56,6 +56,8 @@ All examples are written in Python language, so you need to setup your environme
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
+  * calculate the logic
+  * classify the elements into two groups (binary classification)
 * [Prepare datasets](Prepare_datasets)
   * get dataset examples with Keras library.
   * get dataset examples with scikit-learn library.
