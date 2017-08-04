@@ -14,13 +14,12 @@ def visualize(datasetX, datasetY, fxList , accuracyList, lossList, title='Regres
 	ax1 = fig.add_subplot(1,2,1)
 	ax2 = fig.add_subplot(2,2,2)
 	ax3 = fig.add_subplot(2,2,4)
-
-	
+		
 	linePlot, lineFx, lineFinal = ax1.plot([], [], 'bo', [], [], 'g-', [], [], 'r-',animated=True)
 	lineAccuracy, = ax2.plot([], [], 'b-',label="training accuracy")        
 	lineLoss, = ax3.plot([], [], 'g-',label="training loss")
 	totalFx = np.shape(fxList)[0]	# all fx	
-
+	
 	def init():
 		ax1.set_title(title)		
 		#margin = int( (min(datasetX) - max(datasetX))/10 )
@@ -34,8 +33,7 @@ def visualize(datasetX, datasetY, fxList , accuracyList, lossList, title='Regres
 		
 		ax3.set_title("Loss")
 		ax3.set_xlim(0, len(lossList)) # initial value only, autoscaled after that
-		ax3.set_ylim(0, max(lossList) + 0.1) # not autoscaled
-		
+		ax3.set_ylim(0, max(lossList) + 0.1) # not autoscaled		
 		plt.tight_layout()
 		return linePlot, lineFx, lineFinal, lineAccuracy, lineLoss
 
@@ -49,7 +47,7 @@ def visualize(datasetX, datasetY, fxList , accuracyList, lossList, title='Regres
 		lineAccuracy.set_data(range(0, step), accuracyList[0: step])
 		# for ax3
 		lineLoss.set_data(range(0, step), lossList[0: step])
-
+		
 		if step == totalFx-1: # display last line
 			print("plot graph finish")			
 			lineFinal.set_data(datasetX, fx)							
@@ -60,7 +58,7 @@ def visualize(datasetX, datasetY, fxList , accuracyList, lossList, title='Regres
 			lineAccuracy.set_data([], [])
 			lineLoss.set_data([], [])
 			return init()
-		
+				
 		return linePlot, lineFx, lineFinal, lineAccuracy, lineLoss
 	
 	step = range(0, totalFx)
