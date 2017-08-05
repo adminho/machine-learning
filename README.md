@@ -20,7 +20,7 @@ All examples are written in Python language, so you need to setup your environme
 
 `pip install keras`
 
-* Install tqdm to make my loops show a smart progress meter 
+* Install [tqdm](https://pypi.python.org/pypi/tqdm) to make my loops show a smart progress meter 
 
 `pip install tqdm`
 
