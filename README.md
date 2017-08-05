@@ -10,7 +10,7 @@ All examples are written in Python language, so you need to setup your environme
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
 
-* I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) for deep learning example
+* I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) for deep learning examples
 
 * Install TensorFlow from PyPI with the command
 
