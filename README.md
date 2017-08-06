@@ -30,12 +30,12 @@ All examples are written in Python language, so you need to setup your environme
 
 * [Activation function](Activation_function)  
 * [Art example](Art_example): 
-  * Neural network (multilayer perceptrons) paints an image
+  * Neural network (multilayer perceptrons) paints an image.
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
 * [Generic algorithm](Generic_algorithm)
-  Computing the optimal road trip across 20 provinces of Thailand
+  Computing the optimal road trip across 20 provinces of Thailand.
 * [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
   1. Xception
   2. VGG16
@@ -60,13 +60,13 @@ All examples are written in Python language, so you need to setup your environme
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
-  * Calculating the logic
-  * Classifying the elements into two groups (binary classification)
+  * Calculating the logic.
+  * Classifying the elements into two groups (binary classification).
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
   * Getting dataset examples with scikit-learn library.
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
-  * Showing AI writing HTML code, article and Thai novel
+  * Showing AI writing HTML code, article and Thai novel.
 * [Text classification](Text_classification)
 * [Deep Q Learning] (in progress)
