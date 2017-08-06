@@ -34,6 +34,8 @@ All examples are written in Python language, so you need to setup your environme
 * [Autoencoder](Autoencoder)
 * [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
+* [Generic algorithm](Generic_algorithm)
+  Computing the optimal road trip across 20 provinces of Thailand
 * [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
   1. Xception
   2. VGG16
@@ -41,11 +43,11 @@ All examples are written in Python language, so you need to setup your environme
   4. ResNet50
   5. InceptionV3
 * [Linear and nonlinear regression](Linear_regression)
-  * predict food truck.
-  * predict house price.
-  * predict Thailand population history.
-  * predict average income per month per household  of Thailand (B.E 41-58).
-  * predict Boston house-prices.  
+  * Predicting food truck.
+  * Predicting house price.
+  * Predicting Thailand population history.
+  * Predicting average income per month per household  of Thailand (B.E 41-58).
+  * Predicting Boston house-prices.  
 * [Logistic regression](Logistic_regression)
 * [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
   1. Nearest neighbors
@@ -58,13 +60,13 @@ All examples are written in Python language, so you need to setup your environme
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
 * [Neural network](Neural_network)
-  * calculate the logic
-  * classify the elements into two groups (binary classification)
+  * Calculating the logic
+  * Classifying the elements into two groups (binary classification)
 * [Prepare datasets](Prepare_datasets)
-  * get dataset examples with Keras library.
-  * get dataset examples with scikit-learn library.
+  * Getting dataset examples with Keras library.
+  * Getting dataset examples with scikit-learn library.
 * [Principal Component Analysis](Principal_Component_Analysis)
 * [Recurrent neural network](Recurrent_neural_network)
-  * show AI writing HTML code, article and Thai novel
+  * Showing AI writing HTML code, article and Thai novel
 * [Text classification](Text_classification)
 * [Deep Q Learning] (in progress)
