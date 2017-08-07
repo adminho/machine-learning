@@ -1,3 +1,5 @@
+The project will be updated continuously ......  :fire:
+
 # Machine learning examples
 
 For many years, I have studied Machine Learning and practiced coding. This repository has published my source codes.
@@ -8,7 +10,7 @@ All examples are written in Python language, so you need to setup your environme
 
 * First, install [ANACONDA](https://www.continuum.io/downloads)
 
-* I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) for deep learning example
+* I used 2 library including [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/) for deep learning examples
 
 * Install TensorFlow from PyPI with the command
 
@@ -18,7 +20,7 @@ All examples are written in Python language, so you need to setup your environme
 
 `pip install keras`
 
-* Install tqdm to make my loops show a smart progress meter 
+* Install [tqdm](https://pypi.python.org/pypi/tqdm) to make my loops show a smart progress meter 
 
 `pip install tqdm`
 
