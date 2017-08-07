@@ -9,7 +9,7 @@ if __name__ == "__main__":
 	#all_route = run_genetic_algorithm(generations=5000, population_size=100)
 	all_route = run_genetic_algorithm(generations=500, population_size=100)
 	df = pd.DataFrame(data=all_route)
-	df.to_csv("all_route.csv")
+	df.to_csv("debug_all_route.csv")
 
 	def list2String(list_data):
 		return "['" + "','".join(map(str, list_data )) + "']"	
