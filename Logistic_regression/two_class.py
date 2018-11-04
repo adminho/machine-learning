@@ -20,7 +20,7 @@ plt.show()
 def cost_function(sg, label):	
 	#if label == 1: return -np.log(sg)		
 	#if label == 0: return -np.log(1-sg)
-	return -label*np.log(sg) - (1-label)*np.log(1-sg)
+	return -label*np.log10(sg) - (1-label)*np.log10(1-sg)
 
 # ตัวอย่างทำนายถูกต้อง
 # ทำนายถูก อยู่เหนือกราฟ decision boundary		
