@@ -2,6 +2,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+image0   = [ [1, 1, 5, 1, 1],
+			[1, 1, 5, 1, 1],
+			[5, 5, 5, 5, 5],
+			[1, 1, 5, 1, 1],
+			[1, 1, 5, 1, 1]]
+
 image1   = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
@@ -11,7 +17,7 @@ image1   = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 1, 5, 1, 1, 1, 1],
 			[1, 1, 1, 1, 1, 1, 1, 1, 1]]
-
+			
 image2  = [ [1, 1, 1, 1, 1, 1, 1, 1, 1],
 			[1, 5, 1, 1, 1, 1, 1, 5, 1],
 			[1, 1, 5, 1, 1, 1, 5, 1, 1],
@@ -130,6 +136,8 @@ def test(image):
 
 	print("\n+++++++Convolution without padding++++++++")
 	print(convolve(image, filter1,  pad="valid"))
+	print(convolve(image, filter2,  pad="valid"))
+	print(convolve(image, filter3,  pad="valid"))
 
 	print("\n+++++++++Convolution with padding+++++++")
 	c1 = convolve(image, filter1,  pad="same")
@@ -174,7 +182,7 @@ def test(image):
 	print("\n+++++++++Fully connected layer don't have any example +++++++++++++++++")
 	
 if __name__ == "__main__":
-	test(image1)
+	test(image0)
 """
 def sigmoid(X):
 	return 1/(1+np.exp(-X))
