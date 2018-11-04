@@ -98,11 +98,7 @@ class Visualization():
 		ax1.grid(False) # toggle grid off
 		ax2.grid(False) # toggle grid off
 		ax3.grid(False) # toggle grid off
-		
-		ax1.set_title("Classify 2 groups")
-		ax2.set_title("Loss")		
-		ax3.set_title("Accuracy")
-				
+								
 		self.ax1, self.ax2, self.ax3 = ax1, ax2, ax3		
 		self.fig =fig
 		
@@ -140,11 +136,15 @@ class Visualization():
 		ax1.set_ylabel('Y values')
 		ax1.set_xlim(xx.min(), xx.max())
 		ax1.set_ylim(yy.min(), yy.max())
-		plt.tight_layout()
 		
-	def init(self):		
+		self.ax1.set_title("Classify 2 groups")
+		self.ax2.set_title("Loss")		
+		self.ax3.set_title("Accuracy")
 		self.ax2.set_ylim(0, 1)   # not autoscaled 	
-		self.ax3.set_ylim(0, 110)  # not autoscaled			
+		self.ax3.set_ylim(0, 110)  # not autoscaled		
+		plt.tight_layout()		
+		
+	def init(self):	
 		return self.scatter_list, self.line2, self.line3
 			
 	def update(self):
