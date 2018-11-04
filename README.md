@@ -62,6 +62,7 @@ All examples are written in Python language, so you need to setup your environme
 * [Neural network](Neural_network)
   * Calculating the logic.
   * Classifying the elements into two groups (binary classification).
+* [Object detection](Object_detection)
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
   * Getting dataset examples with scikit-learn library.
