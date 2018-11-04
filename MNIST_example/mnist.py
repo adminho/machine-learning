@@ -83,16 +83,16 @@ def plotExampleImg(title, X_image, Ydigits, Y_predict=None):
 def plotPCA2d(title, X_train, Ydigits):
 	estimator = PCA(n_components=2)
 	Xpca = estimator.fit_transform(X_train)	
-	colors = ['red', 'green','blue', 'black', 'purple', 'yellow', 'orange', 'gray', 'lime', 'cyan']
+	colors = ['red', 'green','blue', 'black', 'purple', 'pink', 'orange', 'gray', 'violet', 'olive']	
 	for number in range(0, 10): # 0 to 9
 		select_index = np.where(Ydigits == number)[0]
 		XY = Xpca[select_index]
 		# seperate to x, y component
 		x = XY[:, 0]	
 		y = XY[:, 1]		
-		plt.scatter(x, y, c=colors[number])	
+		plt.scatter(x, y, c=colors[number])
 	plt.title(title)
-	plt.legend(np.arange(0,10), loc='upper right')
+	plt.legend(np.arange(0,10), loc='upper right')	
 	plt.xlabel('First Principal Component')
 	plt.ylabel('Second Principal Component')
 	plt.show()
