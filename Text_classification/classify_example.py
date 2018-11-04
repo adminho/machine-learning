@@ -16,6 +16,8 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.preprocessing.text import Tokenizer
 from keras.layers import Conv1D, GlobalAveragePooling1D, MaxPooling1D, BatchNormalization
 
+# Requirement
+# pip install deepcut
 from create_dataset_thai import content2index, load_dataset, load_dataset_unknown
 
 MAX_WORDS = 5003
@@ -25,7 +27,7 @@ def plotPCA2d(X, label_list, num_classes):
 	Xpca = estimator.fit_transform(X)	
 	assert np.shape(Xpca) == (np.shape(X)[0], 2)
 	
-	colors = ['red', 'green','blue', 'black', ]
+	colors = ['red', 'green','blue', 'black' ]
 	for label in range(0, num_classes): # 0 to 3
 		label_list = np.array(label_list)	# convert to array with numpy
 		AB = Xpca[np.where(label_list == label)[0]]	
@@ -61,8 +63,8 @@ def preprocessing(X_train, X_test, Y_train, Y_test, num_classes):
 # Multilayer Perceptron (MLP)
 def build_MLP(num_classes):
 	model = Sequential()
-	model.add(Dense(512, input_shape=(MAX_WORDS,)))
-	model.add(Activation('relu'))
+	model.add(Dense(64, input_shape=(MAX_WORDS,)))
+	model.add(Activation('tanh'))
 	model.add(Dropout(0.5))
 	model.add(Dense(num_classes))
 	model.add(Activation('softmax'))
@@ -137,7 +139,8 @@ def train(model, X_train, X_test, Y_train, Y_test ):
 	Ypredicted = decode(Ypredicted)
 	print("Classification report")
 	print(metrics.classification_report( Yexpected, Ypredicted))
-	
+	return model
+
 def test(model, X_input):	
 	predict = model.predict(X_input) 	# output shape is (1, number label)
 	print("Predict: ", predict)
