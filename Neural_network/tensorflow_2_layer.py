@@ -107,3 +107,9 @@ if __name__ == '__main__':
 
 	answer = 1*(Ouput_layer2 > 0.5)
 	print('\nAnswer is ', answer[0] )
+	
+	
+# see DNNClassifiler It looks easy very much
+# https://github.com/mark-watson/cancer-deep-learning-model/blob/master/cancer_trainer.py
+# https://www.tensorflow.org/get_started/tflearn
+# https://www.tensorflow.org/api_docs/python/tf/contrib/learn/DNNClassifier
