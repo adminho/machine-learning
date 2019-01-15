@@ -50,11 +50,11 @@ TV_WEIGHT = 1e2
 LEARNING_RATE = 1e1
 STYLE_SCALE = 1.0
 ITERATIONS = 1000
-DIR_IMAGE_STEP = 'ckeckpoint'
 
 # Use VGG Model: https://arxiv.org/abs/1409.1556 (paper)	
 # download : http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-19.mat
-VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
+#VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
+#VGG_PATH = 'D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat'
 """
 There are 43 layer in VGG 19 model
 layer name		weights(shape)		bias(shape) 
@@ -144,8 +144,8 @@ layer		 stride		Activation function						 output size
 'conv5_4'		1			'relu5_4'							[1, h/16, w/16 ,512]
 """
 
-def getVGGdata():	
-	dataVGG = scipy.io.loadmat(VGG_PATH)	
+def getVGGdata(vggpath):	
+	dataVGG = scipy.io.loadmat(vggpath)	
 	dd = dataVGG['layers'][0]
 	assert dd.shape == (43,)
 		
@@ -188,10 +188,7 @@ def getVGGdata():
 	
 	return W, B, meanColor
 
-W, B, meanColor = getVGGdata()
-assert len(W) == 16 # number layer
-assert len(B) == 16 # number layer
-
+W, B, meanColor = None, None, None
 # Create the network model (can reuse this model)
 def createModel(imgInput):
 	# The model		
@@ -292,7 +289,7 @@ def getStyleBlendWeights(styleBlendWeights=None ):
         #styleBlendWeights = 1.0/len(styleDataList)        
     return 1
 
-def trainModel(imgData, contentFeature, allStyleFeautures, allStep):			
+def trainModel(imgData, contentFeature, allStyleFeautures, allStep, checkpoint):			
 	with tf.Graph().as_default():		
 		imgShape = (1,) + imgData.shape
 		initImg = tf.random_normal(imgShape) * 0.256
@@ -362,17 +359,19 @@ def trainModel(imgData, contentFeature, allStyleFeautures, allStep):
 				#saver = tf.train.Saver()	# save your model					
 				#saver.save(sess, DIR_IMAGE_STEP, global_step=step)
 				#saver.save(sess, DIR_IMAGE_STEP)
-				backupFile = os.path.join(DIR_IMAGE_STEP, "backup_%d.jpg" % step)
-				scipy.misc.imsave(backupFile, resultImg)
+				backupFile = os.path.join(checkpoint, "%04d_backup.jpg" % step)
+				imageio.imwrite(backupFile, resultImg)
 				
 		return resultImg
 
-# saver.restore(sess, ckpt.model_checkpoint_path)               
+# saver.restore(sess, ckpt.model_checkpoint_path)  
 
+
+import imageio
 def imread3d(path): 
 	# read image from file name 
 	# and return array in 3 dimensions height  x width x chanel
-	img = scipy.misc.imread(path).astype(np.float)
+	img = imageio.imread(path).astype(np.float)
 	if len(img.shape) == 2: # gray scale
 		img = np.dstack((img,img,img))		
 	return img 
@@ -382,7 +381,8 @@ def restoreImage(imgData):
 	img = img + meanColor 	# plus color mean(R,G,B)
 	img = np.clip(img, 0, 255).astype(np.uint8)
 	return img
-	
+
+import skimage.transform
 def resizeImgData(imgData):	
 	height, width, _ = imgData.shape
 	# get shorter edge
@@ -392,18 +392,25 @@ def resizeImgData(imgData):
 	marginX = int((width - shortEdge) / 2)	
 	cropImg = imgData[marginY: marginY + shortEdge, marginX: marginX + shortEdge]	
 	# resize to 224, 224
-	resizedImg = scipy.misc.imresize(cropImg, (224, 224))
+	resizedImg = skimage.transform.resize(cropImg, (224, 224))
 	return resizedImg
-
-def createImg():
-	if exists(DIR_IMAGE_STEP):			
-		shutil.rmtree(DIR_IMAGE_STEP)
 	
-	makedirs(DIR_IMAGE_STEP)	# backup images
+def createImg(fileName,	sytleName, 
+				epochs = 1000,
+				checkpoint="checkpoint", 
+				vggpath='D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat',				
+				showImage=False):
+	if exists(checkpoint):			
+		shutil.rmtree(checkpoint)
+	
+	makedirs(checkpoint)	# backup images
+	
+	global W, B, meanColor
+	W, B, meanColor = getVGGdata(vggpath)
+	assert len(W) == 16 # number layer
+	assert len(B) == 16 # number layer
 	
 	start_time = time.time() # start timmer	
-	fileName = "content_themask_singer.jpg"
-	sytleName = "The_Starry_Night.jpg"
 	imgData = imread3d(fileName)
 	imgData = resizeImgData(imgData)		# to: 244 x 244 x chanel
 	assert imgData.shape[0:2] == (224, 224)
@@ -419,13 +426,24 @@ def createImg():
 
 	#initImg = np.random.randn( *imgData.shape)  *  0.256
 	# waiting for many hours to create a image
-	resultImg = trainModel(imgData, contentFeature, allStyleFeautures,5000)
+	resultImg = trainModel(imgData, contentFeature, allStyleFeautures, epochs ,checkpoint)
 	print("Creating image inished: %ds" % (time.time() - start_time))
 
-	scipy.misc.imsave("output.jpg", resultImg)
-	plt.imshow(resultImg)
-	plt.show()
+	imageio.imwrite("output.jpg", resultImg)
+	if showImage:
+		plt.imshow(resultImg)
+		plt.show()
+		
 
 ##  This code use 1 style, But in original code can use more than 1 styles
 if __name__ == '__main__':
-	createImg()
+	import os.path
+	STEP_PATH = 'ckeckpoint'
+	IMAGE_PATH = ''
+	VGG_PATH = 'D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat'
+	createImg(os.path.join(IMAGE_PATH, "bnk48_coding.jpg"), 
+			  os.path.join(IMAGE_PATH, "The_Starry_Night.jpg" ), 
+			  1,
+			  STEP_PATH,
+			  VGG_PATH)
+	
