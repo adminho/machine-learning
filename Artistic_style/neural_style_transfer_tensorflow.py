@@ -443,7 +443,8 @@ if __name__ == '__main__':
 	VGG_PATH = 'D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat'
 	createImg(os.path.join(IMAGE_PATH, "bnk48_coding.jpg"), 
 			  os.path.join(IMAGE_PATH, "The_Starry_Night.jpg" ), 
-			  1,
-			  STEP_PATH,
-			  VGG_PATH)
+			  epochs=5,
+			  checkpoint=STEP_PATH,
+			  vggpath=VGG_PATH)
+
 	
