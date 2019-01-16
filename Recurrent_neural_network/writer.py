@@ -3,6 +3,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation
 from keras.layers import LSTM, GRU
 from keras.optimizers import RMSprop
+from keras.callbacks import LambdaCallback
 
 import os.path
 import shutil	
@@ -94,16 +95,36 @@ class Vocabulary():
 		preds = exp_preds / np.sum(exp_preds)
 		probas = np.random.multinomial(1, preds, 1)
 		return np.argmax(probas)
-	
-def get_trainer(content, tokens, max_seqlen, build_model, step=1):
-	# clear up tokens duplicated
+
+def model_generate_text(model, vocab, seq_tokens, content_length, diversity ):
+	generate_text = seq_tokens
+	max_seqlen = len(seq_tokens)	
+		
+	for i in range(0, content_length - max_seqlen):	
+		# One-hot encoding
+		seq_encoded = vocab.encode_input([seq_tokens]) # input shape is [1, number of tokens, encoding_len ]				
+		preds = model.predict(seq_encoded, verbose=0)[0] # Output shape is [1, encoding_len]
+				
+		next_index = vocab.decode_predict(preds, diversity)
+		next_char = vocab.indices2token[next_index]			
+		generate_text = np.append(generate_text, next_char)
+		seq_tokens = np.append(seq_tokens[1:], next_char)		
+		
+	return generate_text
+
+def get_vocabulary(content):
 	tokens = sorted(list(set(content)))
 	encoding_len = len(tokens)	
-	print("\ntokens:\n", tokens)
-	print("\ntotal tokens: ", encoding_len)
-	print("sequences length: ", max_seqlen)
-		
-	vocab = Vocabulary(tokens)
+	print("\ntokens:\n", tokens)		
+	return Vocabulary(tokens)
+	
+def train_model(content, max_seqlen, build_model, step=1, 
+				write_tofilename="log.txt", num_epochs=60, 
+				diversity_list = [0.2, 0.5, 1.0, 1.2]):
+	# clear up tokens duplicated
+	vocab = get_vocabulary(content)
+	print("\ntotal tokens: ", vocab.encoding_len)
+	print("sequences length: ", max_seqlen)	
 	
 	print('Preparing the input and target...')
 	# Preparing the input and target
@@ -124,7 +145,7 @@ def get_trainer(content, tokens, max_seqlen, build_model, step=1):
 	print("Y shape:", y.shape)
 
 	print('Build model...')
-	model = build_model(max_seqlen, encoding_len)	
+	model = build_model(max_seqlen, vocab.encoding_len)	
 	
 	# write text to files
 	def __write_text__(file_name, generate_text):		
@@ -134,22 +155,25 @@ def get_trainer(content, tokens, max_seqlen, build_model, step=1):
 		file.write(text)	
 		file.close()	
 				
-	# Train		
-	def trainer(write_tofilename, num_epochs=10, diversity_list = [0.2, 0.5, 1.0, 1.2]):		
-		model.fit(X, y,
-			  batch_size=25,
-			  epochs=num_epochs, verbose=0) # verbose = 1, 2 print a progress status 
-		
+	
+	all_log = {}
+	all_log['max_seqlen'] = max_seqlen
+	def on_epoch_end(epoch, _):
+		#model.fit(X, y,
+		#	  batch_size=25,
+		#	  epochs=num_epochs, verbose=0) # verbose = 1, 2 print a progress status 
 		generate_list =[[]] * len(diversity_list)
 		# start_index = random.randint(0, len(content) - max_seqlen - 1)		
-		for index, diversity in enumerate(diversity_list):	# many diversity			
+		for index, diversity in enumerate(diversity_list):	# many diversity
 			print('Tesing with diversity:', diversity)		
 			# for begining input			  
 			seq_tokens =content[0:max_seqlen]		
 			#seq_tokens =content[start_index: start_index + max_seqlen]		
-			generate_text = seq_tokens
+			
 			print("Generate with begining tokens: ", seq_tokens)
 			
+			"""
+			generate_text = seq_tokens
 			for i in range(0, len(content) - max_seqlen):	
 				# One-hot encoding
 				seq_encoded = vocab.encode_input([seq_tokens]) # input shape is [1, number of tokens, encoding_len ]				
@@ -159,13 +183,24 @@ def get_trainer(content, tokens, max_seqlen, build_model, step=1):
 				next_char = vocab.indices2token[next_index]			
 				generate_text = np.append(generate_text, next_char)
 				seq_tokens = np.append(seq_tokens[1:], next_char)				
+			"""
+			
+			#visualiz training
+			generate_text = model_generate_text(model, vocab, seq_tokens, len(content), diversity)
 			
 			file_name =  "diversity_"+ str(diversity) + "_"  + write_tofilename
 			# override old file
 			__write_text__(file_name, generate_text) 	# write a file for each diversity			
-			generate_list[index].append(generate_text) 	# for visual only
-		
-		return generate_list
-	#################### ending trainer function #################
+			generate_list[index].append(generate_text) 	# for visual only	
 	
-	return	trainer
+			#################### ending trainer function #################
+		all_log[epoch] = generate_list		
+		
+	print_callback = LambdaCallback(on_epoch_end=on_epoch_end)
+	
+	model.fit(X, y,
+		  batch_size=128,
+		  epochs = num_epochs,
+		  callbacks=[print_callback])
+		
+	return	all_log, model
