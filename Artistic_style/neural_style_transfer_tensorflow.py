@@ -399,7 +399,7 @@ def createImg(fileName,	sytleName,
 				epochs = 1000,
 				checkpoint="checkpoint", 
 				vggpath='D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat',				
-				showImage=False):
+				outputFile="output.jpg"):
 	if exists(checkpoint):			
 		shutil.rmtree(checkpoint)
 	
@@ -428,11 +428,7 @@ def createImg(fileName,	sytleName,
 	# waiting for many hours to create a image
 	resultImg = trainModel(imgData, contentFeature, allStyleFeautures, epochs ,checkpoint)
 	print("Creating image inished: %ds" % (time.time() - start_time))
-
-	imageio.imwrite("output.jpg", resultImg)
-	if showImage:
-		plt.imshow(resultImg)
-		plt.show()
+	imageio.imwrite(outputFile, resultImg)
 		
 
 ##  This code use 1 style, But in original code can use more than 1 styles
@@ -441,10 +437,18 @@ if __name__ == '__main__':
 	STEP_PATH = 'ckeckpoint'
 	IMAGE_PATH = ''
 	VGG_PATH = 'D:\MyProject\Model-AI\imagenet-vgg-verydeep-19.mat'
+	
 	createImg(os.path.join(IMAGE_PATH, "bnk48_coding.jpg"), 
 			  os.path.join(IMAGE_PATH, "The_Starry_Night.jpg" ), 
 			  epochs=5,
 			  checkpoint=STEP_PATH,
-			  vggpath=VGG_PATH)
+			  vggpath=VGG_PATH,
+			  outputFile="output.jpg")
+	
+	import cv2 
+	img = cv2.imread("output.jpg")
+	cv2.imshow('image',img)
+	cv2.waitKey(0)
+	
 
 	
