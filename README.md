@@ -84,11 +84,12 @@ All examples are written in Python language, so you need to setup your environme
 |🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection|
 |🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 ImageNet example](ImageNet_example)|🎯 One-shot Learning|
 | [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|
-| [Activation function](Activation_function) | ✍ [Embeddings] |👯‍♀ Siamese Neural Network ||
-|                | [Principal Component Analysis](Principal_Component_Analysis) | ||
+| [Activation function](Activation_function) | ✍ [Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]|
+|                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]|
 |                | [MNIST example](MNIST_example) |||
 
 
 
 ## Cite
 * https://paperswithcode.com/
+* https://github.com/keras-team/keras/tree/master/examples
