@@ -63,7 +63,7 @@ All examples are written in Python language, so you need to setup your environme
   * Calculating the logic.
   * Classifying the elements into two groups (binary classification).
 * [Object detection](Object_detection)
-* [Prepare datasets](Prepare_datasets)
+* 
   * Getting dataset examples with Keras library.
   * Getting dataset examples with scikit-learn library.
 * [Principal Component Analysis](Principal_Component_Analysis)
@@ -76,22 +76,25 @@ All examples are written in Python language, so you need to setup your environme
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Advanced|
 | -    |         -      |  -          |  -     |
-| 📓 [Notebooks] |📈 [Linear Regression](Linear_regression)   |🖼️ [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|
-| 🐍 [Python]    |📊 [Logistic Regression](Logistic_regression) |📚 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
-|🔢 [NumPy]      |👀 Classification (Text_classification) |🔮 Autoencoders|😃 Face Recognition|
-|📈 [Matplotlib] | ✂ Clustering |🎭 GAN:Generative Adversarial Networks|👳‍♂ Deepfake|
-|🐼 [Pandas]     ||🐝 Transformer Networks|✋ Hand checking|
+| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|
+| 🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
+| [NumPy]      |⛓ [Neural network](Neural_network) |🔮 Autoencoders|😃 Face Recognition|
+|📊 [Matplotlib] |🕵‍♀ [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|👳‍♂ Deepfake|
+|🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|✋ Hand checking|
 |🔥 [Tensorflow] |🌳 [Random Forests]|| Porn detection|
-|🔥 [Keras]      |Genetic Algorithm ||🎯 One-shot Learning|
-|                | 🛒 Recommendation Systems|📗 [Recurrent Neural Networks]()| |
-|                | 📝 [Embeddings] | 💪 Deep Q Learning||
+|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) ||🎯 One-shot Learning|
+| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|| |
+|                | ✍ [Embeddings] | 💪 Deep Q Learning||
+|                | [Principal Component Analysis](Principal_Component_Analysis) | 💪 Deep Q Learning||
+|                | [MNIST example](MNIST_example) |[Autoencoder](Autoencoder)||
 
 
 
+[Activation function](Activation_function) 
+📸 ImageNet example](ImageNet_example)
 
-
-👬 Siamese Neural Network
-🎛️ [Neural network](Neural_network)
+👯‍♀ Siamese Neural Network
+* [Art example](Art_example): 
 
 ## Cite
 * https://paperswithcode.com/
