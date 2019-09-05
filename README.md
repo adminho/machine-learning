@@ -75,12 +75,17 @@ All examples are written in Python language, so you need to setup your environme
 
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Advanced|
-|-|-|-|-|
-| 📓 [Notebooks]()|🔥 [PyTorch]()|📚 [Advanced RNNs]()|📸 [Computer Vision]()|
-| 🐍 [Python]()|🎛️ [Multilayer Perceptrons]()|🏎️ Highway and Residual Networks|⏰ Time Series Analysis|
-|🔢 [NumPy]()|🔎 [Data & Models]()|🔮 Autoencoders|🏘️ Topic Modeling|
-| 🐼 [Pandas]() |📦 [Object-Oriented ML]()|🎭 Generative Adversarial Networks|🛒 Recommendation Systems|
-|📈 [Linear Regression]()|🖼️ [Convolutional Neural Networks]()|🐝 Transformer Networks|🗣️ Pretrained Language Modeling|
-|📊 [Logistic Regression]()|📝 [Embeddings]()||🤷 Multitask Learning|
-|🌳 [Random Forests]()|📗 [Recurrent Neural Networks]()||🎯 One-shot Learning|
-|💥 Clustering|||🍒 Reinforcement Learning|
+| -    |         -      |  -          |  -     |
+| 📓 [Notebooks]()|🎛️ [Neural network](Neural_network)|📚 [Advanced RNNs]()|📸 [Object detection & Segmentation]()|
+| 🐍 [Python]()||🏎️ Highway and Residual Networks|Pose estimation()|
+|🔢 [NumPy]()|🌳 [Random Forests]() |🔮 Autoencoders|😃 Face Recognition|
+| 🐼 [Pandas]() |📦 [Object-Oriented ML]()|🎭 GAN:Generative Adversarial Networks|👳‍♂ Deepfake|
+||genetic algorithm|🐝 Transformer Networks|✋ Hand checking|
+||📝 [Embeddings]()|| Porn detection|
+|| 👀 Classification ||🎯 One-shot Learning|
+|📈 Matplotlib()|  ✂ Clustering () |📗 [Recurrent Neural Networks]()| |
+|🔥 [Tensorflow]() | 🛒 Recommendation Systems| 💪 Deep Q Learning||
+|🔥 [Keras]() |📈 [Linear Regression]() |🖼️ [Convolutional Neural Networks]()||
+📊 [Logistic Regression]()
+
+siamese neural network
