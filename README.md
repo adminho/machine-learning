@@ -74,8 +74,8 @@ All examples are written in Python language, so you need to setup your environme
 
 
 ## Code examples (not yet) 
-|Basics|Machine learning|Deep Learning|Advanced|Miscellaneous
-| -    |         -      |  -          |  -     ||
+|Basics|Machine learning|Deep Learning|Advanced|Miscellaneous|
+| -    |         -      |  -          |  -     | -|
 | 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]| ||
 |🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation||
 |[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation||
