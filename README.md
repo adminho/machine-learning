@@ -78,7 +78,7 @@ All examples are written in Python language, so you need to setup your environme
 | -    |         -      |  -          |  -            | - |           - |
 | 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |💪 Deep Q Learning|
 |🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
-|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation||Speech Recognition|seq2seq||
+|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|seq2seq|Speech Recognition|
 |📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
 |🐼 [Pandas]     |✂ Clustering|👯‍♀ Siamese Neural Network |👳‍♂ Deepfake|||
 |🔥 [Tensorflow] |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
