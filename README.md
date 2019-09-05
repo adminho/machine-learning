@@ -87,7 +87,7 @@ All examples are written in Python language, so you need to setup your environme
 | [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]|
 |                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]|
 |                | [MNIST example](MNIST_example) ||🖼 [Artistic style](Artistic_style)|
-|                | [MNIST example](MNIST_example) ||🖼 Colorizing|
+|                |  ||🖼 Colorizing|
 
 ## Cite
 * https://paperswithcode.com/
