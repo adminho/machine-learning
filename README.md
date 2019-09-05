@@ -76,16 +76,19 @@ All examples are written in Python language, so you need to setup your environme
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Advanced|
 | -    |         -      |  -          |  -     |
-| 📓 [Notebooks]()|🎛️ [Neural network](Neural_network)|📚 [Advanced RNNs]()|📸 [Object detection & Segmentation]()|
-| 🐍 [Python]()||🏎️ Highway and Residual Networks|Pose estimation()|
-|🔢 [NumPy]()|🌳 [Random Forests]() |🔮 Autoencoders|😃 Face Recognition|
-| 🐼 [Pandas]() |📦 [Object-Oriented ML]()|🎭 GAN:Generative Adversarial Networks|👳‍♂ Deepfake|
-||genetic algorithm|🐝 Transformer Networks|✋ Hand checking|
-||📝 [Embeddings]()|| Porn detection|
-|| 👀 Classification ||🎯 One-shot Learning|
-|📈 Matplotlib()|  ✂ Clustering () |📗 [Recurrent Neural Networks]()| |
-|🔥 [Tensorflow]() | 🛒 Recommendation Systems| 💪 Deep Q Learning||
-|🔥 [Keras]() |📈 [Linear Regression]() |🖼️ [Convolutional Neural Networks]()||
-📊 [Logistic Regression]()
+| 📓 [Notebooks] |📈 [Linear Regression](Linear_regression)   |🖼️ [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|
+| 🐍 [Python]    |📊 [Logistic Regression](Logistic_regression) |📚 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
+|🔢 [NumPy]      |👀 Classification (Text_classification) |🔮 Autoencoders|😃 Face Recognition|
+|📈 [Matplotlib] | ✂ Clustering |🎭 GAN:Generative Adversarial Networks|👳‍♂ Deepfake|
+|🐼 [Pandas]     ||🐝 Transformer Networks|✋ Hand checking|
+|🔥 [Tensorflow] |🌳 [Random Forests]|| Porn detection|
+|🔥 [Keras]      |Genetic Algorithm ||🎯 One-shot Learning|
+|                | 🛒 Recommendation Systems|📗 [Recurrent Neural Networks]()| |
+|                | 📝 [Embeddings] | 💪 Deep Q Learning||
 
-siamese neural network
+
+
+
+
+👬 Siamese Neural Network
+🎛️ [Neural network](Neural_network)
