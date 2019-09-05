@@ -86,7 +86,7 @@ All examples are written in Python language, so you need to setup your environme
 | [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|Speech Recognition|
 | [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]|
 |                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]|
-|                | [MNIST example](MNIST_example) |||
+|                | [MNIST example](MNIST_example) ||🖼 Artistic style(Artistic_style)|
 
 
 ## Cite
