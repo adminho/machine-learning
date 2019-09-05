@@ -74,20 +74,21 @@ All examples are written in Python language, so you need to setup your environme
 
 
 ## Code examples (not yet) 
-|Basics|Machine learning/Deep Learning|Computer Vision|NLP|Miscellaneous|
-| -    |         -      |  -          |  -     | -|
-| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] ||
-|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|
-|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation||
-|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||
-|🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|👳‍♂ Deepfake||
-|🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection||
-|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 [ImageNet example](ImageNet_example)|🎯 One-shot Learning||
-| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]||Speech Recognition||
-| [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |||
-|                | [Principal Component Analysis](Principal_Component_Analysis) | |||
-|                | [MNIST example](MNIST_example) ||🖼 [Artistic style](Artistic_style)||
-|                |  ||🖼 Colorizing||
+|Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
+| -    |         -      |  -          |  -            | - |           - |
+| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |||
+|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]||
+|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|||
+|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition|||
+|🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|👳‍♂ Deepfake|||
+|🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection|||
+|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 [ImageNet example](ImageNet_example)|🎯 One-shot Learning|||
+| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]||Speech Recognition|||
+| [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network ||||
+|                | [Principal Component Analysis](Principal_Component_Analysis) | ||||
+|                | [MNIST example](MNIST_example) ||🖼 [Artistic style](Artistic_style)|||
+|                |  ||🖼 Colorizing|||
+
 
 ## Cite
 * https://paperswithcode.com/
