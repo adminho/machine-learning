@@ -74,20 +74,20 @@ All examples are written in Python language, so you need to setup your environme
 
 
 ## Code examples (not yet) 
-|Basics|Machine learning|Deep Learning|Advanced|
-| -    |         -      |  -          |  -     |
-| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]| |
-|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
-|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|
-|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition|
-|🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|👳‍♂ Deepfake|
-|🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection|
-|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 [ImageNet example](ImageNet_example)|🎯 One-shot Learning|
-| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|Speech Recognition|
-| [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]|
-|                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]|
-|                | [MNIST example](MNIST_example) ||🖼 [Artistic style](Artistic_style)|
-|                |  ||🖼 Colorizing|
+|Basics|Machine learning|Deep Learning|Advanced|Miscellaneous
+| -    |         -      |  -          |  -     ||
+| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]| ||
+|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation||
+|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation||
+|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||
+|🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|👳‍♂ Deepfake||
+|🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection||
+|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 [ImageNet example](ImageNet_example)|🎯 One-shot Learning||
+| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|Speech Recognition||
+| [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]||
+|                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]||
+|                | [MNIST example](MNIST_example) ||🖼 [Artistic style](Artistic_style)||
+|                |  ||🖼 Colorizing||
 
 ## Cite
 * https://paperswithcode.com/
