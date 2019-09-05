@@ -80,13 +80,13 @@ All examples are written in Python language, so you need to setup your environme
 |🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
 |[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation||Speech Recognition|
 |📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
-|🐼 [Pandas]     |✂ Clustering||👳‍♂ Deepfake|||
-|🔥 [Tensorflow] |🌳 [Random Forests]| | Porn detection|||
+|🐼 [Pandas]     |✂ Clustering|👯‍♀ Siamese Neural Network |👳‍♂ Deepfake|||
+|🔥 [Tensorflow] |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
 |🔥 [Keras]      |[Generic algorithm](Generic_algorithm) ||📸 [ImageNet example](ImageNet_example)|||
 | [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
-| [Activation function](Activation_function) | ✍ [Word Embeddings] |👯‍♀ Siamese Neural Network |🖼 Colorizing|||
+| [Activation function](Activation_function) | ✍ [Word Embeddings] ||🖼 Colorizing|||
 |                | [Principal Component Analysis](Principal_Component_Analysis) | ||||
-|                | [MNIST example](MNIST_example) |||||
+|                |  |||||
 |                |  |||||
 
 
