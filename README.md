@@ -71,3 +71,16 @@ All examples are written in Python language, so you need to setup your environme
   * Showing AI writing HTML code, article and Thai novel.
 * [Text classification](Text_classification)
 * [Deep Q Learning] (in progress)
+
+
+## Notebooks
+|Basics|Machine learning|Deep Learning|Advanced|
+|-|-|-|-|
+| 📓 [Notebooks]()|🔥 [PyTorch]()|📚 [Advanced RNNs]()|📸 [Computer Vision]()|
+| 🐍 [Python]()|🎛️ [Multilayer Perceptrons]()|🏎️ Highway and Residual Networks|⏰ Time Series Analysis|
+|🔢 [NumPy]()|🔎 [Data & Models]()|🔮 Autoencoders|🏘️ Topic Modeling|
+| 🐼 [Pandas]() |📦 [Object-Oriented ML]()|🎭 Generative Adversarial Networks|🛒 Recommendation Systems|
+|📈 [Linear Regression]()|🖼️ [Convolutional Neural Networks]()|🐝 Transformer Networks|🗣️ Pretrained Language Modeling|
+|📊 [Logistic Regression]()|📝 [Embeddings]()||🤷 Multitask Learning|
+|🌳 [Random Forests]()|📗 [Recurrent Neural Networks]()||🎯 One-shot Learning|
+|💥 Clustering|||🍒 Reinforcement Learning|
