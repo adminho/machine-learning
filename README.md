@@ -76,7 +76,7 @@ All examples are written in Python language, so you need to setup your environme
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
 | -    |         -      |  -          |  -            | - |           - |
-| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] ||💪 Deep Q Learning|
+| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |💪 Deep Q Learning|
 |🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
 |[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|||
 |📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition|||
