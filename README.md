@@ -73,7 +73,7 @@ All examples are written in Python language, so you need to setup your environme
 * [Deep Q Learning] (in progress)
 
 
-## Notebooks
+## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Advanced|
 |-|-|-|-|
 | 📓 [Notebooks]()|🔥 [PyTorch]()|📚 [Advanced RNNs]()|📸 [Computer Vision]()|
