@@ -83,10 +83,10 @@ All examples are written in Python language, so you need to setup your environme
 |🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|✋ Hand checking|
 |🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection|
 |🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 ImageNet example](ImageNet_example)|🎯 One-shot Learning|
-| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|
+| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|Seq2Seq|Speech Recognition|
 | [Activation function](Activation_function) | ✍ [Embeddings] |👯‍♀ Siamese Neural Network |[GPT-2]|
 |                | [Principal Component Analysis](Principal_Component_Analysis) | |[Tudkumthai]|
-|                | [MNIST example](MNIST_example) ||Speech Recognition|
+|                | [MNIST example](MNIST_example) |||
 
 
 
