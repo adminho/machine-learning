@@ -77,24 +77,19 @@ All examples are written in Python language, so you need to setup your environme
 |Basics|Machine learning|Deep Learning|Advanced|
 | -    |         -      |  -          |  -     |
 | 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|
-| 🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
-| [NumPy]      |⛓ [Neural network](Neural_network) |🔮 Autoencoders|😃 Face Recognition|
-|📊 [Matplotlib] |🕵‍♀ [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|👳‍♂ Deepfake|
+|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|
+|[NumPy]      |⛓ [Neural network](Neural_network) [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|😃 Face Recognition|
+|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|👳‍♂ Deepfake|
 |🐼 [Pandas]     |✂ Clustering|🐝 Transformer Networks|✋ Hand checking|
-|🔥 [Tensorflow] |🌳 [Random Forests]|| Porn detection|
-|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) ||🎯 One-shot Learning|
-| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]|| |
-|                | ✍ [Embeddings] | 💪 Deep Q Learning||
-|                | [Principal Component Analysis](Principal_Component_Analysis) | 💪 Deep Q Learning||
-|                | [MNIST example](MNIST_example) |[Autoencoder](Autoencoder)||
+|🔥 [Tensorflow] |🌳 [Random Forests]| 💪 Deep Q Learning| Porn detection|
+|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) |📸 ImageNet example](ImageNet_example)|🎯 One-shot Learning|
+| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]||
+👯‍♀ Siamese Neural Network |
+| [Activation function](Activation_function) | ✍ [Embeddings] |||
+|                | [Principal Component Analysis](Principal_Component_Analysis) | ||
+|                | [MNIST example](MNIST_example) |||
 
 
-
-[Activation function](Activation_function) 
-📸 ImageNet example](ImageNet_example)
-
-👯‍♀ Siamese Neural Network
-* [Art example](Art_example): 
 
 ## Cite
 * https://paperswithcode.com/
