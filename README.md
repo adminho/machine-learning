@@ -39,9 +39,22 @@ All examples are written in Python language, so you need to setup your environme
 * 🔥 [Keras]  
 
 
-### Machine learning/Deep learning
+### Machine learning/Deep learning (Basics)
+* ⛓ Neural network (multilayer perceptrons) paints an image.(Art_example)
+* 🔮 [Autoencoder](Autoencoder)
+* 👯‍♀ Siamese Neural Network
+* 👀 [Convolutional neural network](Convolutional_neural_network)
 
 ### Computer Vision
+
+* 📸 [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
+  1. Xception
+  2. VGG16
+  3. VGG19
+  4. ResNet50
+  5. InceptionV3
+* 📸 [Object detection](Object_detection)
+* 📸 [Object detection & Segmentation]
 
 ### NLP: natural language processing
 
@@ -51,19 +64,10 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Miscellaneous
 
-* [Art example](Art_example): 
-  * Neural network (multilayer perceptrons) paints an image.
-* [Autoencoder](Autoencoder)
-* [Convolutional neural network](Convolutional_neural_network)
 * [Generative adversarial network](Generative_adversarial_network)
 * [Generic algorithm](Generic_algorithm)
   Computing the optimal road trip across 20 provinces of Thailand.
-* [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
-  1. Xception
-  2. VGG16
-  3. VGG19
-  4. ResNet50
-  5. InceptionV3
+
 * [Linear and nonlinear regression](Linear_regression)
   * Predicting food truck.
   * Predicting house price.
@@ -84,7 +88,7 @@ All examples are written in Python language, so you need to setup your environme
 * [Neural network](Neural_network)
   * Calculating the logic.
   * Classifying the elements into two groups (binary classification).
-* [Object detection](Object_detection)
+
 * 
   * Getting dataset examples with Keras library.
   * Getting dataset examples with scikit-learn library.
@@ -98,13 +102,13 @@ All examples are written in Python language, so you need to setup your environme
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
 | -    |         -      |  -          |  -            | - |           - |
-| |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |💪 Deep Q Learning|
+| |📈 [Linear Regression](Linear_regression)   |||[Tudkumthai] |💪 Deep Q Learning|
 |    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
-|      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|seq2seq|Speech Recognition|
+|      |⛓ [Neural network](Neural_network)||✋ Hand Pose Estimation|seq2seq|Speech Recognition|
 | |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
-|    |✂ Clustering|👯‍♀ Siamese Neural Network |👳‍♂ Deepfake|||
+|    |✂ Clustering| |👳‍♂ Deepfake|||
 | |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
-|    |[Generic algorithm](Generic_algorithm) ||📸 [ImageNet example](ImageNet_example)|||
+|    |[Generic algorithm](Generic_algorithm) |||||
 | | 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
 | | ✍ [Word Embeddings] ||🖼 Colorizing|||
 |                | [Principal Component Analysis](Principal_Component_Analysis) | ||||
