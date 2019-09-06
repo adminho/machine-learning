@@ -2,7 +2,7 @@ from __future__ import print_function
 import tensorflow as tf
 from tensorflow.contrib import slim
 from nets import utils
-import resnet_v1
+from nets import resnet_v1
 import numpy as np
 import sys
 
