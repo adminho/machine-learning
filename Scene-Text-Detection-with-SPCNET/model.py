@@ -162,7 +162,7 @@ def build_input_graph(is_training, config):
 		inputs['input_gt_global_masks'] = tf.placeholder(tf.uint8,\
 							shape=[None, config.IMAGE_SHAPE[0], config.IMAGE_SHAPE[1]],\
 							name='input_gt_global_masks')
-  	return inputs
+	return inputs
 
 
 # *****************************************************************************
