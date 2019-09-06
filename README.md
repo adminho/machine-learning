@@ -99,9 +99,9 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Natural Language Processing(NLP)
 * 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
- * thai-word-segmentation
- * Deepcut
- * Cutkum
+  * thai-word-segmentation
+  * Deepcut
+  * Cutkum
 * 📝 [Word Embeddings]
 * [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
 * [seq2seq
