@@ -975,7 +975,7 @@ def unmold_detections(detections, mrcnn_mask, original_image_shape,
             # pints [N, (y,x)]
             points = np.argwhere(full_mask == True).reshape((-1,2))
             if points.shape[0] == 0:
-        continue
+                continue
             # [N, (x,y)]
             points[:,[0,1]] = points[:,[1,0]]
             rect = cv2.minAreaRect(points)
