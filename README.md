@@ -31,7 +31,7 @@ All examples are written in Python language, so you need to setup your environme
 ### Beginer
 * 📕 [Notebooks] 
 * 🐍 [Python]
-  * [Python in Mathayom_1_2_3] (https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
+  * [Python in Mathayom_1_2_3](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
   * Python in Mathayom_4_5_6 
 
 * [NumPy]
@@ -100,7 +100,7 @@ All examples are written in Python language, so you need to setup your environme
 ### Natural Language Processing(NLP)
 * 📰 [Tudkumthai] (https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
 * 📝 [Word Embeddings]
-* [GPT-2](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
+* [GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
 * seq2seq
 
 ### Speech, Audio, Music
@@ -113,7 +113,7 @@ All examples are written in Python language, so you need to setup your environme
 * 💪 [Deep Q Learning] (in progress)
 * 🐝 Transformer Networks
 * 🎯 One-shot Learning
-* Pix2Code
+* 💻 Pix2Code
 
 
 ## Code examples (not yet) 
