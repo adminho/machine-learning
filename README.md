@@ -39,17 +39,19 @@ All examples are written in Python language, so you need to setup your environme
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
   * Getting dataset examples with scikit-learn library.
+* [Activation function](Activation_function)  
 
 ### Machine learning/Deep learning (Basics)
-* [Activation function](Activation_function)  
-* [Linear and nonlinear regression](Linear_regression)
+
+* 📈 [Linear and nonlinear regression](Linear_regression)
   * Predicting food truck.
   * Predicting house price.
   * Predicting Thailand population history.
   * Predicting average income per month per household  of Thailand (B.E 41-58).
   * Predicting Boston house-prices.    
+* 📉 [Logistic regression](Logistic_regression)
 * [Principal Component Analysis](Principal_Component_Analysis)
-* 💦 [Classification
+* 💦 [Text classification](Text_classification)
 * ✂ Clustering
 * 🌳 [Random Forests]
 * [Generic algorithm](Generic_algorithm)
@@ -63,6 +65,16 @@ All examples are written in Python language, so you need to setup your environme
 * 🎧 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
+* [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
+  1. Nearest neighbors
+  2. Support vector
+  3. Logistic regression 
+  4. Multilayer Perceptron (MLP)
+  5. Convolutional neural network (CNN) with Convolution2D
+  6. Convolutional neural network (CNN) with Convolution1D
+  7. Recurrent Neural Networks (RNN)
+  8. Long short-term memory (LSTM)
+  9. Gated Recurrent Unit (GRU)
 * 👯‍♀ Siamese Neural Network
 
 ### Computer Vision
@@ -75,51 +87,41 @@ All examples are written in Python language, so you need to setup your environme
   5. InceptionV3
 * 📸 [Object detection](Object_detection)
 * 📸 [Object detection & Segmentation]
+* Pose estimation
+* ✋ Hand Pose Estimation
+* 😃 Face Recognition
+* 👳‍♂ Deepfake
+* Porn detection
+* 🖼 Colorizing|
 
-### NLP: natural language processing
+### Natural Language Processing(NLP)
+* [Tudkumthai] 
+* ✍ [Word Embeddings]
+* [GPT-2]
+* seq2seq
 
 ### Speech, Audio, Music
+* Speech Recognition
 
 ### Miscellaneous
-
-
-
-
-
-* [Logistic regression](Logistic_regression)
-* [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
-  1. Nearest neighbors
-  2. Support vector
-  3. Logistic regression 
-  4. Multilayer Perceptron (MLP)
-  5. Convolutional neural network (CNN) with Convolution2D
-  6. Convolutional neural network (CNN) with Convolution1D
-  7. Recurrent Neural Networks (RNN)
-  8. Long short-term memory (LSTM)
-  9. Gated Recurrent Unit (GRU)
-
-
-  
-
-* [Text classification](Text_classification)
-* [Deep Q Learning] (in progress)
+* 🛒 [Recommendation Systems]
+* 🖼 [Artistic style](Artistic_style)
+* 💪 [Deep Q Learning] (in progress)
+* 🐝 Transformer Networks
+* 🎯 One-shot Learning
+* Pix2Code
 
 
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
 | -    |         -      |  -          |  -            | - |           - |
-| |📈 [Linear Regression](Linear_regression)   |||[Tudkumthai] |💪 Deep Q Learning|
-|    |📉 [Logistic Regression](Logistic_regression) ||Pose estimation|[GPT-2]|🐝 Transformer Networks|
-|      |||✋ Hand Pose Estimation|seq2seq|Speech Recognition|
-| |](Text_classification) ||😃 Face Recognition||🎯 One-shot Learning|
-|    || |👳‍♂ Deepfake|||
-| ||| Porn detection|||
-|    | |||||
-| | 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
-| | ✍ [Word Embeddings] ||🖼 Colorizing|||
-|                | | ||||
-|                |  |||||
-|                |  |||||
+|Beginer| |||||
+|Machine learning/Deep learning (Basics)   | |||||
+|Computer Vision     ||||||
+| Natural Language Processing(NLP)| |||||
+| Speech, Audio, Music   || ||||
+| Miscellaneous|| ||||
+
 
 
 ## Cite
