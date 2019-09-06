@@ -29,8 +29,15 @@ All examples are written in Python language, so you need to setup your environme
 ## My examples (not yet) 
 ### Basics
 * [Activation function](Activation_function)  
-[Prepare datasets](Prepare_datasets)
-*
+* [Prepare datasets](Prepare_datasets)
+* 📕 [Notebooks] 
+* 🐍 [Python]
+* [NumPy]
+* 📊 [Matplotlib]
+* 🐼 [Pandas] 
+* 🔥 [Tensorflow]
+* 🔥 [Keras]  
+
 
 ### Machine learning/Deep learning
 
@@ -91,15 +98,15 @@ All examples are written in Python language, so you need to setup your environme
 ## Code examples (not yet) 
 |Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
 | -    |         -      |  -          |  -            | - |           - |
-| 📕 [Notebooks] |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |💪 Deep Q Learning|
-|🐍 [Python]    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
-|[NumPy]      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|seq2seq|Speech Recognition|
-|📊 [Matplotlib] |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
-|🐼 [Pandas]     |✂ Clustering|👯‍♀ Siamese Neural Network |👳‍♂ Deepfake|||
-|🔥 [Tensorflow] |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
-|🔥 [Keras]      |[Generic algorithm](Generic_algorithm) ||📸 [ImageNet example](ImageNet_example)|||
-| [Prepare datasets](Prepare_datasets)| 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
-| [Activation function](Activation_function) | ✍ [Word Embeddings] ||🖼 Colorizing|||
+| |📈 [Linear Regression](Linear_regression)   |👀 [Convolutional Neural Networks](Convolutional_neural_network)|📸 [Object detection & Segmentation]|[Tudkumthai] |💪 Deep Q Learning|
+|    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
+|      |⛓ [Neural network](Neural_network) and [Art example](Art_example) |🔮 [Autoencoder](Autoencoder)|✋ Hand Pose Estimation|seq2seq|Speech Recognition|
+| |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
+|    |✂ Clustering|👯‍♀ Siamese Neural Network |👳‍♂ Deepfake|||
+| |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
+|    |[Generic algorithm](Generic_algorithm) ||📸 [ImageNet example](ImageNet_example)|||
+| | 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
+| | ✍ [Word Embeddings] ||🖼 Colorizing|||
 |                | [Principal Component Analysis](Principal_Component_Analysis) | ||||
 |                |  |||||
 |                |  |||||
