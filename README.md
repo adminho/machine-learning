@@ -88,7 +88,7 @@ All examples are written in Python language, so you need to setup your environme
   3. VGG19
   4. ResNet50
   5. InceptionV3
-* 📸 [Object detection](Object_detection) (https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
+* 📸 [Object detection](https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
 * 📸 [Object detection & Segmentation]
 * 🤸‍♀ Pose estimation
 * ✋ Hand Pose Estimation
@@ -114,7 +114,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🐝 Transformer Networks
 * 🎯 One-shot Learning
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
-
+  * Generating Code from a Graphical User Interface Screenshot
 
 ## Code examples (not yet) 
 |Title|Code Examples|
