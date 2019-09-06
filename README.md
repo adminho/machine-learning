@@ -31,6 +31,9 @@ All examples are written in Python language, so you need to setup your environme
 ### Beginer
 * 📕 [Notebooks] 
 * 🐍 [Python]
+  * [Python in Mathayom_1_2_3] (https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
+  * Python in Mathayom_4_5_6 
+
 * [NumPy]
 * 📊 [Matplotlib]
 * 🐼 [Pandas] 
@@ -62,7 +65,7 @@ All examples are written in Python language, so you need to setup your environme
   * Classifying the elements into two groups (binary classification).
 * 🔮 [Autoencoder](Autoencoder)
 * 👀 [Convolutional neural network](Convolutional_neural_network)
-* 🎧 [Recurrent neural network](Recurrent_neural_network)
+* 📝 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
 * [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
@@ -75,7 +78,7 @@ All examples are written in Python language, so you need to setup your environme
   7. Recurrent Neural Networks (RNN)
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
-* 👯‍♀ Siamese Neural Network
+* 👬 Siamese Neural Network
 
 ### Computer Vision
 
@@ -87,21 +90,22 @@ All examples are written in Python language, so you need to setup your environme
   5. InceptionV3
 * 📸 [Object detection](Object_detection)
 * 📸 [Object detection & Segmentation]
-* Pose estimation
+* 🤸‍♀ Pose estimation
 * ✋ Hand Pose Estimation
 * 😃 Face Recognition
 * 👳‍♂ Deepfake
-* Porn detection
+* 📹 Porn detection
 * 🖼 Colorizing|
 
 ### Natural Language Processing(NLP)
-* [Tudkumthai] 
-* ✍ [Word Embeddings]
-* [GPT-2]
+* 📰 [Tudkumthai] (https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
+* 📝 [Word Embeddings]
+* [GPT-2](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
 * seq2seq
 
 ### Speech, Audio, Music
-* Speech Recognition
+* 👨‍🎤 Speech Recognition
+* 🎧 
 
 ### Miscellaneous
 * 🛒 [Recommendation Systems]
