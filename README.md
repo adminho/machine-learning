@@ -113,14 +113,14 @@ All examples are written in Python language, so you need to setup your environme
 
 
 ## Code examples (not yet) 
-|Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
-| -    |         -      |  -          |  -            | - |           - |
-|Beginer| |||||
-|Machine learning/Deep learning (Basics)   | |||||
-|Computer Vision     ||||||
-| Natural Language Processing(NLP)| |||||
-| Speech, Audio, Music   || ||||
-| Miscellaneous|| ||||
+|Title|Code Examples|
+| -    |         -      |
+|Beginer| |
+|Machine learning/Deep learning (Basics)   | |
+|Computer Vision     ||
+| Natural Language Processing(NLP)| ||
+| Speech, Audio, Music   || 
+| Miscellaneous|| 
 
 
 
