@@ -27,9 +27,8 @@ All examples are written in Python language, so you need to setup your environme
 * Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [some examples]
 
 ## My examples (not yet) 
-### Basics
-* [Activation function](Activation_function)  
-* [Prepare datasets](Prepare_datasets)
+
+### Beginer
 * 📕 [Notebooks] 
 * 🐍 [Python]
 * [NumPy]
@@ -37,13 +36,34 @@ All examples are written in Python language, so you need to setup your environme
 * 🐼 [Pandas] 
 * 🔥 [Tensorflow]
 * 🔥 [Keras]  
-
+* [Prepare datasets](Prepare_datasets)
+  * Getting dataset examples with Keras library.
+  * Getting dataset examples with scikit-learn library.
 
 ### Machine learning/Deep learning (Basics)
-* ⛓ Neural network (multilayer perceptrons) paints an image.(Art_example)
+* [Activation function](Activation_function)  
+* [Linear and nonlinear regression](Linear_regression)
+  * Predicting food truck.
+  * Predicting house price.
+  * Predicting Thailand population history.
+  * Predicting average income per month per household  of Thailand (B.E 41-58).
+  * Predicting Boston house-prices.    
+* [Principal Component Analysis](Principal_Component_Analysis)
+* 💦 [Classification
+* ✂ Clustering
+* 🌳 [Random Forests]
+* [Generic algorithm](Generic_algorithm)
+  Computing the optimal road trip across 20 provinces of Thailand.
+* ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
+* ⛓ [Neural network](Neural_network)
+  * Calculating the logic.
+  * Classifying the elements into two groups (binary classification).
 * 🔮 [Autoencoder](Autoencoder)
-* 👯‍♀ Siamese Neural Network
 * 👀 [Convolutional neural network](Convolutional_neural_network)
+* 🎧 [Recurrent neural network](Recurrent_neural_network)
+  * Showing AI writing HTML code, article and Thai novel.
+* 👥 [Generative adversarial network](Generative_adversarial_network)
+* 👯‍♀ Siamese Neural Network
 
 ### Computer Vision
 
@@ -60,20 +80,12 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Speech, Audio, Music
 
-### Playing Games
-
 ### Miscellaneous
 
-* [Generative adversarial network](Generative_adversarial_network)
-* [Generic algorithm](Generic_algorithm)
-  Computing the optimal road trip across 20 provinces of Thailand.
 
-* [Linear and nonlinear regression](Linear_regression)
-  * Predicting food truck.
-  * Predicting house price.
-  * Predicting Thailand population history.
-  * Predicting average income per month per household  of Thailand (B.E 41-58).
-  * Predicting Boston house-prices.  
+
+
+
 * [Logistic regression](Logistic_regression)
 * [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
   1. Nearest neighbors
@@ -85,16 +97,10 @@ All examples are written in Python language, so you need to setup your environme
   7. Recurrent Neural Networks (RNN)
   8. Long short-term memory (LSTM)
   9. Gated Recurrent Unit (GRU)
-* [Neural network](Neural_network)
-  * Calculating the logic.
-  * Classifying the elements into two groups (binary classification).
 
-* 
-  * Getting dataset examples with Keras library.
-  * Getting dataset examples with scikit-learn library.
-* [Principal Component Analysis](Principal_Component_Analysis)
-* [Recurrent neural network](Recurrent_neural_network)
-  * Showing AI writing HTML code, article and Thai novel.
+
+  
+
 * [Text classification](Text_classification)
 * [Deep Q Learning] (in progress)
 
@@ -103,15 +109,15 @@ All examples are written in Python language, so you need to setup your environme
 |Basics|Machine learning|Deep Learning|Computer Vision|NLP|Miscellaneous|
 | -    |         -      |  -          |  -            | - |           - |
 | |📈 [Linear Regression](Linear_regression)   |||[Tudkumthai] |💪 Deep Q Learning|
-|    |📉 [Logistic Regression](Logistic_regression) |🎧 [Recurrent neural network](Recurrent_neural_network)|Pose estimation|[GPT-2]|🐝 Transformer Networks|
-|      |⛓ [Neural network](Neural_network)||✋ Hand Pose Estimation|seq2seq|Speech Recognition|
-| |💦 [Classification](Text_classification) |👥 [Generative adversarial network](Generative_adversarial_network)|😃 Face Recognition||🎯 One-shot Learning|
-|    |✂ Clustering| |👳‍♂ Deepfake|||
-| |🌳 [Random Forests]| [MNIST example](MNIST_example)| Porn detection|||
-|    |[Generic algorithm](Generic_algorithm) |||||
+|    |📉 [Logistic Regression](Logistic_regression) ||Pose estimation|[GPT-2]|🐝 Transformer Networks|
+|      |||✋ Hand Pose Estimation|seq2seq|Speech Recognition|
+| |](Text_classification) ||😃 Face Recognition||🎯 One-shot Learning|
+|    || |👳‍♂ Deepfake|||
+| ||| Porn detection|||
+|    | |||||
 | | 🛒 [Recommendation Systems]||🖼 [Artistic style](Artistic_style)|||
 | | ✍ [Word Embeddings] ||🖼 Colorizing|||
-|                | [Principal Component Analysis](Principal_Component_Analysis) | ||||
+|                | | ||||
 |                |  |||||
 |                |  |||||
 
