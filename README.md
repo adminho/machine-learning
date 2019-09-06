@@ -88,7 +88,7 @@ All examples are written in Python language, so you need to setup your environme
   3. VGG19
   4. ResNet50
   5. InceptionV3
-* 📸 [Object detection](Object_detection)
+* 📸 [Object detection](Object_detection) (https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
 * 📸 [Object detection & Segmentation]
 * 🤸‍♀ Pose estimation
 * ✋ Hand Pose Estimation
@@ -98,10 +98,10 @@ All examples are written in Python language, so you need to setup your environme
 * 🖼 Colorizing|
 
 ### Natural Language Processing(NLP)
-* 📰 [Tudkumthai] (https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
+* 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
 * 📝 [Word Embeddings]
-* [GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
-* seq2seq
+* [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
+* [seq2seq
 
 ### Speech, Audio, Music
 * 👨‍🎤 Speech Recognition
@@ -113,7 +113,7 @@ All examples are written in Python language, so you need to setup your environme
 * 💪 [Deep Q Learning] (in progress)
 * 🐝 Transformer Networks
 * 🎯 One-shot Learning
-* 💻 Pix2Code
+* 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
 
 
 ## Code examples (not yet) 
