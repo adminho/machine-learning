@@ -94,8 +94,8 @@ All examples are written in Python language, so you need to setup your environme
 * ✋ Hand Pose Estimation
 * 😃 Face Recognition
 * 👳‍♂ Deepfake
-* 📹 Porn detection
-* 🖼 Colorizing|
+* 📹 [Porn detection](https://colab.research.google.com/drive/1aFQgXH9WAvA_aJiZU4GZppWrLnZNJ7Hh)
+* 🖼 Colorizing
 
 ### Natural Language Processing(NLP)
 * 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
