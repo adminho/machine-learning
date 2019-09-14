@@ -30,11 +30,11 @@ All examples are written in Python language, so you need to setup your environme
 |Title|Code Examples|
 | -    |         -      |
 |Beginer| [see](#Beginer) |
-|Machine learning/Deep learning (Basics)   | |
-|Computer Vision     ||
-| Natural Language Processing(NLP)| ||
-| Speech, Audio, Music   || 
-| Miscellaneous|| 
+|Machine learning/Deep learning (Basics)   |[see](#machine-learningdeep-learning-basics)|
+|Computer Vision     |[see](#computer-vision)|
+| Natural Language Processing(NLP)| [see](#natural-language-processingnlp)|
+| Speech, Audio, Music   |[see](#speech-audio-music)| 
+| Miscellaneous|[see](Miscellaneous)| 
 
 ## My examples (not yet) 
 
