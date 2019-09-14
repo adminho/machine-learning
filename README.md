@@ -26,6 +26,16 @@ All examples are written in Python language, so you need to setup your environme
 
 * Download [FFmpeg](https://www.ffmpeg.org/download.html) (I used it to generate mpg.4) and install it. [some examples]
 
+## Content Table (not yet) 
+|Title|Code Examples|
+| -    |         -      |
+|Beginer| |
+|Machine learning/Deep learning (Basics)   | |
+|Computer Vision     ||
+| Natural Language Processing(NLP)| ||
+| Speech, Audio, Music   || 
+| Miscellaneous|| 
+
 ## My examples (not yet) 
 
 ### Beginer
@@ -118,18 +128,6 @@ All examples are written in Python language, so you need to setup your environme
 * 🎯 One-shot Learning
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
   * Generating Code from a Graphical User Interface Screenshot
-
-## Code examples (not yet) 
-|Title|Code Examples|
-| -    |         -      |
-|Beginer| |
-|Machine learning/Deep learning (Basics)   | |
-|Computer Vision     ||
-| Natural Language Processing(NLP)| ||
-| Speech, Audio, Music   || 
-| Miscellaneous|| 
-
-
 
 ## Cite
 * https://paperswithcode.com/
