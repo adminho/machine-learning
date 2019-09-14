@@ -29,12 +29,12 @@ All examples are written in Python language, so you need to setup your environme
 ## Table  of Content
 |Title|Code Examples|
 | -    |         -      |
-|Beginer| [see](#Beginer) |
+|Beginer| [see](#beginer) |
 |Machine learning/Deep learning (Basics)   |[see](#machine-learningdeep-learning-basics)|
 |Computer Vision     |[see](#computer-vision)|
 | Natural Language Processing(NLP)| [see](#natural-language-processingnlp)|
 | Speech, Audio, Music   |[see](#speech-audio-music)| 
-| Miscellaneous|[see](Miscellaneous)| 
+| Miscellaneous|[see](#miscellaneous)| 
 
 ## My examples (not yet) 
 
