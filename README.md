@@ -66,7 +66,7 @@ All examples are written in Python language, so you need to setup your environme
 * [Principal Component Analysis](Principal_Component_Analysis)
 * 💦 [Text classification](Text_classification)
 * ✂ Clustering
-* 🌳 [Random Forests]
+* 🌳 [Decision tree & Random Forests]
 * [Generic algorithm](Generic_algorithm)
   Computing the optimal road trip across 20 provinces of Thailand.
 * ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
