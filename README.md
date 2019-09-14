@@ -68,7 +68,7 @@ All examples are written in Python language, so you need to setup your environme
 * 📝 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
-* [MNIST example](MNIST_example): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
+* [MNIST example](https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
   1. Nearest neighbors
   2. Support vector
   3. Logistic regression 
