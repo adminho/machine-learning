@@ -57,15 +57,15 @@ All examples are written in Python language, so you need to setup your environme
 ### Machine learning/Deep learning (Basics)
 
 * 📈 [Linear and nonlinear regression](Linear_regression)
-  * Predicting food truck.
-  * Predicting house price.
-  * Predicting Thailand population history.
-  * Predicting average income per month per household  of Thailand (B.E 41-58).
-  * Predicting Boston house-prices.    
+  1 Predicting food truck.
+  2 Predicting house price.
+  3 Predicting Thailand population history.
+  4 Predicting average income per month per household  of Thailand (B.E 41-58).
+  5 Predicting Boston house-prices.    
 * 📉 [Logistic regression](Logistic_regression)
 * 🧘‍♂ [Principal Component Analysis](https://colab.research.google.com/drive/1FoGtB5xW1aWeQ7hlTmuB1AhXuFMx-jTo)
 * 💦 [Text classification](Text_classification)
-* ✂ Clustering
+* ✂ [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
 * 🌳 [Decision tree & Random Forests]
 * [Generic algorithm](Generic_algorithm)
   Computing the optimal road trip across 20 provinces of Thailand.
@@ -108,10 +108,10 @@ All examples are written in Python language, so you need to setup your environme
 * 🖼 Colorizing
 
 ### Natural Language Processing(NLP)
-* 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT)
-  * thai-word-segmentation
-  * Deepcut
-  * Cutkum
+* 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT) that libraries including
+  1 thai-word-segmentation
+  2 Deepcut
+  3 Cutkum
 * 📝 [Word Embeddings]
 * [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
 * [seq2seq
