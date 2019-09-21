@@ -102,8 +102,8 @@ All examples are written in Python language, so you need to setup your environme
 * 📸 [Object detection & Segmentation]
 * 🤸‍♀ Pose estimation
 * ✋ Hand Pose Estimation
-* 😃 Face Recognition
-* 🤣 Detect emotion
+* 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
+* 🤣 Emotion classification
 * 👳‍♂ Deepfake
 * 📹 [Porn detection](https://colab.research.google.com/drive/1aFQgXH9WAvA_aJiZU4GZppWrLnZNJ7Hh)
 * 🖼 Colorizing
