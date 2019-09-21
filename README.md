@@ -64,7 +64,7 @@ All examples are written in Python language, so you need to setup your environme
   5 Predicting Boston house-prices.    
 * 📉 [Logistic regression](Logistic_regression)
 * 🧘‍♂ [Principal Component Analysis](https://colab.research.google.com/drive/1FoGtB5xW1aWeQ7hlTmuB1AhXuFMx-jTo)
-* 💦 [Text classification](Text_classification)
+* 📄 [Text classification](Text_classification)
 * ✂ [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
 * 🌳 [Decision tree & Random Forests]
 * [Generic algorithm](Generic_algorithm)
@@ -78,7 +78,7 @@ All examples are written in Python language, so you need to setup your environme
 * 📝 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
-* [MNIST example](https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
+* 🔢 [MNIST example](https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw): showing 9 learning techniques to recognize handwritten digits including (using MNIST database of handwritten digits)  
   1. Nearest neighbors
   2. Support vector
   3. Logistic regression 
