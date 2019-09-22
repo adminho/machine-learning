@@ -57,11 +57,11 @@ All examples are written in Python language, so you need to setup your environme
 ### Machine learning/Deep learning (Basics)
 
 * 📈 [Linear and nonlinear regression](Linear_regression)
-  1 Predicting food truck.
-  2 Predicting house price.
-  3 Predicting Thailand population history.
-  4 Predicting average income per month per household  of Thailand (B.E 41-58).
-  5 Predicting Boston house-prices.    
+  * 1 Predicting food truck.
+  * 2 Predicting house price.
+  * 3 Predicting Thailand population history.
+  * 4 Predicting average income per month per household  of Thailand (B.E 41-58).
+  * 5 Predicting Boston house-prices.    
 * 📉 [Logistic regression](Logistic_regression)
 * 🧘‍♂ [Principal Component Analysis](https://colab.research.google.com/drive/1FoGtB5xW1aWeQ7hlTmuB1AhXuFMx-jTo)
 * 📄 [Text classification](Text_classification)
