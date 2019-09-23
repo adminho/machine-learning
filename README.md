@@ -67,8 +67,8 @@ All examples are written in Python language, so you need to setup your environme
 * 📄 [Text classification](Text_classification)
 * ✂ [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
 * 🌳 [Decision tree & Random Forests]
-* [Generic algorithm](Generic_algorithm)
 * [Naive_Bayes_Classification]()
+* [Generic algorithm](Generic_algorithm)
   Computing the optimal road trip across 20 provinces of Thailand.
 * ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
 * ⛓ [Neural network](Neural_network)
