@@ -131,6 +131,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🎯 One-shot Learning
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
   * Generating Code from a Graphical User Interface Screenshot
+* Trading in Stock
 
 ## Cite
 * https://paperswithcode.com/
