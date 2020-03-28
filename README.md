@@ -119,7 +119,7 @@ All examples are written in Python language, so you need to setup your environme
   * 3 Cutkum
 * 📝 [Word Embeddings]
 * 🎤 [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
-* [seq2seq
+* [seq2seq]
 
 ### Speech, Audio, Music
 * 👨‍🎤 Speech Recognition
