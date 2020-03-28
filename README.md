@@ -114,9 +114,9 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Natural Language Processing(NLP)
 * 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT) that libraries including
-  1 thai-word-segmentation
-  2 Deepcut
-  3 Cutkum
+  * 1 thai-word-segmentation
+  * 2 Deepcut
+  * 3 Cutkum
 * 📝 [Word Embeddings]
 * 🎤 [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
 * [seq2seq
