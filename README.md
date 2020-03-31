@@ -135,6 +135,17 @@ All examples are written in Python language, so you need to setup your environme
   * Generating Code from a Graphical User Interface Screenshot
 * [Trading in Thailand Stock](https://github.com/adminho/trading-stock-thailand)
 * [AI for Thai](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
+  ✔ BASIC NLP ประมวลผลภาษาไทย
+  ✔ TAG SUGGESTION แนะนำป้ายกำกับ
+  ✔ MACHINE TRANSLATION แปลภาษา
+  ✔ SENTIMENT ANALYSIS วิเคราะห์ความคิดเห็น
+  ✔ CHARACTER RECOGNITION แปลงภาพอักษรเป็นข้อความ
+  ✔ OBJECT RECOGNITION รู้จำวัตถุ
+  ✔ FACE ANALYTICS วิเคราะห์ใบหน้า
+  ✔ PERSON & ACTIVITY ANALYTICS วิเคราะห์บุคคล
+  ✔ SPEECH TO TEXT แปลงเสียงพูดเป็นข้อความ
+  ✔ TEXT TO SPEECH แปลงข้อความเป็นเสียงพูด
+  ✔ CHATBOTสร้างแช็ตบอต
 
 ## Cite
 * https://paperswithcode.com/
