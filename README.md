@@ -152,4 +152,4 @@ All examples are written in Python language, so you need to setup your environme
 * https://github.com/keras-team/keras/tree/master/examples
 
 
-<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fprogrammerthai%2Fphotos%2Fa.1406027003020480%2F2587567701533065%2F%3Ftype%3D3&width=500" width="500" height="535" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+![](https://www.facebook.com/programmerthai/photos/a.2410667485889755/2555677101388792/?type=3&eid=ARAcwCp7GCaG_z-2iqwNKkqi5jIccW_-2uvnJouzgXCmBCubW19xYZqzwZg-JFuNsraV-jWVN4Bav-rs&__xts__%5B0%5D=68.ARDhIq5GrWAPmBfrn3rSN7UJUH0OirvM6W7AcOLo3nw0Gi7zIg-pmscHpA8GpfvBtrspJNvB73lFUOHRSCpe6WESz0mcO_-FtB09ooTMlwHeWrUxpV8tz0MymlEyU7BodSBE-kkP5YOQ1Rmo91uNqZSDyQ0iAgTe3Tk99qkwqysvZdEkoFTOplFcn_cd3eTA9-EsMB77YICeCNGKsHHKSSAYElFhzNdq5LDu980OX8GQSR8qTVKpaAZWdIqyzleF1kRzd-DLC-Wn4weWK9j2Me4WngWH2YScF__sqvjzjsDMuNGApIdt33E8K450d2I5DSzr_QQLNueH21B8W3IlSF_-TH6n&__tn__=EHH-R)
