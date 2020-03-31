@@ -153,4 +153,4 @@ All examples are written in Python language, so you need to setup your environme
 
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าในลิงค์ตามรูปได้
- [](![](books/ebook_AI_easy_1.png))
+ ![](books/ebook_AI_easy_1.png)
