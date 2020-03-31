@@ -151,6 +151,6 @@ All examples are written in Python language, so you need to setup your environme
 * https://paperswithcode.com/
 * https://github.com/keras-team/keras/tree/master/examples
 
-## ขออนุญาตประชาสัมพันธ์ (แอบขายของป
+## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าในลิงค์ตามรูปได้
-![](ebook_AI_easy_1.png)
+ [](![](ebook_AI_easy_1.png))
