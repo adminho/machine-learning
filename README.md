@@ -134,7 +134,7 @@ All examples are written in Python language, so you need to setup your environme
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
   * Generating Code from a Graphical User Interface Screenshot
 * [Trading in Thailand Stock](https://github.com/adminho/trading-stock-thailand)
-* [AI for Thai](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
+* [AI for Thai:AI สัญญาชาติไทยใช้ง่ายไม่ยาก จากทีมนักวิจัยของ NECTEC ปัจจุบันให้บริการผ่านเว็บเซอร์วิส ](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
   1. BASIC NLP: ประมวลผลภาษาไทย
   2. TAG SUGGESTION: แนะนำป้ายกำกับ
   3. MACHINE TRANSLATION: แปลภาษา
@@ -154,7 +154,7 @@ All examples are written in Python language, so you need to setup your environme
 ## Note
 ✍ ผมเคยโน๊คเลคเชอร์วิชาพวกนี้เอาไว้ เผื่อมีใครกำลังเรียนอยู่  หรือสนใจเอาไว้ทบทวนได้ครับ
 
-1. [neural network] (https://www.facebook.com/programmerthai/photos/a.2549587771997725/2549612041995298/?type=3&theater)
+1. [neural network](https://www.facebook.com/programmerthai/photos/a.2549587771997725/2549612041995298/?type=3&theater)
 2. [Convolutional Neural Networks](https://www.facebook.com/programmerthai/posts/2553866934903142)
 3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/programmerthai/posts/2561470147476154)
 4. [GAN: Generative adversarial networks]  (รอก่อน)
