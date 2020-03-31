@@ -151,5 +151,6 @@ All examples are written in Python language, so you need to setup your environme
 * https://paperswithcode.com/
 * https://github.com/keras-team/keras/tree/master/examples
 
-
-![](https://www.facebook.com/programmerthai/photos/a.2410667485889755/2555677101388792/?type=3&eid=ARAcwCp7GCaG_z-2iqwNKkqi5jIccW_-2uvnJouzgXCmBCubW19xYZqzwZg-JFuNsraV-jWVN4Bav-rs&__xts__%5B0%5D=68.ARDhIq5GrWAPmBfrn3rSN7UJUH0OirvM6W7AcOLo3nw0Gi7zIg-pmscHpA8GpfvBtrspJNvB73lFUOHRSCpe6WESz0mcO_-FtB09ooTMlwHeWrUxpV8tz0MymlEyU7BodSBE-kkP5YOQ1Rmo91uNqZSDyQ0iAgTe3Tk99qkwqysvZdEkoFTOplFcn_cd3eTA9-EsMB77YICeCNGKsHHKSSAYElFhzNdq5LDu980OX8GQSR8qTVKpaAZWdIqyzleF1kRzd-DLC-Wn4weWK9j2Me4WngWH2YScF__sqvjzjsDMuNGApIdt33E8K450d2I5DSzr_QQLNueH21B8W3IlSF_-TH6n&__tn__=EHH-R)
+## ขออนุญาตประชาสัมพันธ์ (แอบขายของป
+ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าในลิงค์ตามรูปได้
+![](ebook_AI_easy_1.png)
