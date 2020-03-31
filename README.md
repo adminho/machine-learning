@@ -151,6 +151,15 @@ All examples are written in Python language, so you need to setup your environme
 * https://paperswithcode.com/
 * https://github.com/keras-team/keras/tree/master/examples
 
+## Note
+✍ ผมเคยโน๊คเลคเชอร์วิชาพวกนี้เอาไว้ เผื่อมีใครกำลังเรียนอยู่  หรือสนใจเอาไว้ทบทวนได้ครับ
+
+1. [neural network] (https://www.facebook.com/programmerthai/photos/a.2549587771997725/2549612041995298/?type=3&theater)
+2. [Convolutional Neural Networks](https://www.facebook.com/programmerthai/posts/2553866934903142)
+3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/programmerthai/posts/2561470147476154)
+4. [GAN: Generative adversarial networks]  (รอก่อน)
+5. [RL: Reinforcement learning(รอก่อน)] (รอก่อน)
+
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าไปในลิงค์ตามรูปได้
 
