@@ -133,7 +133,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🎯 One-shot Learning
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
   * Generating Code from a Graphical User Interface Screenshot
-* [Trading in Thailand Stock](https://github.com/adminho/trading-stock-thailand)
+* [Trading in Thailand Stock: ตัวอย่างการเอา AI มาใช้ในตลาดหุ้นไทย](https://github.com/adminho/trading-stock-thailand)
 * [AI for Thai:AI สัญญาชาติไทยใช้ง่ายไม่ยาก จากทีมนักวิจัยของ NECTEC ปัจจุบันให้บริการผ่านเว็บเซอร์วิส ](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
   1. BASIC NLP: ประมวลผลภาษาไทย
   2. TAG SUGGESTION: แนะนำป้ายกำกับ
