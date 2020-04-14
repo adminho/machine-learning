@@ -56,6 +56,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Machine learning/Deep learning (Basics)
 
+* 🔥[สรุปพื้นฐาน Machine learning + Deep learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1)
 * 📈 [Linear and nonlinear regression](Linear_regression)
   1. Predicting food truck.
   2. Predicting house price.
