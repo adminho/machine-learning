@@ -46,8 +46,10 @@ All examples are written in Python language, so you need to setup your environme
 
 * [NumPy]
 * 📊 [Matplotlib]
+* 📊 [Seaborn]
 * 🐼 [Pandas] 
 * 🔥 [Tensorflow]
+* 🔥 [PYTorch]
 * 🔥 [Keras]  
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
@@ -68,15 +70,19 @@ All examples are written in Python language, so you need to setup your environme
 * 📄 [Text classification](Text_classification)
 * ✂ [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
 * 🌳 [Decision tree & Random Forests]
-* [Naive_Bayes_Classification]()
+* [Naive_Bayes]()
+* [Gaussian Processes (GP)]
+* [Graph Neural Networks (GNN)]
 * [Generic algorithm](Generic_algorithm)
   Computing the optimal road trip across 20 provinces of Thailand.
+ * 🔍 [Attention]
 * ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
 * ⛓ [Neural network](Neural_network)
   * Calculating the logic.
   * Classifying the elements into two groups (binary classification).
 * 🔮 [Autoencoder](Autoencoder)
 * 👀 [Convolutional neural network](Convolutional_neural_network)
+* [Graph Neural Networks](GNN)
 * 📝 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
@@ -94,12 +100,13 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Computer Vision
 
-* 📸 [ImageNet example](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
+* 📸 [ImageNet classification](ImageNet_example): showing how to use models including (Convolutional neural network or CNN) 
   1. Xception
   2. VGG16
   3. VGG19
   4. ResNet50
   5. InceptionV3
+* 📹 Object Tracking
 * 📸 [Object detection](https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
 * 📸 [Object detection & Segmentation]
 * 🤸‍♀ Pose estimation
@@ -112,6 +119,11 @@ All examples are written in Python language, so you need to setup your environme
 * Lane road detection
   * [Highway-lane-tracker](https://colab.research.google.com/drive/15dZ1Zt_TCsCsL5oqfLcSfSj-aYWmSuTi)
 * 🖼 [Detecting COVID-19 in X-ray images](https://colab.research.google.com/drive/11ohI5nJiLVc23t2LRUfUmOYBvPYHJDnX)
+* 📰 Image Captioning
+* 🖌 Image Generation
+* 🎬 Action Recognition
+* 📸 Super Resolution
+
 
 ### Natural Language Processing(NLP)
 * 📰 [Tudkumthai](https://colab.research.google.com/drive/1tLrKRFR6i4TAzrbJ8wgsp4aihfWnMgnT) that libraries including
@@ -121,19 +133,33 @@ All examples are written in Python language, so you need to setup your environme
 * 📝 [Word Embeddings]
 * 🎤 [Language Models: GPT-2](https://colab.research.google.com/drive/1lZoaSLo2Ip-mlBNUFpjKhVAPWDenbRCu)
 * [seq2seq]
+* 🔍 Machine Translation (MT)
+* 🤖 Conversational AI (chatbot)
+* 🔖 Text Summarization
+* ❓ Question Answering (QA)
+* 💬 Named Entity Recognition (NER)
+* 📖 Text Classification
 
 ### Speech, Audio, Music
 * 👨‍🎤 Speech Recognition
 * 🎧 
+* 🎶 Music Generation
+* 🔊Speech Synthesis
 
 ### Miscellaneous
 * 🛒 [Recommendation Systems]
 * 🖼 [Artistic style](Artistic_style)
+* 🕵️ Anomaly Detection	
+* ⏰ Time-Series	
+* 🏘️ Topic Modeling
 * 💪 [Deep Q Learning] (in progress)
 * 🐝 Transformer Networks
 * 🎯 One-shot Learning
 * 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
   * Generating Code from a Graphical User Interface Screenshot
+* [🔐 Privacy]
+* 🐙 Causal Inference
+* 🦠 Survival Analysis
 * [Trading in Thailand Stock: ตัวอย่างการเอา AI มาใช้ในตลาดหุ้นไทย](https://github.com/adminho/trading-stock-thailand)
 * [AI for Thai:AI สัญญาชาติไทยใช้ง่ายไม่ยาก จากทีมนักวิจัยของ NECTEC ปัจจุบันให้บริการผ่านเว็บเซอร์วิส ](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
   1. BASIC NLP: ประมวลผลภาษาไทย
@@ -151,6 +177,7 @@ All examples are written in Python language, so you need to setup your environme
 ## Cite
 * https://paperswithcode.com/
 * https://github.com/keras-team/keras/tree/master/examples
+* https://github.com/madewithml/lessons
 
 ## Note
 ✍ ผมเคยโน๊คเลคเชอร์วิชาพวกนี้เอาไว้ เผื่อมีใครกำลังเรียนอยู่  หรือสนใจเอาไว้ทบทวนได้ครับ
