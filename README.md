@@ -110,7 +110,7 @@ All examples are written in Python language, so you need to setup your environme
 * 📹 Object Tracking
 * 📸 [Object detection](https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
 * 📸 [Object detection & Segmentation]
-* 🤸‍♀ Pose estimation
+* 🤸‍♀ [Pose estimation](https://colab.research.google.com/drive/1zWplcKN6ElL1eJmwKj3IqGFy3gg9Neus)
 * ✋ Hand Pose Estimation
 * 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
 * 🤣 Emotion classification
