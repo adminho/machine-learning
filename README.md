@@ -68,9 +68,10 @@ All examples are written in Python language, so you need to setup your environme
 * 📉 [Logistic regression](Logistic_regression)
 * 🧘‍♂ [Principal Component Analysis](https://colab.research.google.com/drive/1FoGtB5xW1aWeQ7hlTmuB1AhXuFMx-jTo)
 * 📄 [Text classification](Text_classification)
-* ✂ [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
+* ✂ Classification
+  1. [Classification and Clustering (compare between KK-N and K-means)](https://colab.research.google.com/drive/1B7ZxRDs3x3CsitI49xY7l3pWFYYJYsvB)
+  2. [Naive_Bayes]()
 * 🌳 [Decision tree & Random Forests]
-* [Naive_Bayes]()
 * [Gaussian Processes (GP)]
 * [Graph Neural Networks (GNN)]
 * [Generic algorithm](Generic_algorithm)
