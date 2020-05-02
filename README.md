@@ -59,7 +59,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Machine learning/Deep learning (Basics)
 
-* 🔥[Baisc from Machine learning to Deep learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1)
+* 🔥[Basic from Machine learning to Deep learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1)
   * Regression, Logistic Regression, Decision Tree, Support Vector Machine (SVM), Naive Bayes, KK-N (K-Nearest Neighbors), Kmeans etc
 * 📈 [Linear and nonlinear regression](Linear_regression)
   1. Predicting food truck.
