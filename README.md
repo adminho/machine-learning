@@ -85,7 +85,7 @@ All examples are written in Python language, so you need to setup your environme
   * Classifying the elements into two groups (binary classification).
 * 🔮 [Autoencoder](Autoencoder)
 * 👀 [Convolutional neural network](Convolutional_neural_network)
-* [Graph Neural Networks](GNN)
+* 📈 [Graph Neural Networks](GNN)
 * 📝 [Recurrent neural network](Recurrent_neural_network)
   * Showing AI writing HTML code, article and Thai novel.
 * 👥 [Generative adversarial network](Generative_adversarial_network)
