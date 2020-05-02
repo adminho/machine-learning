@@ -50,7 +50,7 @@ All examples are written in Python language, so you need to setup your environme
 * 📊 [Seaborn]
 * 🐼 [Pandas] 
 * 🔥 [Tensorflow]
-* 🔥 [PYTorch]
+* 🔥 [PYTorch](https://colab.research.google.com/drive/1BtVCWpwWovcVqkvEX5HaUAIyUOlekC0m)
 * 🔥 [Keras]  
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
