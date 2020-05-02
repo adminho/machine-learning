@@ -110,8 +110,10 @@ All examples are written in Python language, so you need to setup your environme
   4. ResNet50
   5. InceptionV3
 * 📹 Object Tracking
-* 📸 [Object detection](https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
 * 📸 [Object detection & Segmentation]
+  1. [imageai library](https://colab.research.google.com/drive/1uQnZfPlRhplvcZKWiXn1jeytJIFEVLkV)
+  2. [Tensorflow Example]()
+  3. [Detectron2](https://colab.research.google.com/drive/1jnWFADFdZHz1LSyfXVKHY3fIwuY5F_uo)  
 * 🤸‍♀ [Pose estimation](https://colab.research.google.com/drive/1zWplcKN6ElL1eJmwKj3IqGFy3gg9Neus)
 * ✋ Hand Pose Estimation
 * 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
