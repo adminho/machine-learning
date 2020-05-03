@@ -147,7 +147,10 @@ All examples are written in Python language, so you need to setup your environme
 * 📖 Text Classification
 
 ### Speech, Audio, Music
-* 👨‍🎤 Speech Recognition
+* 👨‍🎤 Speech Recognition (use Google API)
+  1. [Use javascript+HTML](https://github.com/adminho/javascript/tree/master/examples/speech-recognition/web)
+  2. [Use speech to control a game](https://github.com/adminho/javascript/tree/master/examples/speech-recognition/game)
+  3. Example for python
 * 🎧 
 * 🎶 Music Generation
 * 🔊Speech Synthesis
