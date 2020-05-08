@@ -48,7 +48,7 @@ All examples are written in Python language, so you need to setup your environme
 * [NumPy]
 * 📊 [Matplotlib]
 * 📊 [Seaborn]
-* 🐼 [Pandas] 
+* 🐼 [Pandas] (https://colab.research.google.com/drive/1LpF3_oz2QIqBIkc1Q8opZyVzujW6Jsq2)
 * 🔥 [Tensorflow](https://colab.research.google.com/drive/1iX9d2bl1ogh2qo2U-NTot_XuVbfAqKi9)
 * 🔥 [PYTorch](https://colab.research.google.com/drive/1BtVCWpwWovcVqkvEX5HaUAIyUOlekC0m)
 * 🔥 [Keras]  
