@@ -129,6 +129,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🖌 Image Generation
 * 🎬 Action Recognition
 * 📸 Super Resolution
+* 🙋‍♂ [Detect 2D facial landmarks in pictures](https://colab.research.google.com/drive/1MDRYnhhPb2l3w0QIjV9beuc26Ng5BOPc)
 
 
 ### Natural Language Processing(NLP)
