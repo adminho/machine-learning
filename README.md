@@ -167,8 +167,7 @@ All examples are written in Python language, so you need to setup your environme
 * 💪 [Deep Q Learning] (in progress)
 * 🐝 Transformer Networks
 * 🎯 One-shot Learning
-* 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ)
-  * Generating Code from a Graphical User Interface Screenshot
+* 💻 [Pix2Code](https://colab.research.google.com/drive/1i1CeQoS8LXTkQFn08Z4aFV8BNwF8eNjZ): Generating Code from a Graphical User Interface Screenshot
 * [🔐 Privacy]
 * 🐙 Causal Inference
 * 🦠 Survival Analysis
