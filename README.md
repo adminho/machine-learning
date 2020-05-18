@@ -41,8 +41,7 @@ All examples are written in Python language, so you need to setup your environme
 ### Beginer
 * 📕 [Notebooks] 
 * 🐍 [Python]
-  * Python in Mathayom_1_2_3
-    * [ทบทวนภาษา Python ของเด็กม.1-2 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
+  * Python in Mathayom_1_2_3: [ทบทวนภาษา Python ของเด็กม.1-2 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
   * Python in Mathayom_4_5_6 
 
 * 📊 [Matplotlib](https://colab.research.google.com/drive/1BPi8jv--sKUSu9apCdYziDptHMtBY_16)
@@ -59,7 +58,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Machine learning/Deep learning (Basics)
 
-* 🔥[Basic from Machine learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1): Regression, Logistic Regression, Decision Tree, Support Vector Machine (SVM), Naive Bayes, KK-N (K-Nearest Neighbors), Kmeans etc
+* 🔥[Basic Machine learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1): Regression, Logistic Regression, Decision Tree, Support Vector Machine (SVM), Naive Bayes, KK-N (K-Nearest Neighbors), Kmeans etc
 * 📈 [Linear and nonlinear regression](Linear_regression)
   1. Predicting food truck.
   2. Predicting house price.
