@@ -48,6 +48,7 @@ All examples are written in Python language, so you need to setup your environme
 * [NumPy]
 * 📊 [Matplotlib](https://colab.research.google.com/drive/1BPi8jv--sKUSu9apCdYziDptHMtBY_16)
 * 📊 [Seaborn]
+* 🧮 [numpy](https://colab.research.google.com/drive/1u93d1Tm60YCKUY6CLGz9242NdQNWAQEA)
 * 🐼 [Pandas](https://colab.research.google.com/drive/1LpF3_oz2QIqBIkc1Q8opZyVzujW6Jsq2)
 * 🔥 [Tensorflow](https://colab.research.google.com/drive/1iX9d2bl1ogh2qo2U-NTot_XuVbfAqKi9)
 * 🔥 [PYTorch](https://colab.research.google.com/drive/1BtVCWpwWovcVqkvEX5HaUAIyUOlekC0m)
@@ -117,6 +118,7 @@ All examples are written in Python language, so you need to setup your environme
   4. [Detectron2](https://colab.research.google.com/drive/1jnWFADFdZHz1LSyfXVKHY3fIwuY5F_uo)  
 * 🤸‍♀ [Pose estimation](https://colab.research.google.com/drive/1zWplcKN6ElL1eJmwKj3IqGFy3gg9Neus)
 * ✋ Hand Pose Estimation
+* 👆 Finger Detection
 * 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
 * 🤣 Emotion classification
 * 👳‍♂ Deepfake
