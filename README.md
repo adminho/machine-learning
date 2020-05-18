@@ -40,7 +40,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Beginer
 * 📕 [Notebooks] 
-* 🐍 [Python]
+* 🐍 Python
   * Python in Mathayom_1_2_3: [ทบทวนภาษา Python ของเด็กม.1-2 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
   * Python in Mathayom_4_5_6 
 
