@@ -59,8 +59,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### Machine learning/Deep learning (Basics)
 
-* 🔥[Basic from Machine learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1)
-  * Regression, Logistic Regression, Decision Tree, Support Vector Machine (SVM), Naive Bayes, KK-N (K-Nearest Neighbors), Kmeans etc
+* 🔥[Basic from Machine learning](https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1): Regression, Logistic Regression, Decision Tree, Support Vector Machine (SVM), Naive Bayes, KK-N (K-Nearest Neighbors), Kmeans etc
 * 📈 [Linear and nonlinear regression](Linear_regression)
   1. Predicting food truck.
   2. Predicting house price.
@@ -76,8 +75,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🌳 [Decision tree & Random Forests]
 * [Gaussian Processes (GP)]
 * [Graph Neural Networks (GNN)]
-* [Generic algorithm](Generic_algorithm)
-  Computing the optimal road trip across 20 provinces of Thailand.
+* [Generic algorithm](Generic_algorithm): Computing the optimal road trip across 20 provinces of Thailand.
  * 🔍 [Attention]
 * ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
 * ⛓ [Neural network](Neural_network)
@@ -155,7 +153,7 @@ All examples are written in Python language, so you need to setup your environme
   3. Example for python
 * 🎧 
 * 🎶 Music Generation
-* 🔊Speech Synthesis
+* 🔊 Speech Synthesis
 
 ### Miscellaneous
 * 🛒 [Recommendation Systems]
