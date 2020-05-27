@@ -144,6 +144,10 @@ All examples are written in Python language, so you need to setup your environme
 * ❓ Question Answering (QA)
 * 💬 Named Entity Recognition (NER)
 * 📖 Text Classification
+* 🗣 Google Translate API
+  1. [Python example](https://colab.research.google.com/drive/1aca28YHet8DZ3jw-3wCx-Y40XR-6hpDJ)
+  2. [JavaScript exmample](https://github.com/adminho/javascript/blob/master/examples/google_translate/translate_general.html
+)
 
 ### Speech, Audio, Music
 * 👨‍🎤 Speech Recognition (use Google API)
