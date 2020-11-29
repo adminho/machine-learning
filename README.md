@@ -198,7 +198,7 @@ All examples are written in Python language, so you need to setup your environme
 1. [neural network](https://www.facebook.com/programmerthai/photos/a.2549587771997725/2549612041995298/?type=3&theater)
 2. [Convolutional Neural Networks](https://www.facebook.com/programmerthai/posts/2553866934903142)
 3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/programmerthai/posts/2561470147476154)
-4. [GAN: Generative adversarial networks]  (รอก่อน)
+4. [GAN: Generative adversarial networks](https://www.facebook.com/programmerthai/posts/2798352037121296)
 5. [RL: Reinforcement learning(รอก่อน)] (รอก่อน)
 
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
