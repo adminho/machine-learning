@@ -199,7 +199,7 @@ All examples are written in Python language, so you need to setup your environme
 2. [Convolutional Neural Networks](https://www.facebook.com/programmerthai/posts/2553866934903142)
 3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/programmerthai/posts/2561470147476154)
 4. [GAN: Generative adversarial networks](https://www.facebook.com/programmerthai/posts/2798352037121296)
-5. [RL: Reinforcement learning(รอก่อน)] (รอก่อน)
+5. [RL: Reinforcement learning(รอก่อน)](https://www.facebook.com/programmerthai/posts/2744281379195029)
 
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าไปในลิงค์ตามรูปได้
