@@ -204,7 +204,7 @@ All examples are written in Python language, so you need to setup your environme
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" สามารถคลิกเข้าไปในลิงค์ตามรูปได้
 
-### ตัวอย่างในหนังสือ
+### ตัวอย่างแต่ละบท
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
 | [บทที่ 1]() | [บทที่ 8](https://drive.google.com/file/d/1lHxbpXml9t2nNeL77IqWAJcsrkjMIxdm/view) |
