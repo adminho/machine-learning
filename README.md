@@ -211,9 +211,6 @@ All examples are written in Python language, so you need to setup your environme
 | [บทที่ 2]() | [บทที่ 9](https://drive.google.com/file/d/1o8kn_ug5YvM25TG7qyqnF6e0Zcewo39a/view) |
 | [บทที่ 3]() | [บทที่ 10](https://drive.google.com/file/d/1lVrCo19sPPwDUyi9wO0WxJ288wJ_N2LY/view) |
 | [บทที่ 4]() | [บทที่ 11](https://drive.google.com/file/d/1XE4I_-Vco9kEO4tUGmtpzvScIzIitYbN/view) |
-| [บทที่ 5]() | - |
-| [บทที่ 6]() | - |
-| [บทที่ 7]() | - |
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ&fbclid=IwAR3E5FYdTrQQUToZfE0k7xJEEimSMXQaGBtpM8397XxAY_PnbbyIdHxvRhI&page_no=1)
 
