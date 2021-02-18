@@ -208,7 +208,7 @@ All examples are written in Python language, so you need to setup your environme
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
 | [บทที่ 1]() | [บทที่ 8](https://drive.google.com/file/d/1lHxbpXml9t2nNeL77IqWAJcsrkjMIxdm/view) |
-| [บทที่ 2]() | [บทที่ 9](https://drive.google.com/file/d/1o8kn_ug5YvM25TG7qyqnF6e0Zcewo39a/view) |
+| บทที่ 2 | [บทที่ 9](https://drive.google.com/file/d/1o8kn_ug5YvM25TG7qyqnF6e0Zcewo39a/view) |
 | [บทที่ 3]() | [บทที่ 10](https://drive.google.com/file/d/1lVrCo19sPPwDUyi9wO0WxJ288wJ_N2LY/view) |
 | [บทที่ 4]() | [บทที่ 11](https://drive.google.com/file/d/1XE4I_-Vco9kEO4tUGmtpzvScIzIitYbN/view) |
 
