@@ -216,5 +216,5 @@ All examples are written in Python language, so you need to setup your environme
 | [บทที่ 4](https://drive.google.com/file/d/1R_W5HP5wuGBrUDqJNT7LV3byPQ30pCPN/view) | [บทที่ 10](https://drive.google.com/file/d/1lVrCo19sPPwDUyi9wO0WxJ288wJ_N2LY/view) |
 |  | [บทที่ 11](https://drive.google.com/file/d/1XE4I_-Vco9kEO4tUGmtpzvScIzIitYbN/view) |
 
-[![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ&fbclid=IwAR3E5FYdTrQQUToZfE0k7xJEEimSMXQaGBtpM8397XxAY_PnbbyIdHxvRhI&page_no=1)
+[![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
