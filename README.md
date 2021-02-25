@@ -207,7 +207,7 @@ All examples are written in Python language, so you need to setup your environme
 
 ### ตัวอย่างแต่ละบท
 
-[สารบัญ](https://drive.google.com/file/d/1IDshtzRwP6-tiK3w1wT-2aM7QZGwFuyg/view)
+[ตัวอย่างสารบัญ](https://drive.google.com/file/d/1IDshtzRwP6-tiK3w1wT-2aM7QZGwFuyg/view)
 
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
