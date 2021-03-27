@@ -130,6 +130,7 @@ All examples are written in Python language, so you need to setup your environme
 * 📸 Super Resolution
 * 🙋‍♂ [Detect 2D facial landmarks in pictures](https://colab.research.google.com/drive/1MDRYnhhPb2l3w0QIjV9beuc26Ng5BOPc)
 * 👩 [Detecting Photoshopped Faces by Scripting Photoshop](https://colab.research.google.com/drive/1y4zN4AHhx0NYYx7szfW6C5aWsFdZZvml)
+* 😷 [Detect people who wearin a mask?](https://colab.research.google.com/drive/1G5q8PpsWG-VLdHNbChwonSiLgkPPftOm)
 
 
 ### Natural Language Processing(NLP)
