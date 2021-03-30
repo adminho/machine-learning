@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Randy Olson uses machine learning to find the optimal road trip across Europe.">
+    <meta name="author" content="Randal S. Olson">
+    
+    <title>An optimal road trip across Europe according to machine learning</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #999;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="map-canvas"></div>	
+	<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK3RgqSLy1toc4lkh2JVFQ5ipuRB106vU"></script>
+    <script>
+		var directionsDisplay
+		var markerOptions = {icon: "http://maps.gstatic.com/mapfiles/markers2/marker.png"};
+		var directionsDisplayOptions = {preserveViewport: true,
+										markerOptions: markerOptions};
+		var directionsService = new google.maps.DirectionsService();
+
+		var mapOptions = {
+			zoom: 6,
+			center: new google.maps.LatLng( 16.3416218, 101.0902424 )
+		};
+		var  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);		  	 
+			
+		function calcRoute(start, end, routes) {
+			directionsDisplay = new google.maps.DirectionsRenderer(directionsDisplayOptions);
+			directionsDisplay.setMap(map)
+		  
+			var waypts = [];
+			for (var i = 0; i < routes.length; i++) {
+				waypts.push({
+					location:routes[i],
+					stopover:true});
+		  	}
+		  
+			var request = {
+				origin: start,
+				destination: end,
+				waypoints: waypts,
+				optimizeWaypoints: false,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+			
+			directionsService.route(request, function(response, status) {
+				if (status == google.maps.DirectionsStatus.OK)
+					directionsDisplay.setDirections(response);			
+		  });
+		}
+		 
+		/* Example
+		var start = ['กระบี่', 'กระบี่', 'กระบี่'];
+		var end = ['ฉะเชิงเทรา', 'ศรีสะเกษ', 'กาฬสินธุ์'];		
+		var routes = [
+						['ขอนแก่น' , 'กาฬสินธุ์' , 'ชลบุรี' , 'กรุงเทพมหานคร' , 'กาญจนบุรี' , 'กำแพงเพชร' , 'ชัยนาท' , 'จันทบุรี '],
+						['กาญจนบุรี' , 'ตาก' , 'แม่ฮ่องสอน' , 'เชียงราย' , 'น่าน' , 'หนองบัวลำภู' , 'มหาสารคาม' , 'ยโสธร'],
+						[ 'ชลบุรี' , 'จันทบุรี' , 'ฉะเชิงเทรา' , 'กรุงเทพมหานคร' , 'กาญจนบุรี' , 'ชัยนาท' , 'กำแพงเพชร' , 'ขอนแก่น' ]												
+					 ];*/
+		
+		var start = %s;
+		var end  = %s;
+		var routes = %s;		
+		console.log("start.length: ", start.length)
+		console.log("end.length: ", end.length)
+		console.log("routes.length: ", end.length)
+		
+		var count = 0
+		old_route = []
+		interval = setInterval(	function(){											
+			if (count%%10==0){
+				var index =count/10;
+				if (index < routes.length){
+					calcRoute(start[index], end[index], routes[index]);						
+					console.log('step: ', index, ' -> routing')
+				}else{						
+					clearInterval(interval);
+					console.log('Finish')						
+				}
+					
+			} else if (count%%10==9 && count < 10*routes.length-9) {
+				directionsDisplay.setMap(null);
+				console.log('clear graphs')
+			}					
+			count++
+		}, 
+		300				
+	    );
+					
+    </script>	
+  </body>
+</html>
