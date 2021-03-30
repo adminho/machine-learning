@@ -74,7 +74,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🌳 [Decision tree & Random Forests]
 * [Gaussian Processes (GP)]
 * [Graph Neural Networks (GNN)]
-* [Generic algorithm](Generic_algorithm): Computing the optimal road trip across 20 provinces of Thailand.
+* [Genetic algorithm](Genetic_algorithm): Computing the optimal road trip across 20 provinces of Thailand.
  * 🔍 [Attention]
 * ⛓ [Neural network (multilayer perceptrons) paints an image.](Art_example)
 * ⛓ [Neural network](Neural_network)
