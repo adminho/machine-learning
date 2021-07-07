@@ -208,14 +208,14 @@ All examples are written in Python language, so you need to setup your environme
 
 ### ตัวอย่างแต่ละบท
 
-[ตัวอย่างสารบัญ](https://drive.google.com/file/d/1IDshtzRwP6-tiK3w1wT-2aM7QZGwFuyg/view)
+[ตัวอย่างสารบัญ](https://drive.google.com/file/d/1L6-XYMVCWYNkvYXZYP9kOuzAIzPfHuaf/view)
 
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
-| [บทที่ 1](https://drive.google.com/file/d/1U_kqXtir1e7a9RXk_gIWj6d-6RiZQavL/view) | [บทที่ 8](https://drive.google.com/file/d/1lHxbpXml9t2nNeL77IqWAJcsrkjMIxdm/view) |
-| [บทที่ 3](https://drive.google.com/file/d/1j0LgnkjowNF5uz-_79nYORRxOjeE0e4C/view) | [บทที่ 9](https://drive.google.com/file/d/1o8kn_ug5YvM25TG7qyqnF6e0Zcewo39a/view) |
-| [บทที่ 4](https://drive.google.com/file/d/1R_W5HP5wuGBrUDqJNT7LV3byPQ30pCPN/view) | [บทที่ 10](https://drive.google.com/file/d/1lVrCo19sPPwDUyi9wO0WxJ288wJ_N2LY/view) |
-|  | [บทที่ 11](https://drive.google.com/file/d/1XE4I_-Vco9kEO4tUGmtpzvScIzIitYbN/view) |
+| [บทที่ 1](https://drive.google.com/file/d/19kzbuRtN14eDEYhNewBh4ZUCa6sexaIf/view) | [บทที่ 8](https://drive.google.com/file/d/1lGqsfXs16mV2IbEJx-4IgDslaHOut1kC/view) |
+| [บทที่ 3](https://drive.google.com/file/d/1pe8ty5hVZS0M3zGZe5WliOOTm6Cqv1Ti/view) | [บทที่ 9](https://drive.google.com/file/d/1dxEhj7syoXFAfQB9bqmwXGrfhgz3M7GQ/view) |
+| [บทที่ 4](https://drive.google.com/file/d/1ju_wF6c9CNiYWfSzIIuqV9aUuEa4eurh/view) | [บทที่ 10](https://drive.google.com/file/d/129-FPDP-9FJrMNsVqWMJdER762jOzs9G/view) |
+|  | [บทที่ 11](https://drive.google.com/file/d/15njvUq8Vbq3SRA-PHxVGq8Isr1cL3F3d/view) |
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
