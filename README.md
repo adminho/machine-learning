@@ -161,7 +161,8 @@ All examples are written in Python language, so you need to setup your environme
 * 🎧 
 * 🎶 Music Generation
 * 🔊 Speech Synthesis
-
+   * [Real Time Voice Cloning](https://colab.research.google.com/drive/1BmiqJkg_lAppvIJbF7QhJpSTsbjvhiK1)
+   * 
 ### Miscellaneous
 * 🛒 [Recommendation Systems]
 * 🖼 [Artistic style](Artistic_style)
