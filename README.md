@@ -118,6 +118,7 @@ All examples are written in Python language, so you need to setup your environme
 * ✋ Hand Pose Estimation
 * 👆 Finger Detection
 * 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
+* 😃 [OCR](https://colab.research.google.com/drive/11RPwkNX-L1Wi9BVni-tzvrlsHff50BOz?usp=sharing)
 * 🤣 Emotion classification
 * 👳‍♂ Deepfake
 * 📹 [Porn detection](https://colab.research.google.com/drive/1aFQgXH9WAvA_aJiZU4GZppWrLnZNJ7Hh)
@@ -160,6 +161,7 @@ All examples are written in Python language, so you need to setup your environme
   3. Example for python
 * 🎧 
 * 🎶 Music Generation
+* 🔊 [Speech to Text with Thonburian Whisper](https://colab.research.google.com/drive/1_dgg2GVP9BzDUZe6JSwOG05X0UPl_P71?usp=sharing)
 * 🔊 Speech Synthesis
    * [Real Time Voice Cloning](https://colab.research.google.com/drive/1BmiqJkg_lAppvIJbF7QhJpSTsbjvhiK1)
    * 
