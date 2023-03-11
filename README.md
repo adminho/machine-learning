@@ -201,6 +201,7 @@ All examples are written in Python language, so you need to setup your environme
 ✍ ผมเคยโน๊คเลคเชอร์วิชาพวกนี้เอาไว้ เผื่อมีใครกำลังเรียนอยู่  หรือสนใจเอาไว้ทบทวนได้ครับ
 
 1. [neural network](https://www.facebook.com/programmerthai/posts/2633559433600558)
+<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fprogrammerthai%2Fposts%2Fpfbid0FSRoFvaMM4BeNqZoPDyLwnxFDV1SWt83Ag4LZrx2GHhkgc8u7u7XFboS7kcgq5WCl&show_text=true&width=500" width="500" height="601" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 2. [Convolutional Neural Networks](https://www.facebook.com/programmerthai/posts/2553866934903142)
 3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/programmerthai/posts/2561470147476154)
 4. [GAN: Generative adversarial networks](https://www.facebook.com/programmerthai/posts/2798352037121296)
