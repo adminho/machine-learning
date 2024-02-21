@@ -184,7 +184,7 @@ All examples are written in Python language, so you need to setup your environme
 * [🔐 Privacy]
 * 🐙 Causal Inference
 * 🦠 Survival Analysis
-* [Remove Image Background](https://colab.research.google.com/drive/1n1s30OAeNeC6UNmNk2wPxL-e2gkF3-cu)
+* 🌅 [Remove Image Background](https://colab.research.google.com/drive/1n1s30OAeNeC6UNmNk2wPxL-e2gkF3-cu)
 * 💧 [Trading in Thailand Stock: ตัวอย่างการเอา AI มาใช้ในตลาดหุ้นไทย](https://github.com/adminho/trading-stock-thailand)
 * 👨‍🎓 [AI for Thai:AI สัญญาชาติไทยใช้ง่ายไม่ยาก จากทีมนักวิจัยของ NECTEC ปัจจุบันให้บริการผ่านเว็บเซอร์วิส ](https://colab.research.google.com/drive/1LRPpzzwJwLIZIy3t7CxljhDjgLq-Z1Ha)
   1. BASIC NLP: ประมวลผลภาษาไทย
