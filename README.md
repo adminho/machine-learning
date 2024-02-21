@@ -118,9 +118,10 @@ All examples are written in Python language, so you need to setup your environme
 * ✋ Hand Pose Estimation
 * 👆 Finger Detection
 * 😃 [Face Recognition](https://colab.research.google.com/drive/1MnypOHemKhMEXCaWOgm6-ViYqF7GENWH)
-* 😃 [OCR](https://colab.research.google.com/drive/11RPwkNX-L1Wi9BVni-tzvrlsHff50BOz?usp=sharing)
+* 😃 [OCR](https://colab.research.google.com/drive/11RPwkNX-L1Wi9BVni-tzvrlsHff50BOz)
 * 🤣 Emotion classification
 * 👳‍♂ Deepfake
+   1. [Face Swap](https://colab.research.google.com/drive/1k2ieb4_iicnFrn7ka14-E165VC4023Kd)
 * 📹 [Porn detection](https://colab.research.google.com/drive/1aFQgXH9WAvA_aJiZU4GZppWrLnZNJ7Hh)
 * 🖼 Colorizing
 * Lane road detection
