@@ -44,6 +44,11 @@ All examples are written in Python language, so you need to setup your environme
   * Python in Mathayom_1_2_3: [ทบทวนภาษา Python ของเด็กม.1-2 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
   * Python in Mathayom_4_5_6 
 
+* Lecture: IS461 Tools for Data Analytics at Thammasat Business School (IBMP), Thammasat University
+   * [Data Basics and Introduction to Numpy](https://colab.research.google.com/drive/1VYaRGqAtJ3uw1G5LTw60jRaCNMR2LDXU)
+   * [Data Manipulation with Pandas](https://colab.research.google.com/drive/1yjwcJYm3KChjBnl6jo4qsrdbPoGKRXzE)
+   * [Data Visualization and Matplotlib](https://colab.research.google.com/drive/1uvsPUoOVBmfGk0wFZuLfKBR2inGPjoNQ)
+   
 * 📊 [Matplotlib](https://colab.research.google.com/drive/1BPi8jv--sKUSu9apCdYziDptHMtBY_16)
 * 📊 [Seaborn]
 * 🧮 [numpy](https://colab.research.google.com/drive/1u93d1Tm60YCKUY6CLGz9242NdQNWAQEA)
