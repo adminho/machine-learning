@@ -230,3 +230,23 @@ All examples are written in Python language, so you need to setup your environme
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
+
+### โค้ดตัวอย่าง (Python) ประกอบหนังสือ
+
+#### บทที่ 3 ถึง 6
+- บทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
+- บทที่ 4 เส้นตรงพยากรณ์ (Regression)
+- บทที่ 5 สมการแม่หมอโฉมใหม่ (Regression แบบหลายฟีเจอร์)
+- บทที่ 6 แว่นวิเศษพยากรณ์ (Logistic Regression)
+
+https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1
+
+#### บทที่ 7 ถึง 9
+- บทที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
+- บทที่ 8 เบิกเนตร เสกดวงตาให้ AI (Convolutional Neural Network (CNN))
+- บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด (Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit))
+
+https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw
+
+#### บทที่ 11 จะมีหลายตัวอย่าง
+(ค้างไว้ก่อนยังไม่เสร็จดี)
