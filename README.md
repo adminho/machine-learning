@@ -250,3 +250,7 @@ https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw
 
 #### บทที่ 11 จะมีหลายตัวอย่าง
 (ค้างไว้ก่อนยังไม่เสร็จดี)
+Autoencoder
+Generative Adversarial Network (GAN)
+Siamese Network
+Sequence-to-Sequence (Seq2Seq)
