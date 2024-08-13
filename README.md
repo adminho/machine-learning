@@ -253,4 +253,4 @@ https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw
 * [Autoencoder](https://colab.research.google.com/drive/1FTSGlTvqt6SHm8KEwsPiEgoO98pLLG-q)
 * [Generative Adversarial Network (GAN)](https://colab.research.google.com/drive/1OBcgA2RX8KvHvALxRQVvOMDQbI0V2jQx)
 * [Siamese Network](https://colab.research.google.com/drive/1TRoKrgFUB3uCF-5Feu_rA9W03MEHUona)
-* Sequence-to-Sequence (Seq2Seq) (ค้างไว้ก่อนยังไม่เสร็จดี)
+* [Sequence-to-Sequence (Seq2Seq)](https://colab.research.google.com/drive/1hP1ATcOoi05hZCu-JNb47dp1F0xU9lFw)
