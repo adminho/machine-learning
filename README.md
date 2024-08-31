@@ -232,7 +232,7 @@ All examples are written in Python language, so you need to setup your environme
 
 
 ### โค้ดตัวอย่าง (Python) ประกอบหนังสือ
-
+เอาไว้อ่านประกอบหนังสือ "AI ไม่ยาก ทั้งเล่ม 1 กับ เล่ม 2"
 #### บทที่ 3 ถึง 6
 * บทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
 * บทที่ 4 เส้นตรงพยากรณ์ (Regression)
