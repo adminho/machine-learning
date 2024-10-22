@@ -207,11 +207,13 @@ All examples are written in Python language, so you need to setup your environme
 ## Note
 ✍ ผมเคยโน๊คเลคเชอร์วิชาพวกนี้เอาไว้ เผื่อมีใครกำลังเรียนอยู่  หรือสนใจเอาไว้ทบทวนได้ครับ
 
-1. [Neural Network](https://www.facebook.com/programmerthai/posts/2633559433600558)
-2. [Convolutional Neural Networks](https://www.facebook.com/share/p/zmn6gwbvfb9bTpij/)
-3. [Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)](https://www.facebook.com/share/p/W72WvGo597bKjPa4/)
-4. [GAN: Generative adversarial networks](https://www.facebook.com/programmerthai/posts/2798352037121296)
-5. [RL: Reinforcement learning(รอก่อน)](https://www.facebook.com/programmerthai/posts/2744281379195029)
+1. Neural Network
+2. Convolutional Neural Networks
+3. Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM)
+4. GAN: Generative adversarial networks
+5. RL: Reinforcement learning(รอก่อน)
+
+[คลิกเข้าไปดูได้](https://www.facebook.com/share/p/fGzieBbXfG3YVTeu/)
 
 ## ขออนุญาตประชาสัมพันธ์ (แอบขายของ)
 ท่านใดสนใจซื้อ "หนังสือ AI ไม่ยาก เข้าใจได้ด้วยเลขม. ปลาย" 
