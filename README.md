@@ -233,8 +233,11 @@ All examples are written in Python language, so you need to setup your environme
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
 ### เอกสารประกอบ
-* [เอกสาประกอบบทที่ 8 หัวข้อ 8.7 -> Convolution กับภาพสี](https://drive.google.com/file/d/1lEKC3fuE0L1W277W5dDOZBV-KSST3d-G/view?usp=sharing)
-* 
+
+* เอกสารประกอบบทที่ 3
+ * [ตัวอย่าง 3.5.3_ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
+* เอกสาประกอบบทที่ 8  
+ * [หัวข้อ 8.7 -> Convolution กับภาพสี](https://drive.google.com/file/d/1lEKC3fuE0L1W277W5dDOZBV-KSST3d-G/view?usp=sharing)
 
 ### โค้ดตัวอย่าง (Python) ประกอบหนังสือ
 เอาไว้อ่านประกอบหนังสือ "AI ไม่ยาก ทั้งเล่ม 1 กับ เล่ม 2"
