@@ -233,10 +233,13 @@ All examples are written in Python language, so you need to setup your environme
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
 ### เอกสารประกอบ
-
-* เอกสารประกอบบทที่ 3
+* เอกสารประกอบบทที่ 1
+   * [แหล่งเรียนรู้ด้าน AI]()
+* เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
-* เอกสาประกอบบทที่ 8  
+* เอกสารประกอบบที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
+   * [พิสูจน์เรื่อง back propagation](https://drive.google.com/file/d/1qKrD3DMNv-HYQxuNas1B-wkdef5k91yM/view?usp=sharing)
+* เอกสาประกอบบทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
    * [หัวข้อ 8.7 Convolution กับภาพสี](https://drive.google.com/file/d/1lEKC3fuE0L1W277W5dDOZBV-KSST3d-G/view?usp=sharing)
 
 ### โค้ดตัวอย่าง (Python) ประกอบหนังสือ
@@ -252,8 +255,8 @@ https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1
 
 #### บทที่ 7 ถึง 9
 * บทที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
-* บทที่ 8 เบิกเนตร เสกดวงตาให้ AI (Convolutional Neural Network (CNN))
-* บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด (Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit))
+* บทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
+* บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด -> Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit)
 
 https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw
 
