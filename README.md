@@ -251,18 +251,18 @@ All examples are written in Python language, so you need to setup your environme
 * บทที่ 5 สมการแม่หมอโฉมใหม่ (Regression แบบหลายฟีเจอร์)
 * บทที่ 6 แว่นวิเศษพยากรณ์ (Logistic Regression)
 
-https://colab.research.google.com/drive/1ZRMW3fXGWUvkeFPM07qtFXoSbLmuMpO1
+[บทที่ 3 ถึง 6](https://colab.research.google.com/drive/1-rzF06JtujgzWGB6keohDShDcuJOAFaf?usp=sharing)
 
 #### บทที่ 7 ถึง 9
 * บทที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
 * บทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
 * บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด -> Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit)
 
-https://colab.research.google.com/drive/1KsGnaw9jE4wnmXK2mf2C4-Ylnj6nXbFw
+[บทที่ 7 ถึ 9](https://colab.research.google.com/drive/1plsr_ff303-617huXDINCkfwZ-58SoK7?usp=sharing)
 
 #### บทที่ 11 จะมีหลายตัวอย่าง
 
-* [Autoencoder](https://colab.research.google.com/drive/1FTSGlTvqt6SHm8KEwsPiEgoO98pLLG-q)
-* [Generative Adversarial Network (GAN)](https://colab.research.google.com/drive/1OBcgA2RX8KvHvALxRQVvOMDQbI0V2jQx)
-* [Siamese Network](https://colab.research.google.com/drive/1TRoKrgFUB3uCF-5Feu_rA9W03MEHUona)
-* [Sequence-to-Sequence (Seq2Seq)](https://colab.research.google.com/drive/1hP1ATcOoi05hZCu-JNb47dp1F0xU9lFw)
+* [Autoencoder](https://colab.research.google.com/drive/16QcNEBnreLsSdU-cIDrfAVo59KInaJ8l?usp=sharing)
+* [Generative Adversarial Network (GAN)](https://colab.research.google.com/drive/1iis6NQMXnmYvzcznD-38VlN6kPmf9-hc?usp=sharing)
+* [Siamese Network](https://colab.research.google.com/drive/1mYnZwOSDnWsVJwFRKmhAgZUv3XsiLdyk?usp=sharing)
+* [Sequence-to-Sequence (Seq2Seq)](https://colab.research.google.com/drive/1pE1ITTaZBnLfgwtslNnMFfc84_QxbeJ2?usp=sharing)
