@@ -238,7 +238,7 @@ All examples are written in Python language, so you need to setup your environme
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
 * เอกสารประกอบบที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
-   * [พิสูจน์เรื่อง back propagation](https://drive.google.com/file/d/1qKrD3DMNv-HYQxuNas1B-wkdef5k91yM/view?usp=sharing)
+   * [พิสูจน์ที่มาของการทำ backpropagation](https://drive.google.com/file/d/1qKrD3DMNv-HYQxuNas1B-wkdef5k91yM/view?usp=sharing)
 * เอกสาประกอบบทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
    * [หัวข้อ 8.7 Convolution กับภาพสี](https://drive.google.com/file/d/1lEKC3fuE0L1W277W5dDOZBV-KSST3d-G/view?usp=sharing)
 
@@ -251,14 +251,14 @@ All examples are written in Python language, so you need to setup your environme
 * บทที่ 5 สมการแม่หมอโฉมใหม่ (Regression แบบหลายฟีเจอร์)
 * บทที่ 6 แว่นวิเศษพยากรณ์ (Logistic Regression)
 
-[บทที่ 3 ถึง 6](https://colab.research.google.com/drive/1-rzF06JtujgzWGB6keohDShDcuJOAFaf?usp=sharing)
+[บทที่ 3, 4, 5 และ 6](https://colab.research.google.com/drive/1-rzF06JtujgzWGB6keohDShDcuJOAFaf?usp=sharing)
 
 #### บทที่ 7 ถึง 9
 * บทที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
 * บทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
 * บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด -> Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit)
 
-[บทที่ 7 ถึ 9](https://colab.research.google.com/drive/1plsr_ff303-617huXDINCkfwZ-58SoK7?usp=sharing)
+[บทที่ 7, 8 และ 9](https://colab.research.google.com/drive/1plsr_ff303-617huXDINCkfwZ-58SoK7?usp=sharing)
 
 #### บทที่ 11 จะมีหลายตัวอย่าง
 
