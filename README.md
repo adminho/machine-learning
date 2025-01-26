@@ -225,10 +225,7 @@ All examples are written in Python language, so you need to setup your environme
 
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
-| [บทที่ 1](https://drive.google.com/file/d/19kzbuRtN14eDEYhNewBh4ZUCa6sexaIf/view) | [บทที่ 8](https://drive.google.com/file/d/1lGqsfXs16mV2IbEJx-4IgDslaHOut1kC/view) |
-| [บทที่ 3](https://drive.google.com/file/d/1pe8ty5hVZS0M3zGZe5WliOOTm6Cqv1Ti/view) | [บทที่ 9](https://drive.google.com/file/d/1dxEhj7syoXFAfQB9bqmwXGrfhgz3M7GQ/view) |
-| [บทที่ 4](https://drive.google.com/file/d/1ju_wF6c9CNiYWfSzIIuqV9aUuEa4eurh/view) | [บทที่ 10](https://drive.google.com/file/d/129-FPDP-9FJrMNsVqWMJdER762jOzs9G/view) |
-|  | [บทที่ 11](https://drive.google.com/file/d/15njvUq8Vbq3SRA-PHxVGq8Isr1cL3F3d/view) |
+| [บทที่ 1, 3, 4](https://drive.google.com/file/d/1x4w-NkH8qnEZEG-izbAyQN0uP4cy2nJv/view?usp=sharing) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1xHbd-7b1QS5Ee1y35LlB9Y_eG9QYCyAX/view?usp=sharing) |
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
