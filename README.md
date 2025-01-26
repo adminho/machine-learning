@@ -229,7 +229,7 @@ All examples are written in Python language, so you need to setup your environme
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
-### เอกสารประกอบ
+### เอกสารประกอบหนังสือ
 * เอกสารประกอบบทที่ 1 -> แหล่งเรียนรู้ด้าน AI
    
 |หนังสือ AI|โค้ดดิ้งด้วย Python|อื่นๆ|
