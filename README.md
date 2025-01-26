@@ -232,6 +232,10 @@ All examples are written in Python language, so you need to setup your environme
 ### เอกสารประกอบ
 * เอกสารประกอบบทที่ 1
    * [แหล่งเรียนรู้ด้าน AI]()
+|หนังสือ AI|โค้ดดิ้งด้วย Python|อื่น|
+| -    |         -      | - |
+| [บทที่ 1, 3, 4]() | [บทที่ 8, 9, 10]() |[.]()|
+
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
 * เอกสารประกอบบที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
