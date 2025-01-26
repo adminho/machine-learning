@@ -230,11 +230,10 @@ All examples are written in Python language, so you need to setup your environme
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
 ### เอกสารประกอบ
-* เอกสารประกอบบทที่ 1
-   * [แหล่งเรียนรู้ด้าน AI]()
-|หนังสือ AI|โค้ดดิ้งด้วย Python|อื่น|
+* เอกสารประกอบบทที่ 1 -> แหล่งเรียนรู้ด้าน AI   
+|หนังสือ AI|โค้ดดิ้งด้วย Python|อื่นๆ|
 | -    |         -      | - |
-| [บทที่ 1, 3, 4]() | [บทที่ 8, 9, 10]() |[.]()|
+| [บทที่ 1, 3, 4]() | [บทที่ 8, 9, 10]() | [.]() |
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
