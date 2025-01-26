@@ -251,14 +251,14 @@ All examples are written in Python language, so you need to setup your environme
 * บทที่ 5 สมการแม่หมอโฉมใหม่ (Regression แบบหลายฟีเจอร์)
 * บทที่ 6 แว่นวิเศษพยากรณ์ (Logistic Regression)
 
-[บทที่ 3, 4, 5 และ 6](https://colab.research.google.com/drive/1-rzF06JtujgzWGB6keohDShDcuJOAFaf?usp=sharing)
+[ตัวอย่างโค้ดบทที่ 3, 4, 5 และ 6](https://colab.research.google.com/drive/1-rzF06JtujgzWGB6keohDShDcuJOAFaf?usp=sharing)
 
 #### บทที่ 7 ถึง 9
 * บทที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
 * บทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
 * บทที่ 9 สำเหนียกรู้ ดูข้อมูล เป็นชุด -> Recurrent Neural Network (RNN), LSTM (LSTM (Long short-term memory), GRU (Gated recurrent unit)
 
-[บทที่ 7, 8 และ 9](https://colab.research.google.com/drive/1plsr_ff303-617huXDINCkfwZ-58SoK7?usp=sharing)
+[ตัวอย่างโค้ดบทที่ 7, 8 และ 9](https://colab.research.google.com/drive/1plsr_ff303-617huXDINCkfwZ-58SoK7?usp=sharing)
 
 #### บทที่ 11 จะมีหลายตัวอย่าง
 
