@@ -49,12 +49,12 @@ All examples are written in Python language, so you need to setup your environme
    * [Data Manipulation with Pandas](https://colab.research.google.com/drive/1yjwcJYm3KChjBnl6jo4qsrdbPoGKRXzE)
    * [Data Visualization and Matplotlib](https://colab.research.google.com/drive/1uvsPUoOVBmfGk0wFZuLfKBR2inGPjoNQ)
    
-* 📊 [Matplotlib](https://colab.research.google.com/drive/1BPi8jv--sKUSu9apCdYziDptHMtBY_16)
+* 📊 [Matplotlib](https://colab.research.google.com/drive/10h6_-LF8wvvDgNWWOiUkTMN5djFP2feA?usp=sharing)
 * 📊 [Seaborn]
-* 🧮 [numpy](https://colab.research.google.com/drive/1u93d1Tm60YCKUY6CLGz9242NdQNWAQEA)
-* 🐼 [Pandas](https://colab.research.google.com/drive/1LpF3_oz2QIqBIkc1Q8opZyVzujW6Jsq2)
-* 🔥 [Tensorflow](https://colab.research.google.com/drive/1iX9d2bl1ogh2qo2U-NTot_XuVbfAqKi9)
-* 🔥 [PYTorch](https://colab.research.google.com/drive/1BtVCWpwWovcVqkvEX5HaUAIyUOlekC0m)
+* 🧮 [numpy](https://colab.research.google.com/drive/1TLjprnOV67j9hUw5_bHaTKVxRldQscov?usp=sharing)
+* 🐼 [Pandas](https://colab.research.google.com/drive/1RPzUlaMdnJMaZPaxxJ4atu_l1Hq2SFRk?usp=sharing)
+* 🔥 [Tensorflow](https://colab.research.google.com/drive/1h52TQUk6IElRBN_3tqyniyXZzoHc4R9p?usp=sharing)
+* 🔥 [PYTorch](https://colab.research.google.com/drive/1jAV8nvhDP24uhPT1Jmgg6r6t46jVOx9Q?usp=sharing)
 * 🔥 [Keras]  
 * [Prepare datasets](Prepare_datasets)
   * Getting dataset examples with Keras library.
