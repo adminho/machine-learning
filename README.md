@@ -41,7 +41,7 @@ All examples are written in Python language, so you need to setup your environme
 ### Beginer
 * 📕 [Notebooks] 
 * 🐍 Python
-  * Python in Mathayom_1_2_3: [ทบทวนภาษา Python ของเด็กม.1,2,3 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1rm-kW7Nh5q3kk9JsnvBea2oUr42W9GIF)
+  * Python in Mathayom_1_2_3: [ทบทวนภาษา Python ของเด็กม.1,2,3 ในวิชาวิทยการคำนวณ](https://colab.research.google.com/drive/1Eg-jsOzNzN8M0g35dvDT1ryem7RuDGYQ?usp=sharing)
   * Python in Mathayom_4_5_6 
 
 * Lecture: IS461 Tools for Data Analytics at Thammasat Business School (IBMP), Thammasat University
