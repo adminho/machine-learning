@@ -234,7 +234,7 @@ All examples are written in Python language, so you need to setup your environme
    
 |หนังสือ AI|โค้ดดิ้งด้วย Python|อื่นๆ|
 | -    |         -      | - |
-| [บทที่ 1, 3, 4]() | [บทที่ 8, 9, 10]() | [.]() |
+| [บทที่ 1, 3, 4](https://drive.google.com/file/d/1G5TBgSOyHE9xMq07OjYQyQvoNrPAZEXf/view?usp=sharing) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1G5TBgSOyHE9xMq07OjYQyQvoNrPAZEXf/view?usp=sharing) | [.]() |
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
