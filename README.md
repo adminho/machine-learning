@@ -225,7 +225,7 @@ All examples are written in Python language, so you need to setup your environme
 
 |ตัวอย่างส่วนที่ 1|ตัวอย่างส่วนที่ 2|
 | -    |         -      |
-| [บทที่ 1, 3, 4](https://drive.google.com/file/d/1x4w-NkH8qnEZEG-izbAyQN0uP4cy2nJv/view?usp=sharing) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1xHbd-7b1QS5Ee1y35LlB9Y_eG9QYCyAX/view?usp=sharing) |
+| [บทที่ 1, 3, 4](https://drive.google.com/file/d/1wgoanr4CsswsWeqBQq0O-OYECLb2sdgB/view?usp=sharing) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) |
 
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
@@ -237,11 +237,11 @@ All examples are written in Python language, so you need to setup your environme
 | [บทที่ 1, 3, 4]() | [บทที่ 8, 9, 10]() | [.]() |
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
-   * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1l8KGDriYiu9wOuEdJP5L2Ix3_MkM0lUe/view?usp=sharing)
+   * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
 * เอกสารประกอบบที่ 7 เซลล์สมองเทียมเลียนแบบ (Neural Network)
-   * [พิสูจน์ที่มาของการทำ backpropagation](https://drive.google.com/file/d/1qKrD3DMNv-HYQxuNas1B-wkdef5k91yM/view?usp=sharing)
+   * [พิสูจน์ที่มาของการทำ backpropagation](https://drive.google.com/file/d/1X47DN-U850JguOfTiZ0_-9ZCtlc_6caw/view?usp=sharing)
 * เอกสาประกอบบทที่ 8 เบิกเนตร เสกดวงตาให้ AI -> Convolutional Neural Network (CNN)
-   * [หัวข้อ 8.7 Convolution กับภาพสี](https://drive.google.com/file/d/1lEKC3fuE0L1W277W5dDOZBV-KSST3d-G/view?usp=sharing)
+   * [หัวข้อ 8.7 Convolution กับภาพสี](https://drive.google.com/file/d/1l7nCCjO5KWbCYN_1wsB22rLdlDPPHH2G/view?usp=sharing)
 
 ### โค้ดตัวอย่าง (Python) ประกอบหนังสือ
 เอาไว้อ่านประกอบหนังสือ "AI ไม่ยาก ทั้งเล่ม 1 กับ เล่ม 2"
