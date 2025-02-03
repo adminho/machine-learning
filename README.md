@@ -45,9 +45,9 @@ All examples are written in Python language, so you need to setup your environme
   * Python in Mathayom_4_5_6 
 
 * Lecture: IS461 Tools for Data Analytics at Thammasat Business School (IBMP), Thammasat University
-   * [Data Basics and Introduction to Numpy](https://colab.research.google.com/drive/1VYaRGqAtJ3uw1G5LTw60jRaCNMR2LDXU)
-   * [Data Manipulation with Pandas](https://colab.research.google.com/drive/1yjwcJYm3KChjBnl6jo4qsrdbPoGKRXzE)
-   * [Data Visualization and Matplotlib](https://colab.research.google.com/drive/1uvsPUoOVBmfGk0wFZuLfKBR2inGPjoNQ)
+   * [Data Basics and Introduction to Numpy](https://colab.research.google.com/drive/1kV4_vASlIVqtpkfQSm4VB7oTeofjhbBQ?usp=sharing)
+   * [Data Manipulation with Pandas](https://colab.research.google.com/drive/1_CZ_Yiq3ihLpnOl0QlxFUZmTqoYeHeW2?usp=sharing)
+   * [Data Visualization and Matplotlib](https://colab.research.google.com/drive/1K_YLTNrwNzDB-179pigpsbacW6U21aEk?usp=sharing)
    
 * 📊 [Matplotlib](https://colab.research.google.com/drive/10h6_-LF8wvvDgNWWOiUkTMN5djFP2feA?usp=sharing)
 * 📊 [Seaborn]
