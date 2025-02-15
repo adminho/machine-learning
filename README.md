@@ -230,19 +230,25 @@ All examples are written in Python language, so you need to setup your environme
 [![](books/ebook_AI_easy_1_2.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
 
 ### เอกสารประกอบหนังสือ
-* เอกสารประกอบบทที่ 1 -> แหล่งเรียนรู้ด้าน AI
+* เอกสารประกอบบทที่ 1 พร้อมทั้งประกอบหนังสือ "หัดโค้ดดิ้งตั้งแต่ติดลบด้วย Python"
    
-|แหล่งเรียนรู้ออนไลน์|
+|แหล่งเรียนรู้ Python ออนไลน์|
 | -    | 
 | [คอร์สสอนวิชาการเขียนโปรแกรมสำหรับนิสิต ปี 1 คณะวิศวกรรมศาสตร์ ภาคปลาย ปีการศึกษา 2558 รหัสวิชา 2110101 Computer Programming สอนโดยดร. สมชาย ประสิทธิ์จูตระกูล ใช้ Python](https://www.youtube.com/playlist?list=PL0ROnaCzUGB4ieaQndKybT9xyoq2n9NGq) | 
 | [วิดีโอสอนภาษา Python โดย SIPA](https://www.youtube.com/watch?v=KcAX613khH4&list=PLtM3znnbMbVWZ1ICKEi7Gr9dxdJc_ppel) |
 | [วิดีโอสอน Python โดย Clique Club - ชมรมคลิก ของจุฬา](https://www.youtube.com/playlist?list=PLVcky7_Sy_7ltVaI1WVIWDvit_DtgUYBw) | 
 | [วิดีโอสอน Python โดย รศ. ดร. ประเสริฐ คณาวัฒนไชย จากจุฬาฯ](https://www.youtube.com/playlist?list=PLoTScYm9O0GH4YQs9t4tf2RIYolHt_YwW) | 
 
-|หนังสือแจกฟรี|
+
+|หนังสือ Python แจกฟรี|
 | -    | 
 | [หนังสือเชี่ยวชาญการเขียนโปรแกรมด้วยไพธอน โดย ผศ. สุชาติ คุ้มมะณี](https://drive.google.com/file/d/1_xvEhRquLeZJbLLKrK1e5liJdb_HDEBH/view) | 
 | [หนังสือสอนเขียนโปรแกรมภาษา Python ใช้ประกอบการเรียนวิชา 2110101 Computer Programming ของวิศวกรรมคอมพิวเตอร์ จุฬาฯ โดย กิตติภณ พละการ, กิตติภพ พละการ สมชาย ประสิทธิ์จูตระกูล และ สุกรี สินธุภิญโญ](https://www.cp.eng.chula.ac.th/books/python101/) | 
+
+
+|แหล่งเรียนรู้อื่นๆ|
+| -    | 
+| [แหล่งเรียนรู้ฟรีด้าน AI, Machine learning]( https://www.patanasongsivilai.com/blog/sdm_downloads/source-free-ai-machine-learning/) | 
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
