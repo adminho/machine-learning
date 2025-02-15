@@ -234,10 +234,7 @@ All examples are written in Python language, so you need to setup your environme
    
 |แหล่งเรียนรู้ออนไลน์|หนังสือแจกฟรี|อื่นๆ|
 | -    |         -      | - |
-| [คอร์สสอนวิชาการเขียนโปรแกรมสำหรับนิสิต ปี 1 
-คณะวิศวกรรมศาสตร์ ภาคปลาย ปีการศึกษา 2558 
-รหัสวิชา 2110101 Computer Programming 
-สอนโดยดร. สมชาย ประสิทธิ์จูตระกูล ใช้ Python](https://www.youtube.com/playlist?list=PL0ROnaCzUGB4ieaQndKybT9xyoq2n9NGq) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
+| [คอร์สสอนวิชาการเขียนโปรแกรมสำหรับนิสิต ปี 1 คณะวิศวกรรมศาสตร์ ภาคปลาย ปีการศึกษา 2558 รหัสวิชา 2110101 Computer Programming สอนโดยดร. สมชาย ประสิทธิ์จูตระกูล ใช้ Python](https://www.youtube.com/playlist?list=PL0ROnaCzUGB4ieaQndKybT9xyoq2n9NGq) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
 | [วิดีโอสอนภาษา Python โดย SIPA](https://www.youtube.com/watch?v=KcAX613khH4&list=PLtM3znnbMbVWZ1ICKEi7Gr9dxdJc_ppel) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
 | [วิดีโอสอน Python 
 โดย Clique Club - ชมรมคลิก ของจุฬา
