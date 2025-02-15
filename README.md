@@ -241,7 +241,7 @@ All examples are written in Python language, so you need to setup your environme
 
 |หนังสือแจกฟรี|
 | -    | 
-| [หนังสือเชี่ยวชาญการเขียนโปรแกรมด้วยไพธอน โดย ผศ. สุชาติ คุ้มมะณี](https://drive.google.com/drive/folders/1GfhhNOVBZpfkrvfleBvYiCYsuqqnKoX4) | 
+| [หนังสือเชี่ยวชาญการเขียนโปรแกรมด้วยไพธอน โดย ผศ. สุชาติ คุ้มมะณี](https://drive.google.com/file/d/1_xvEhRquLeZJbLLKrK1e5liJdb_HDEBH/view) | 
 | [หนังสือสอนเขียนโปรแกรมภาษา Python ใช้ประกอบการเรียนวิชา 2110101 Computer Programming ของวิศวกรรมคอมพิวเตอร์ จุฬาฯ โดย กิตติภณ พละการ, กิตติภพ พละการ สมชาย ประสิทธิ์จูตระกูล และ สุกรี สินธุภิญโญ](https://www.cp.eng.chula.ac.th/books/python101/) | 
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
