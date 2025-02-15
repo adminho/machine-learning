@@ -232,9 +232,18 @@ All examples are written in Python language, so you need to setup your environme
 ### เอกสารประกอบหนังสือ
 * เอกสารประกอบบทที่ 1 -> แหล่งเรียนรู้ด้าน AI
    
-|หนังสือ AI|โค้ดดิ้งด้วย Python|อื่นๆ|
+|แหล่งเรียนรู้ออนไลน์|หนังสือแจกฟรี|อื่นๆ|
 | -    |         -      | - |
-| [บทที่ 1, 3, 4](https://drive.google.com/file/d/1G5TBgSOyHE9xMq07OjYQyQvoNrPAZEXf/view?usp=sharing) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
+| [คอร์สสอนวิชาการเขียนโปรแกรมสำหรับนิสิต ปี 1 
+คณะวิศวกรรมศาสตร์ ภาคปลาย ปีการศึกษา 2558 
+รหัสวิชา 2110101 Computer Programming 
+สอนโดยดร. สมชาย ประสิทธิ์จูตระกูล ใช้ Python](https://www.youtube.com/playlist?list=PL0ROnaCzUGB4ieaQndKybT9xyoq2n9NGq) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
+| [วิดีโอสอนภาษา Python โดย SIPA](https://www.youtube.com/watch?v=KcAX613khH4&list=PLtM3znnbMbVWZ1ICKEi7Gr9dxdJc_ppel) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
+| [วิดีโอสอน Python 
+โดย Clique Club - ชมรมคลิก ของจุฬา
+](https://www.youtube.com/playlist?list=PLVcky7_Sy_7ltVaI1WVIWDvit_DtgUYBw) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
+| [วิดีโอสอน Python
+โดย รศ. ดร. ประเสริฐ คณาวัฒนไชย จากจุฬาฯ](https://www.youtube.com/playlist?list=PLoTScYm9O0GH4YQs9t4tf2RIYolHt_YwW) | [บทที่ 8, 9, 10](https://drive.google.com/file/d/1ANlGwauHUwk-zcF5vNBclyKu-krs97AV/view?usp=sharing) | [.]() |
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
