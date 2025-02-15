@@ -231,7 +231,6 @@ All examples are written in Python language, so you need to setup your environme
 
 ### เอกสารประกอบหนังสือ
 * เอกสารประกอบบทที่ 1 พร้อมทั้งประกอบหนังสือ "หัดโค้ดดิ้งตั้งแต่ติดลบด้วย Python"
-[![](books/ebook_python.png)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjEwODI0NiI7fQ)
   
 |แหล่งเรียนรู้ Python ออนไลน์|
 | -    | 
