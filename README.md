@@ -245,14 +245,12 @@ All examples are written in Python language, so you need to setup your environme
 | [หนังสือเชี่ยวชาญการเขียนโปรแกรมด้วยไพธอน โดย ผศ. สุชาติ คุ้มมะณี](https://drive.google.com/file/d/1_xvEhRquLeZJbLLKrK1e5liJdb_HDEBH/view) | 
 | [หนังสือสอนเขียนโปรแกรมภาษา Python ใช้ประกอบการเรียนวิชา 2110101 Computer Programming ของวิศวกรรมคอมพิวเตอร์ จุฬาฯ โดย กิตติภณ พละการ, กิตติภพ พละการ สมชาย ประสิทธิ์จูตระกูล และ สุกรี สินธุภิญโญ](https://www.cp.eng.chula.ac.th/books/python101/) | 
 
-|หนังสือ Python ปูพื้นฐานติดลบ อ่านงานที่สุดในโลก| |
-| -    |  -  | 
-| <img src="https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ" alt="ตัวอย่าง" width="300">
- | [เปิดซิงโค้ดดิ้งด้วยไพทอน ไม่ใช่เด็กคอมก็เก็ต](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ) | 
-
 |แหล่งเรียนรู้อื่นๆ|
 | -    | 
 | [แหล่งเรียนรู้ฟรีด้าน AI, Machine learning]( https://www.patanasongsivilai.com/blog/sdm_downloads/source-free-ai-machine-learning/) | 
+
+หนังสือ Python ปูพื้นฐานติดลบ อ่านงานที่สุดในโลก
+[<img src="https://cdn-local.mebmarket.com/meb/server1/192922/Thumbnail/book_detail_large.gif" alt="ตัวอย่าง" width="300">](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ)
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
