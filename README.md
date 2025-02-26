@@ -36,7 +36,7 @@ All examples are written in Python language, so you need to setup your environme
 | Speech, Audio, Music   |[see](#speech-audio-music)| 
 | Miscellaneous|[see](#miscellaneous)| 
 
-## My examples (not yet) 
+## My examples (ลิงบ้างอย่างกำลังปรับปรุงอาจเข้าไม่ได้ขณะนี้) 
 
 ### Beginer
 * 📕 [Notebooks] 
