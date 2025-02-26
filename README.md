@@ -250,7 +250,7 @@ All examples are written in Python language, so you need to setup your environme
 | [แหล่งเรียนรู้ฟรีด้าน AI, Machine learning]( https://www.patanasongsivilai.com/blog/sdm_downloads/source-free-ai-machine-learning/) | 
 
 หนังสือ Python ปูพื้นฐานติดลบ อ่านงานที่สุดในโลก
-[![](img src="https://cdn-local.mebmarket.com/meb/server1/192922/Thumbnail/book_detail_large.gif")](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ)
+[![](https://cdn-local.mebmarket.com/meb/server1/192922/Thumbnail/book_detail_large.gif)](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ)
 
 * เอกสารประกอบบทที่ 3 สอนคอมให้ฉลาดทำได้อย่างไร (ปูพื้นฐาน machine learning)
    * [ตัวอย่าง 3.5.3 ข้อมูลเป็นรูปภาพ](https://drive.google.com/file/d/1F7L10ii719wVIuoO_NwOmxazXcjTxE40/view?usp=sharing)
