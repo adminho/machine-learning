@@ -247,8 +247,8 @@ All examples are written in Python language, so you need to setup your environme
 
 |หนังสือ Python ปูพื้นฐานติดลบ อ่านงานที่สุดในโลก| |
 | -    |  -  | 
-| ![ตัวอย่าง](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ) | 
-| [เปิดซิงโค้ดดิ้งด้วยไพทอน ไม่ใช่เด็กคอมก็เก็ต](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ) | 
+| <img src="https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ" alt="ตัวอย่าง" width="300">
+ | [เปิดซิงโค้ดดิ้งด้วยไพทอน ไม่ใช่เด็กคอมก็เก็ต](https://www.mebmarket.com/web/index.php?action=BookDetails&data=YToyOntzOjc6InVzZXJfaWQiO3M6NzoiMTcyNTQ4MyI7czo3OiJib29rX2lkIjtzOjY6IjE5MjkyMiI7fQ) | 
 
 |แหล่งเรียนรู้อื่นๆ|
 | -    | 
