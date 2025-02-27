@@ -127,7 +127,7 @@ All examples are written in Python language, so you need to setup your environme
 * 🤣 Emotion classification
 * 👳‍♂ Deepfake
    * [Face Swap](https://colab.research.google.com/drive/1k2ieb4_iicnFrn7ka14-E165VC4023Kd)
-* 📹 [Porn detection](https://colab.research.google.com/drive/1aFQgXH9WAvA_aJiZU4GZppWrLnZNJ7Hh)
+* 📹 [Porn detection](https://colab.research.google.com/drive/1WOXCXgU_oJ5rSaYr0LO8Linwv7GfGHnX?usp=sharing)
 * 🖼 Colorizing
 * Lane road detection
   * [Highway-lane-tracker](https://colab.research.google.com/drive/15dZ1Zt_TCsCsL5oqfLcSfSj-aYWmSuTi)
