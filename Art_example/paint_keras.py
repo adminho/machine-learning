@@ -32,7 +32,7 @@ def getTrainModel(): # The model at here
 	model.add(Dense(units=3))	 # (None, Red, Green, Blue)
 
 	optm=Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)		
-	# algorithim to train models use
+	# algorithm to train models use
 	# compute loss with function: mse ( mean squared error)
 	model.compile(optimizer=optm,
 			  loss='mse',
