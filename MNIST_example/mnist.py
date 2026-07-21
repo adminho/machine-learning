@@ -169,7 +169,7 @@ def build_logistic_regression(features):
 	#
 	model.add(Activation("softmax"))
 		
-	# algorithim to train models use RMSprop
+	# algorithm to train models use RMSprop
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
 			  loss='categorical_crossentropy',
@@ -190,7 +190,7 @@ def build_MLP(features):
 	#now model.output_shape == (None, 10)	
 	model.add(Activation("softmax")) #outputs are independent 
 		
-	# algorithim to train models use RMSprop
+	# algorithm to train models use RMSprop
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
 			  loss='categorical_crossentropy',
@@ -249,7 +249,7 @@ def build_CNN_2D(image_shape):
 	model.add(Activation('softmax')) 
 	# now model.output_shape == (None, 10)
 
-	# algorithim to train models use ADAdelta
+	# algorithm to train models use ADAdelta
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='adadelta',
 			  loss='categorical_crossentropy',
@@ -280,7 +280,7 @@ def build_CNN_1D(image_shape):
 	model.add(Activation('softmax')) 
 	# now model.output_shape == (None, 10)
 
-	# algorithim to train models use ADAdelta
+	# algorithm to train models use ADAdelta
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='adadelta',
 			  loss='categorical_crossentropy',
@@ -314,7 +314,7 @@ def build_RNN(image_shape):
 	#now model.output_shape == (None, 10)	
 	model.add(Activation("softmax")) #outputs are independent 
 		
-	# algorithim to train models use RMSProp
+	# algorithm to train models use RMSProp
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
 			  loss='categorical_crossentropy',
@@ -338,7 +338,7 @@ def build_LSTM(image_shape):
 	#now model.output_shape == (None, 10)	
 	model.add(Activation("softmax")) #outputs are independent 
 		
-	# algorithim to train models use RMSProp
+	# algorithm to train models use RMSProp
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
 			  loss='categorical_crossentropy',
@@ -362,7 +362,7 @@ def build_GRU(image_shape):
 	#now model.output_shape == (None, 10)	
 	model.add(Activation("softmax")) #outputs are independent 
 		
-	# algorithim to train models use RMSProp
+	# algorithm to train models use RMSProp
 	# compute loss with function: categorical crossentropy
 	model.compile(optimizer='rmsprop',
 			  loss='categorical_crossentropy',
